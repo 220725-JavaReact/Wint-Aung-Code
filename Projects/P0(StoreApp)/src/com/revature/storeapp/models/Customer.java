@@ -1,64 +1,100 @@
 package com.revature.storeapp.models;
 
 public class Customer {
-	private String userName;
-	private String email;
-	private String phone;
-	private String orderlist;
+	private String CustomerID;
+	private String FirstName;
+	private String LastName;
+	private String UserName;
+	private String Password;
+	private String Email;
 	
-	private boolean valid=false;
 	
 	
-	public Customer(String userName,String email,String phone,String orderlist)
-	{
-		this.userName=userName;
-		this.email=email;
-		this.phone=phone;
-		this.orderlist=orderlist;
+	
+	public Customer(String userName)
+	{   this.FirstName=FirstName;
+		this.LastName=LastName;
+		this.UserName=UserName;
+		this.Password=Password;
+		this.Email=Email;
+		 
+		
+		
 		//valid=valid;
 	}
-	public Customer (String userName)
 	
+	public Customer(String FirstName,String LastName,String UserName,String Password,String Email)
 	{
-		this.userName=userName;
-		userName="";
+		this.FirstName=FirstName;
+		this.LastName=LastName;
+		this.UserName=UserName;
+		this.Password=Password;
+		this.Email=Email;
+		 
 		
 	}
+	public Customer ()
+	{
+		this.UserName="admin";
+		this.Password="admin";
+	}
+
+	public String getCustomerID() {
+		return CustomerID;
+	}
+
+	public void setCustomerID(String customerID) {
+		CustomerID = customerID;
+	}
+
+	public String getFirstName() {
+		return FirstName;
+	}
+
+	public void setFirstName(String firstName) {
+		FirstName = firstName;
+	}
+
+	public String getLastName() {
+		return LastName;
+	}
+
+	public void setLastName(String lastName) {
+		LastName = lastName;
+	}
+
+	
+
 	public String getUserName() {
-		return userName;
+		return UserName;
 	}
+
 	public void setUserName(String userName) {
-		this.userName = userName;
+		this.UserName = userName;
 	}
+
+	public String getPassword() {
+		return Password;
+	}
+
+	public void setPassword(String password) {
+		Password = password;
+	}
+
 	public String getEmail() {
-		return email;
+		return Email;
 	}
+
 	public void setEmail(String email) {
-		this.email = email;
+		Email = email;
 	}
-	public String getPhone() {
-		return phone;
-	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getOrderlist() {
-		return orderlist;
-	}
-	public void setOrderlist(String orderlist) {
-		this.orderlist = orderlist;
-	}
+
 	@Override
 	public String toString() {
-		return "Customer [userName=" + userName + ", email=" + email + ", phone=" + phone + ", orderlist=" + orderlist
-				+ "]";
+		return "Customer [ FirstName=" + FirstName + ", LastName=" + LastName
+				+ ", UserName=" + UserName + ", Password=" + Password + ", Email=" + Email + "]";
 	}
-	
-	
-	
-	
-	
 
-
+	
 	
 }

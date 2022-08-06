@@ -1,10 +1,17 @@
 package com.revature.storeapp.models;
 
 public class Store {
+	private int StoreID;
 	private String storeName ;
 	private String location;
 	private String description;
 	
+	public Store(String storeName)
+	{
+	 this.storeName=storeName;
+	 this.location =location;
+	 this.description=description;
+	}
 	
 	public Store(String storeName,String location,String description)
 	{
@@ -44,9 +51,23 @@ public class Store {
 	}
 
 
+	
+
+
+	public int getStoreID() {
+		return StoreID;
+	}
+
+
+	public void setStoreID(int storeID) {
+		StoreID = storeID;
+	}
+
+
 	@Override
 	public String toString() {
-		return "Store [storeName=" + storeName + ", location=" + location + ", description=" + description + "]";
+		return "Store [StoreID=" + StoreID + ", storeName=" + storeName + ", location=" + location + ", description="
+				+ description + "]";
 	}
 	
 
