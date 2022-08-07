@@ -1,31 +1,52 @@
 package com.revature.storeapp.models;
 
-public class Product {
+import com.revature.pointsapp.exceptions.InvalidPointException;
+import com.revature.restrev.exception.InvalidRatingException;
+import com.revature.storeapp.exception.InvalidPriceException;
 
-	private String productName;
+public class Product {
+	private int ProductID;
+	private String brand;
 	private int price;
 	private String category;
 	private int quantity;
 	
-	public Product(String productName,int price,String category,int quantity)
+	public Product(String brand,String category,int price,int quantity)
 	{
+		this.brand=brand;
+		this.ProductID=ProductID;
+		this.price=price;
+		this.category=category;
+		this.quantity=quantity;
+	
 		
 		
 	}
-	public Product()
+	public Product(String Brand)
 	{
-		this.productName=productName;
+		this.brand=brand;
+		this.ProductID=ProductID;
 		this.price=price;
 		this.category=category;
 		this.quantity=quantity;
 	}
-	public String getProductName() {
-		return productName;
+	public int getProductID() {
+		return ProductID;
 	}
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void setProductID(int productID) {
+		ProductID = productID;
+	}
+	public String getBrand() {
+		return brand;
+	}
+	public void setBrand(String brand) {
+		this.brand = brand;
 	}
 	public int getPrice() {
+//		if (price < 0 || price >1000) 
+//			
+//			throw new InvalidPriceException ("Invalid Price . pls enter between 0 and 1000");
+//	
 		return price;
 	}
 	public void setPrice(int price) {
@@ -43,11 +64,19 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	public int addPrice( int Price)
+	{
+		if(Price == 0 )throw new InvalidPriceException("You can't add nothing .You either give points or you take em away");
+		 this.price+=price;
+		 return this.price;
+	}
+	
 	@Override
 	public String toString() {
-		return "Product [productName=" + productName + ", price=" + price + ", category=" + category + ", quantity="
-				+ quantity + "]";
+		return "Product [brand=" + brand + ", price=" + price + ", category=" + category + ", quantity=" + quantity
+				+ "]";
 	}
+	
 	
 	
 }

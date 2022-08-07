@@ -91,8 +91,9 @@ public class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer [ FirstName=" + FirstName + ", LastName=" + LastName
-				+ ", UserName=" + UserName + ", Password=" + Password + ", Email=" + Email + "]";
+		return " [Your first Name is ----" + FirstName + "]\n [Your Last Name is----" + LastName
+				+ "]\n [Your UserName is:" + UserName + "]\n [Your Password is:" + Password + "]\n [Your Email is:" + Email + "]";
+		
 	}
 
 	
