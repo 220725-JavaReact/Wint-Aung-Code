@@ -27,6 +27,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		{
 			e.printStackTrace();
 		}
+		
 	}
 
 	@Override
@@ -38,7 +39,15 @@ public class CustomerDBDAO  implements DAO<Customer>{
 	@Override
 	public Customer[] getAll() {
 		// TODO Auto-generated method stub
+		
+		
 		return null;
+	}
+
+	@Override
+	public void UpdateInstance(Customer updatedInstance) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -4,8 +4,9 @@ public interface DAO<T> {
  void addInstance (T newInstance);
  
  
- T getByName (String FirstName);
+ 
+ T getByName (String UserName);
  
      T[]getAll();
-}
-
+ void UpdateInstance(T updatedInstance);
+ }
