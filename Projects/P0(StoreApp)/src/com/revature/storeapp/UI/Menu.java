@@ -120,13 +120,15 @@ public class Menu {
 					
 			    break;
 				case"5":
+					
 				break;
 				case"6":
 				break;
 				case"7":
 				break;
 				case"8":
-					for (Product product:productDAO2.getAll())
+					for (Product product:productDAO.getAll())/////// select
+						
 					{
 						System.out.println(product);
 					}
@@ -184,8 +186,10 @@ public void PlaceOrder()
 				String Email=scanner.nextLine(); 
 				Customer customer1 = new Customer(FirstName,LastName,UserName,Password,Email);
 				System.out.println(customer);
+				
 				customerDao2.addInstance(customer);
 				customerDAO.addInstance(customer);
+				System.out.println("Successfully Updated!!!");
 								
 			break;
 			

@@ -1,4 +1,7 @@
 package com.revature.storeapp.Storage;
+import java.util.List;
+
+import com.revature.storeapp.dl.ProductDBDAO;
 import com.revature.storeapp.models.Product;
 
 public class ProductList {
@@ -26,6 +29,11 @@ public class ProductList {
 		backingArray[lastIndex]=newProduct;
 		lastIndex++;
 	}
+//	public List<Product>ProductList()
+//	{
+//		List<Product>product= ProductDBDAO.ProductList();
+//		return product;
+//	}
 	
 	public Product[]getAllElements()
 	{

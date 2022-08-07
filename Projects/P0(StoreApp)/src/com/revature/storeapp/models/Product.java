@@ -76,6 +76,15 @@ public class Product {
 		return "Product [brand=" + brand + ", price=" + price + ", category=" + category + ", quantity=" + quantity
 				+ "]";
 	}
+	public enum PriceCategories
+	{
+		Debug_Trainer(10),question(5),Finish_Activity(20),Debug_Assoc(15),Lauchtrainerjobk(3),laughattrinser(Integer.MIN_VALUE);
+		public final int value;
+		private PriceCategories(int value)
+		{
+			this.value=value;
+		}
+	}
 	
 	
 	

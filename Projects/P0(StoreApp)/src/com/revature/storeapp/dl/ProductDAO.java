@@ -1,6 +1,5 @@
 package com.revature.storeapp.dl;
 
-import com.revature.storeapp.Storage.CustomerStorage;
 //import com.revature.storeapp.Storage.ProductList;
 import com.revature.storeapp.Storage.ProductStorage;
 import com.revature.storeapp.models.Customer;
@@ -51,6 +50,7 @@ public class ProductDAO implements PDAO<Product> {
 		{
 			if(allProduct[i].getBrand().equals(updatedInstance.getBrand()));
 			allProduct[i]=updatedInstance;
+			logger.log(LogLevel.info,"Products" +updatedInstance.getProductID()+"Successfully Updated");
 			break;
 		}
 	}
