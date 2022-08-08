@@ -1,5 +1,7 @@
 package com.revature.storeapp.dl;
 
+import java.util.ArrayList;
+
 //import com.revature.storeapp.Storage.ProductList;
 import com.revature.storeapp.Storage.ProductStorage;
 import com.revature.storeapp.models.Customer;
@@ -20,12 +22,12 @@ public class ProductDAO implements PDAO<Product> {
 	@Override
 	public Product getByName(String Brand) {
 		// TODO Auto-generated method stub
-		for (Product customer:getAll())
+		for (Product product:getAll())
 		{
-			if(customer.getBrand().equals(Brand)) {
+			if(product.getBrand().equals(Brand)) {
 				logger.log(LogLevel.info,"Product" +Brand+ "Found!");
 			}
-			return customer;
+			return product;
 		}
 		logger.log(LogLevel.warning,"Product" +Brand+"Not Found!");
 		return null;
@@ -53,6 +55,12 @@ public class ProductDAO implements PDAO<Product> {
 			logger.log(LogLevel.info,"Products" +updatedInstance.getProductID()+"Successfully Updated");
 			break;
 		}
+	}
+
+	@Override
+	public ArrayList<Product> arrayList() {
+		// TODO Auto-generated method stub
+		return null;
 	}
   
 	

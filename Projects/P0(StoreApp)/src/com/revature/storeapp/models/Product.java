@@ -14,6 +14,16 @@ public class Product {
 	public Product(String brand,String category,int price,int quantity)
 	{
 		this.brand=brand;
+		this.price=price;
+		this.category=category;
+		this.quantity=quantity;
+	
+		
+		
+	}
+	public Product(String brand,String category,int price,int quantity,int productID)
+	{
+		this.brand=brand;
 		this.ProductID=ProductID;
 		this.price=price;
 		this.category=category;
@@ -39,6 +49,7 @@ public class Product {
 	public String getBrand() {
 		return brand;
 	}
+	
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
