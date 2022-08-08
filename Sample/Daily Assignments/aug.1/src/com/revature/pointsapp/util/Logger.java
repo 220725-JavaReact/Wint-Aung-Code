@@ -13,7 +13,7 @@ public class Logger {
 	// eagerly loading the logger instance
 	private static Logger logger =new Logger();
 	
-   // key to singletone DP is a private constructor
+   // key to singleton DP is a private constructor
 	private Logger()
 	{
 		

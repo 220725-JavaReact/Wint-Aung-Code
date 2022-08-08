@@ -11,7 +11,7 @@ public class TestRunner {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
    Class<ProductTest> obj=ProductTest.class;
-   System.out.println("Running Test");
+   System.out.println("Running Test........");
    
    for (Method method:obj.getDeclaredMethods())
    {
@@ -20,7 +20,7 @@ public class TestRunner {
 		   try {
 			   System.out.println("Testing Method:" +method.getName());
 			method.invoke(obj .newInstance());
-			System.out.println("Test Passed");
+			System.out.println("Test Passed!!!!!!!");
 		} catch (IllegalAccessException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -14,6 +14,7 @@ public class Menu {
 	public static void open()
 	{
 		// for getting our user input
+		
 		Scanner scanner=new Scanner (System.in);
 		String userInput="";
 	logger.log(LogLevel.info, "String app");
