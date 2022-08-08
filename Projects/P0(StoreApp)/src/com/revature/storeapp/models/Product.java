@@ -14,6 +14,16 @@ public class Product {
 	public Product(String brand,String category,int price,int quantity)
 	{
 		this.brand=brand;
+		this.price=price;
+		this.category=category;
+		this.quantity=quantity;
+	
+		
+		
+	}
+	public Product(String brand,String category,int price,int quantity,int productID)
+	{
+		this.brand=brand;
 		this.ProductID=ProductID;
 		this.price=price;
 		this.category=category;
@@ -39,6 +49,7 @@ public class Product {
 	public String getBrand() {
 		return brand;
 	}
+	
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
@@ -75,6 +86,15 @@ public class Product {
 	public String toString() {
 		return "Product [brand=" + brand + ", price=" + price + ", category=" + category + ", quantity=" + quantity
 				+ "]";
+	}
+	public enum PriceCategories
+	{
+		Debug_Trainer(10),question(5),Finish_Activity(20),Debug_Assoc(15),Lauchtrainerjobk(3),laughattrinser(Integer.MIN_VALUE);
+		public final int value;
+		private PriceCategories(int value)
+		{
+			this.value=value;
+		}
 	}
 	
 	

@@ -23,8 +23,8 @@ import com.revature.storeapps.util.Logger.LogLevel;
 public class Menu {
 	private static DAO<Customer>customerDAO = new CustomerDBDAO();
 	private static DAO<Customer>customerDao2=new CustomerDAO();
-	private static PDAO<Product>productDAO=new ProductDAO();
-	private static PDAO<Product>productDAO2=new ProductDBDAO();
+	private static PDAO<Product>productDAO2=new ProductDAO();
+	private static PDAO<Product>productDAO=new ProductDBDAO();
 	
 	private static Logger logger=Logger.getLogger();
 	public static void Open()
@@ -75,13 +75,17 @@ public class Menu {
 					Customer customer = new Customer(FirstName,LastName,UserName,Password,Email);
 					System.out.println(customer);
 					customerDao2.addInstance(customer);
-					customerDAO.addInstance(customer);
+					//customerDAO.addInstance(customer);
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
 					System.out.println("====================================================");				
 				break;
 				case"2":
 					//get all teams
+					
+					
+					
+				
 				for (Customer customer1:customerDao2.getAll())
 				{
 					System.out.println(customer1);
@@ -111,17 +115,23 @@ public class Menu {
 					//Product productToUpdate=productDAO.getByName(userInput);
 					int quantity=Integer.parseInt(scanner.nextLine());
 					Product product1=new Product(Brand,  Category,price,quantity);
-					System.out.println(" " +Brand+" ,"+Category+" ,"+price+" ,"+quantity+"");
-					System.out.println(product1);
+					productDAO.addInstance(product1);
 					productDAO2.addInstance(product1);
+					System.out.println(product1);
+				
 					System.out.println("Succssfully Saved !!!");
 				
 					
 					
 			    break;
 				case"5":
+					
 				break;
 				case"6":
+					for(Product product2:productDAO2.getAll())
+					{
+						System.out.println(product2);
+					}
 				break;
 				case"7":
 				break;
@@ -130,6 +140,9 @@ public class Menu {
 					{
 						System.out.println(product);
 					}
+						System.out.println("Please choose your pick up store location!");
+					
+					
 				break;
 				case"9":
 					System.out.println("Thank you for your visit!!!!");
@@ -147,63 +160,6 @@ public class Menu {
 		logger.log(LogLevel.info, "Existing App");
 	}
 	
-public void PlaceOrder() 
-
-{
-	Customer customer =new Customer();
-	Scanner scanner=new Scanner(System.in);
-	String userInput="";
-	do 
-	{  
-		System.out.println("====================================================");
-		System.out.println(" Welcome from customer page !!!");
-		System.out.println("====================================================");
-	
-		System.out.println("Please select form the list of options below:\n");
-		System.out.println("=========== ===================");
-	
-		System.out.println("[1] - Update Your info");
-		System.out.println("[2] - shopping\n");
-		
-
-	
-		userInput =scanner.nextLine().toUpperCase();
-		switch(userInput)
-			{
-			case"1":
-				System.out.println("Creating a Customer registration");
-				System.out.println("Plase enter your first Name");
-				String FirstName=scanner.nextLine();
-				System.out.println("Plase enter your Last Name");			
-				String LastName=scanner.nextLine();
-				System.out.println("Plase enter your User Name");
-				String UserName=scanner.nextLine();
-				System.out.println("Plase enter your Password ");
-				String Password=scanner.nextLine();
-				System.out.println("Plase enter your email address");
-				String Email=scanner.nextLine(); 
-				Customer customer1 = new Customer(FirstName,LastName,UserName,Password,Email);
-				System.out.println(customer);
-				customerDao2.addInstance(customer);
-				customerDAO.addInstance(customer);
-								
-			break;
-			
-
-
-			default :
-				System.out.println("Oopps!That wasn't a Valid Choice ");
-				System.out.println(" Plase try again and choose the valid option");
-				
-				break;
-			}
-		    
-		
-		} 
-	while (!userInput.equals("x"));
-	
-	
-	}
 	
 
 
