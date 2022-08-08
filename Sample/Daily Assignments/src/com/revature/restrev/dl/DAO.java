@@ -6,5 +6,7 @@ public interface DAO<T> {
 	 void addInstance(T newInstance);
 	ArrayList<T>getAllInstances();
 	 
-
+	void addproInstance(T newproInstance);
+	ArrayList<T>getAllProInstances();
+	
 }

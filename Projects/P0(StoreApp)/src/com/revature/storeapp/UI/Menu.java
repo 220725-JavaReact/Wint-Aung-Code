@@ -48,7 +48,7 @@ public class Menu {
 			System.out.println("================   Admin Memu   ======================");
 			System.out.println("[4] - Add New Product");
 			System.out.println("[5] - Update the inventory");
-			System.out.println("[6] - View Customer List");
+			System.out.println("[6] - search Customer List");
 			System.out.println("[7] - View Order Detail List\n");
 			System.out.println("=================  other options  ====================");
 		
@@ -119,12 +119,16 @@ public class Menu {
 					productDAO2.addInstance(product1);
 					System.out.println(product1);
 				
-					System.out.println("Succssfully Saved !!!");
+					System.out.println("====================================================");
+					System.out.println("****************Succssfully Saved !!!*************\n");
+					System.out.println("====================================================");		
 				
 					
 					
 			    break;
 				case"5":
+					
+					/////update inventory
 					
 				break;
 				case"6":
@@ -133,7 +137,7 @@ public class Menu {
 						System.out.println(product2);
 					}
 				break;
-				case"7":
+				case"7":///// view order detail
 				break;
 				case"8":
 					for (Product product:productDAO2.getAll())

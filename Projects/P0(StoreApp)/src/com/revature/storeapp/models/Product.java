@@ -81,7 +81,11 @@ public class Product {
 		 this.price+=price;
 		 return this.price;
 	}
-	
+	public int addPrice(PriceCategories category)
+	{
+		this.price += category.value;
+		return this.price;
+	}
 	@Override
 	public String toString() {
 		return "Product [brand=" + brand + ", price=" + price + ", category=" + category + ", quantity=" + quantity
