@@ -25,8 +25,7 @@ public class Menu {
 	private static DAO<Customer>customerDao2=new CustomerDAO();
 	private static PDAO<Product>productDAO2=new ProductDAO();
 	private static PDAO<Product>productDAO=new ProductDBDAO();
-	
-	private static Logger logger=Logger.getLogger();
+		private static Logger logger=Logger.getLogger();
 	public static void Open()
 	{   
 		Scanner scanner=new Scanner(System.in);
@@ -98,7 +97,8 @@ public class Menu {
 				String UserName1=scanner.nextLine();
 				System.out.println("Please enter password");
 				String Password1=scanner.nextLine();
-				
+				customer=customerDAO.getUser(UserName1,Password1);			
+				PlaceOrderMenu.PlaceOrder();
 				break;
 				case"4":
 					

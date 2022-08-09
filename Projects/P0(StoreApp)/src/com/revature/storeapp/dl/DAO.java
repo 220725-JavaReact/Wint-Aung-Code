@@ -5,8 +5,11 @@ public interface DAO<T> {
  
  
  
- T getByName (String UserName);
+ T getByName (String UserName );
+ T getUser(String UserName,String Password);
+ T setUpdate(String FirstName,String LastName,String UserName,String Password,String Email);
  
      T[]getAll();
  void UpdateInstance(T updatedInstance);
+ void UpdateCustInstance(T updatedCusInstance);
  }

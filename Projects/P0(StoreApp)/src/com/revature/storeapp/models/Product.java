@@ -93,7 +93,7 @@ public class Product {
 	}
 	public enum PriceCategories
 	{
-		Debug_Trainer(10),question(5),Finish_Activity(20),Debug_Assoc(15),Lauchtrainerjobk(3),laughattrinser(Integer.MIN_VALUE);
+		COmputer(1000),Desktop(1000),Monitor(500),Camera(3000),Accessories(300),Laptop(Integer.MIN_VALUE);
 		public final int value;
 		private PriceCategories(int value)
 		{
