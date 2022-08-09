@@ -1,7 +1,7 @@
 package com.revature.storeapp.models;
 
 public class Customer {
-	private String CustomerID;
+	private int CustomerID;
 	private String FirstName;
 	private String LastName;
 	private String UserName;
@@ -11,7 +11,7 @@ public class Customer {
 	
 	
 	
-	public Customer(String userName)
+	public Customer(String UserName)
 	{   this.FirstName=FirstName;
 		this.LastName=LastName;
 		this.UserName=UserName;
@@ -30,6 +30,7 @@ public class Customer {
 		this.UserName=UserName;
 		this.Password=Password;
 		this.Email=Email;
+		this.CustomerID=CustomerID;
 		 
 		
 	}
@@ -39,11 +40,11 @@ public class Customer {
 		this.Password="admin";
 	}
 
-	public String getCustomerID() {
+	public int getCustomerID() {
 		return CustomerID;
 	}
 
-	public void setCustomerID(String customerID) {
+	public void setCustomerID(int customerID) {
 		CustomerID = customerID;
 	}
 

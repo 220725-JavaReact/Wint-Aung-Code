@@ -1,5 +1,6 @@
 package com.revature.storeapp.models;
 
+
 import com.revature.storeapp.exception.InvalidPriceException;
 import com.revature.storeapp.models.Product.PriceCategories;
 import com.revature.storeapp.notjunit.Assert;
@@ -12,7 +13,7 @@ public class ProductTest {
 		//arrange
 		Product product=new Product("Test");
 		//act
-		product.addPrice(10);
+		product.addPrice(100);
 		//assert
 		Assert.equal(1000,product.getPrice());
 	}
@@ -23,9 +24,9 @@ public class ProductTest {
 		//arrange
 		Product product=new Product("Test");
 		//act
-		product.addPrice(PriceCategories.Debug_Trainer);
+		product.addPrice(PriceCategories.COmputer);
 		//assert
-		Assert.equal(10,product.getPrice());
+		Assert.equal(1000,product.getPrice());
 	}
 	@Test
 	public void addPriceShouldnotAddNothing()
@@ -37,4 +38,5 @@ public class ProductTest {
 		//assert
 		Assert.willThrow(InvalidPriceException.class, () -> product.addPrice(0));
 	}
+	
 }

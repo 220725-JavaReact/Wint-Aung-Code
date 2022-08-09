@@ -51,6 +51,13 @@ public class CustomerDAO implements DAO<Customer> {
 			break;
 		}
 	}
+
+	@Override
+	public Customer getUser(String UserName, String Password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	
 
 }
