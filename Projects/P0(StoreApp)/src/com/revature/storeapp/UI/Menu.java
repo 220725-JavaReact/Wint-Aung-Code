@@ -6,6 +6,7 @@ import java.util.jar.Attributes.Name;
 
 import javax.sound.sampled.Port;
 
+import com.revature.storeapp.Storage.CustomerList;
 import com.revature.storeapp.dl.CustomerDAO;
 import com.revature.storeapp.dl.CustomerDBDAO;
 import com.revature.storeapp.dl.DAO;
@@ -21,8 +22,10 @@ import com.revature.storeapps.util.Logger.LogLevel;
 //import dev.tinajero.app.AnonymousReport;
 
 public class Menu {
-	private static DAO<Customer>customerDAO = new CustomerDBDAO();
-	private static DAO<Customer>customerDao2=new CustomerDAO();
+	
+	 // if i want o use array use DAO 
+	private static DAO<Customer>customerDAO = new CustomerDBDAO();/// with array
+	private static PDAO<Customer>customerDao2=new CustomerDAO();//without array
 	private static PDAO<Product>productDAO2=new ProductDAO();
 	private static PDAO<Product>productDAO=new ProductDBDAO();
 		private static Logger logger=Logger.getLogger();
@@ -73,7 +76,7 @@ public class Menu {
 					String Email=scanner.nextLine(); 
 					Customer customer = new Customer(FirstName,LastName,UserName,Password,Email);
 					System.out.println(customer);
-					customerDao2.addInstance(customer);
+					customerDAO.addInstance(customer);
 					//customerDAO.addInstance(customer);
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
@@ -90,7 +93,7 @@ public class Menu {
 					System.out.println(customer1);
 				}
 					System.out.println("Please choose your pick up store location!");
-					
+				
 				break;
 				case"3":
 				System.out.println("Please enter user name");
@@ -116,7 +119,7 @@ public class Menu {
 					int quantity=Integer.parseInt(scanner.nextLine());
 					Product product1=new Product(Brand,  Category,price,quantity);
 					productDAO.addInstance(product1);
-					productDAO2.addInstance(product1);
+					////////// can add double times
 					System.out.println(product1);
 				
 					System.out.println("====================================================");
@@ -132,15 +135,16 @@ public class Menu {
 					
 				break;
 				case"6":
-					for(Product product2:productDAO2.getAll())
+					for(Product product2:productDAO.getAll())
 					{
 						System.out.println(product2);
 					}
 				break;
 				case"7":///// view order detail
+					
 				break;
 				case"8":
-					for (Product product:productDAO2.getAll())
+					for (Product product:productDAO2.GetEverything())
 					{
 						System.out.println(product);
 					}
@@ -150,6 +154,7 @@ public class Menu {
 				break;
 				case"9":
 					System.out.println("Thank you for your visit!!!!");
+					
 				break;
 				default :
 					System.out.println("Oopps!That wasn't a Valid Choice ");

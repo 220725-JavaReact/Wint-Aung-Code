@@ -1,11 +1,13 @@
 package com.revature.storeapp.dl;
 
+import java.util.List;
+
 import com.revature.storeapp.Storage.CustomerStorage;
 import com.revature.storeapp.models.Customer;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
-public class CustomerDAO implements DAO<Customer> {
+public class CustomerDAO implements PDAO<Customer> {
 	private static Logger logger=Logger.getLogger();
 
 	@Override
@@ -52,8 +54,22 @@ public class CustomerDAO implements DAO<Customer> {
 		}
 	}
 
+	
+
 	@Override
-	public Customer getUser(String UserName, String Password) {
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Customer getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> GetEverything() {
 		// TODO Auto-generated method stub
 		return null;
 	}

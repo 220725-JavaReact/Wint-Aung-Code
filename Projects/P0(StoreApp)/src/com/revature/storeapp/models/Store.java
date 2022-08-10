@@ -2,32 +2,33 @@ package com.revature.storeapp.models;
 
 public class Store {
 	private int StoreID;
-	private String storeName ;
+	private String StoreName ;
 	private String location;
 	private String description;
 	
-	public Store(String storeName)
-	{
-	 this.storeName=storeName;
+	public Store(String StoreName)
+	{this .StoreID=StoreID;
+	 this.StoreName=StoreName;
 	 this.location =location;
 	 this.description=description;
 	}
 	
-	public Store(String storeName,String location,String description)
+	public Store(int StoreID,String storeName,String location,String description)
 	{
-	 this.storeName=storeName;
+	this.StoreID=StoreID;
+	 this.StoreName=storeName;
 	 this.location=location;
 	 this.description=description;
 	}
 
 
 	public String getStoreName() {
-		return storeName;
+		return StoreName;
 	}
 
 
-	public void setStoreName(String storeName) {
-		this.storeName = storeName;
+	public void setStoreName(String StoreName) {
+		this.StoreName = StoreName;
 	}
 
 
@@ -66,7 +67,7 @@ public class Store {
 
 	@Override
 	public String toString() {
-		return "Store [StoreID=" + StoreID + ", storeName=" + storeName + ", location=" + location + ", description="
+		return "Store [StoreID=" + StoreID + ", storeName=" + StoreName + ", location=" + location + ", description="
 				+ description + "]";
 	}
 	

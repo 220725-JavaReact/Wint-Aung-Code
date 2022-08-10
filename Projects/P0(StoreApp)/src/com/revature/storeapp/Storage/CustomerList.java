@@ -7,9 +7,10 @@ public class CustomerList {
 	Customer[] backingArray;
 	int lastIndex;
 	
+	
 	public CustomerList()
 	{
-		backingArray=new Customer[10];
+		backingArray=new Customer[5];
 		lastIndex=0;
 	}
 	public void add(Customer newCustomer)

@@ -47,7 +47,7 @@ public class ProductDBDAO implements PDAO<Product> {
 			ResultSet rs=preparedStatement.executeQuery();
 			if(rs.next())
 			{
-				return new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getInt("ProductID")));
+				return new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getInt("ProductID"));
 				
 			}
 			
@@ -100,7 +100,58 @@ public class ProductDBDAO implements PDAO<Product> {
 		{
 			e.printStackTrace();
 		}
+		
 	}
+
+
+
+
+	
+
+
+
+	@Override
+	public void save(Product obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void update(Product obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public Product getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public List<Product> GetEverything() {
+		// TODO Auto-generated method stub
+		
+		
+		
+		
+		return null;
+	}
+
 
 	
 	
