@@ -19,9 +19,9 @@ public class StoreService {
 		storeDAO.save(store);
 	}
 	
-	public void delete(String StoreID)
+	public void delete(int i)
 	{
-		storeDAO.delete(StoreID);
+		storeDAO.delete(i);
 	}
 	public List<Store>getAllStores()
 	{

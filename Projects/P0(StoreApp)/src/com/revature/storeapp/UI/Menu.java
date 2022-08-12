@@ -1,6 +1,7 @@
 package com.revature.storeapp.UI;
 
 import java.awt.PageAttributes;
+import java.util.List;
 import java.util.Scanner;
 import java.util.jar.Attributes.Name;
 
@@ -15,7 +16,14 @@ import com.revature.storeapp.dl.ProductDAO;
 import com.revature.storeapp.dl.ProductDBDAO;
 import com.revature.storeapp.exception.InvalidPriceException;
 import com.revature.storeapp.models.Customer;
+import com.revature.storeapp.models.Inventory;
+import com.revature.storeapp.models.Orders;
+import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapp.models.Product;
+import com.revature.storeapp.models.Store;
+import com.revature.storeapps.services.InventoryService;
+import com.revature.storeapps.services.ProductService;
+import com.revature.storeapps.services.StoreService;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
@@ -24,11 +32,15 @@ import com.revature.storeapps.util.Logger.LogLevel;
 public class Menu {
 	
 	 // if i want o use array use DAO 
-	private static DAO<Customer>customerDAO = new CustomerDBDAO();/// with array
-	private static PDAO<Customer>customerDao2=new CustomerDAO();//without array
-	private static PDAO<Product>productDAO2=new ProductDAO();
-	private static PDAO<Product>productDAO=new ProductDBDAO();
+	private static DAO<Customer>customerDAO = new CustomerDBDAO();/// without array
+	private static DAO<Customer>customerDAO2=new CustomerDAO();//with array
+	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
+	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
 		private static Logger logger=Logger.getLogger();
+		private static ProductService productService ;
+		private static InventoryService inventoryService;
+		private static StoreService storeService;
+		
 	public static void Open()
 	{   
 		Scanner scanner=new Scanner(System.in);
@@ -51,7 +63,7 @@ public class Menu {
 			System.out.println("[4] - Add New Product");
 			System.out.println("[5] - Update the inventory");
 			System.out.println("[6] - search Customer List");
-			System.out.println("[7] - View Order Detail List\n");
+			System.out.println("[7] - Stoeadd / product addd in store/ create product \n");
 			System.out.println("=================  other options  ====================");
 		
 			System.out.println("[8] - View the Inventory");
@@ -88,7 +100,7 @@ public class Menu {
 					
 					
 				
-				for (Customer customer1:customerDao2.getAll())
+				for (Customer customer1:customerDAO2.getAll())
 				{
 					System.out.println(customer1);
 				}
@@ -101,14 +113,15 @@ public class Menu {
 				System.out.println("Please enter password");
 				String Password1=scanner.nextLine();
 				customer=customerDAO.getUser(UserName1,Password1);			
-				PlaceOrderMenu.PlaceOrder();
+				//PlaceOrderMenu.PlaceOrder();
 				break;
+				
 				case"4":
 					
 					System.out.println("Creating a Product registration");
 					
 					System.out.println("Plase enter your Brand");			
-					String Brand=scanner.nextLine();
+					String Brand=scanner.nextLine().toUpperCase();
 					System.out.println("Plase enter your Category");
 					String Category=scanner.nextLine();
 					System.out.println("Plase enter your price ");
@@ -117,10 +130,19 @@ public class Menu {
 					System.out.println("Plase enter your Quantity");
 					//Product productToUpdate=productDAO.getByName(userInput);
 					int quantity=Integer.parseInt(scanner.nextLine());
-					Product product1=new Product(Brand,  Category,price,quantity);
-					productDAO.addInstance(product1);
+					
+					System.out.println("Please enter store Name");
+					String storename=scanner.nextLine();
+					System.out.println("Please enter store Location");
+					String location=scanner.nextLine();
+				
+					Product product=new Product(Brand,Category, price,quantity,storename,location);
+					
+					productDAO.addInstance(product);
 					////////// can add double times
-					System.out.println(product1);
+					System.out.println(product);
+					
+				
 				
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
@@ -131,26 +153,27 @@ public class Menu {
 			    break;
 				case"5":
 					
-					/////update inventory
+					AdminMenu.Start();
+					
 					
 				break;
 				case"6":
-					for(Product product2:productDAO.getAll())
+					for(Product product2:productDAO2.getAll())
 					{
 						System.out.println(product2);
 					}
 				break;
-				case"7":///// view order detail
-					
+				case"7":
+					PlaceOrderMenu.PlaceOrderMenu();
+//					
 				break;
 				case"8":
-					for (Product product:productDAO2.GetEverything())
+					for (Product product1:productDAO.GetEverything())
 					{
-						System.out.println(product);
+						System.out.println(product1);
 					}
-						System.out.println("Please choose your pick up store location!");
 					
-					
+				
 				break;
 				case"9":
 					System.out.println("Thank you for your visit!!!!");
@@ -168,6 +191,7 @@ public class Menu {
 		while (!userInput.equals("x"));
 		logger.log(LogLevel.info, "Existing App");
 	}
+	
 	
 	
 

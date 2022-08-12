@@ -10,18 +10,22 @@ import com.revature.storeapps.util.annotations.Inject;
 
 public class CustomerService {
 	@Inject
-	private final CustomerDBDAO customerDBAO;
+	private final CustomerDBDAO customerDBDAO;
+	
+	
 	
 	@Inject
-	public CustomerService(CustomerDBDAO customerDBAO)
+	public CustomerService(CustomerDBDAO customerDBDAO)
 	{
-		this.customerDBAO=customerDBAO;
+		this.customerDBDAO=customerDBDAO;
 	}
+	
+	
 	
 	public Customer Login(String UserName,String Password)
 	{
 	Customer customer= new Customer();
-	List<Customer> customers=customerDBAO.getAll();
+	List<Customer> customers=customerDBDAO.GetEverything();
 	
 	for (Customer u:customers)
 	{
@@ -43,24 +47,52 @@ public class CustomerService {
 	}
 	return isValidCredentials(customer);
 	}
+	
+	
+
 	public void register(Customer customer)
 	{
-		customerDBAO.save(customer);
+		customerDBDAO.save(customer);
 	}
+	
+
+	
+	
 	public boolean isValidUserName(String UserName)
 	{
-		if(UserName.matches("^(?=[a-zA-Z0-9._]{8,18}$)(?!.*[_.]{2})[^_.].*[^_.]$")) 
-		return true;
-		
-		throw new InvalidUerException("Invalid User Name .User name needs to be 8- 18 characters long.");
-		
+		 if (UserName.matches("^(?=[a-zA-Z0-9._]{4,20}$)(?!.*[_.]{2})[^_.].*[^_.]$")) return true;
+	        throw new InvalidUerException("Invalid username. Username needs to be 4 to 20  characters long.");
+	   
 	}
 	
 	public boolean isNotDuplicateUserName(String UserName)
 	{
-		List <String >userName= customerDBAO.get
+		List <String >userName= customerDBDAO.getAllUserName();
+		if(userName.contains(userName))throw new InvalidUerException("UserName is already taken :(");
+		throw new InvalidUerException("Invalid Password!!!, Please put the minimum 8 characters and one letter, one number and one special character");
+	}
+	public boolean isValidPassword(String Password)
+	{
+		if(Password.matches("^=.*[A-Az-z])(?=.*\\d)(?=.*[@$!%*#?&])[A-Za-z\\d@$!%*#?&]{8,}$"))
+		return true;
+		throw new InvalidUerException("Invalid Password!!,Minimum eight chracter, one letter, one number and one specail chracter");
 	}
 	
+	private Customer isValidCredentials(Customer customer)
+	{
+		if(customer.getUserName()== null & customer.getPassword()==null)
+		
+			throw new InvalidUerException("Incorrect username and password");
+			
+		else if (customer.getUserName()==null) throw new InvalidUerException("Incorrect Username");
+		else if (customer.getPassword()==null )throw new InvalidUerException("Incorrect Password");
+		return customer;
+	}
+	
+	
+	
+	
+
 	
 	
 

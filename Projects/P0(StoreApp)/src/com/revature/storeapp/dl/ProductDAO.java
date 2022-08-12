@@ -24,8 +24,25 @@ public class ProductDAO implements PDAO<Product> {
 	@Override
 	public void addInstance(Product newInstance) {
 		// TODO Auto-generated method stub
-		ProductStorage.productList.add(newInstance);
+		
 		logger.log(LogLevel.info,"Adding a new customer "+newInstance.getBrand());
+		try(Connection connection=ConnectionFactory.getInstance().getConnection())
+		{
+		  String query= "Insert into Product(Brand,Category,Price,Quantity,Store,StoreLocation)Values(?,?,?,?,?,?)";
+		  PreparedStatement preparedStatement=connection.prepareStatement(query);
+		  preparedStatement.setString(1,newInstance.getBrand());
+		  preparedStatement.setString(2,newInstance.getCategory());
+		  preparedStatement.setInt(3,newInstance.getPrice());
+		  preparedStatement.setInt(4,newInstance.getQuantity());
+		  preparedStatement.setString(5,newInstance.getStore());
+		  preparedStatement.setString(6,newInstance.getStoreLocation());
+		  		 
+		  preparedStatement.execute();
+		  }
+		  catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 	}
 
 	@Override
@@ -103,7 +120,7 @@ public class ProductDAO implements PDAO<Product> {
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next())
 			{
-				product.add(new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity")));
+				product.add(new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
 				
 			}
 		}

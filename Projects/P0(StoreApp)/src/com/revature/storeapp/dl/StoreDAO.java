@@ -15,6 +15,21 @@ public class StoreDAO implements DAO <Store>{
 	@Override
 	public void addInstance(Store newInstance) {
 		// TODO Auto-generated method stub
+		try(Connection connection=ConnectionFactory.getInstance().getConnection())
+		{
+		  String query= "Insert into Store(StoreName,Location,Description)Values(?,?,?)";
+		  PreparedStatement preparedStatement=connection.prepareStatement(query);
+		  preparedStatement.setString(1,newInstance.getStoreName());
+		  preparedStatement.setString(2,newInstance.getLocation());
+		  preparedStatement.setString(3,newInstance.getDescription());
+		 
+		  		 
+		  preparedStatement.execute();
+		  }
+		  catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
 	}
 
@@ -77,13 +92,13 @@ public class StoreDAO implements DAO <Store>{
 	}
 
 	@Override
-	public void delete(String id) {
+	public void delete(String i) {
 		// TODO Auto-generated method stub
 		try 
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
 			PreparedStatement preparedstatement=connection.prepareStatement("Delete from Store where StoreID=?");
-			preparedstatement.setString(1, id);
+			preparedstatement.setString(1, i);
 			preparedstatement.executeUpdate();
 			
 			

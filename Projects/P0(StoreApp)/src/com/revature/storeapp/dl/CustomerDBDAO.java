@@ -66,7 +66,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 	public Customer[] getAll() {
 		// TODO Auto-generated method stub
 		CustomerList customerlist=new CustomerList();
-		System.out.println("CEhckinnnnnnnnn Get alll");
+		
 		try(Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
 			String query = "Select * from Product";
@@ -189,6 +189,10 @@ public class CustomerDBDAO  implements DAO<Customer>{
 	@Override
 	public List<Customer> GetEverything() {
 		// TODO Auto-generated method stub
+		
+		
+		
+		
 		return null;
 	}
 

@@ -2,7 +2,7 @@ package com.revature.storeapp.models;
 
 public class OrdersHistory {
 	private int OrderHistoryID;
-	private int CustomerID;
+	private String CustomerID;
 	private String OrderDate;
 	private double TotalAmount;
 	
@@ -22,11 +22,11 @@ public class OrdersHistory {
 		OrderHistoryID = orderHistoryID;
 	}
 
-	public int getCustomerID() {
+	public String getCustomerID() {
 		return CustomerID;
 	}
 
-	public void setCustomerID(int customerID) {
+	public void setCustomerID(String customerID) {
 		CustomerID = customerID;
 	}
 

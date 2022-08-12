@@ -7,7 +7,7 @@ import com.revature.storeapp.models.Customer;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
-public class CustomerDAO implements PDAO<Customer> {
+public class CustomerDAO implements DAO<Customer> {
 	private static Logger logger=Logger.getLogger();
 
 	@Override
@@ -72,6 +72,36 @@ public class CustomerDAO implements PDAO<Customer> {
 	public List<Customer> GetEverything() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public void save(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Customer getUser(String UserName, String Password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Customer setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void UpdateCustInstance(Customer updatedCusInstance) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

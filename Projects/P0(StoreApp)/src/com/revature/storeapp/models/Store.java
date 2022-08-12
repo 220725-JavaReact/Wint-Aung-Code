@@ -1,11 +1,16 @@
 package com.revature.storeapp.models;
 
 public class Store {
-	private int StoreID;
+	private String StoreID;
 	private String StoreName ;
 	private String location;
 	private String description;
 	
+	public Store()
+	{
+		super();
+	}
+
 	public Store(String StoreName)
 	{this .StoreID=StoreID;
 	 this.StoreName=StoreName;
@@ -13,14 +18,14 @@ public class Store {
 	 this.description=description;
 	}
 	
-	public Store(int StoreID,String storeName,String location,String description)
+	public Store(String StoreID,String storeName,String location,String description)
 	{
 	this.StoreID=StoreID;
 	 this.StoreName=storeName;
 	 this.location=location;
 	 this.description=description;
 	}
-
+	
 
 	public String getStoreName() {
 		return StoreName;
@@ -55,13 +60,13 @@ public class Store {
 	
 
 
-	public int getStoreID() {
+	public String getStoreID() {
 		return StoreID;
 	}
 
 
-	public void setStoreID(int storeID) {
-		StoreID = storeID;
+	public void setStoreID(String string) {
+		string = string;
 	}
 
 

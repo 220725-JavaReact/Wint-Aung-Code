@@ -2,29 +2,29 @@ package com.revature.storeapp.models;
 
 public class Inventory {
 
-	private int StoreID;
-	private int ProductID;
+	private String StoreID;
+	private String ProductID;
 	private int Quantity;
 	public Inventory()
 	{
 		super();
-	}public Inventory(int StoreID,int ProductID,int Quantity)
+	}public Inventory(String StoreID,String ProductID,int Quantity)
 	{
 		this.StoreID=StoreID;
 		this.ProductID=ProductID;
 		this.Quantity=Quantity;
 		
 	}
-	public int getStoreID() {
+	public String getStoreID() {
 		return StoreID;
 	}
-	public void setStoreID(int storeID) {
-		StoreID = storeID;
+	public void setStoreID(int i) {
+		i = i;
 	}
-	public int getProductID() {
+	public String getProductID() {
 		return ProductID;
 	}
-	public void setProductID(int productID) {
+	public void setProductID(String productID) {
 		ProductID = productID;
 	}
 	public int getQuantity() {
@@ -36,6 +36,10 @@ public class Inventory {
 	@Override
 	public String toString() {
 		return "Inventory [StoreID=" + StoreID + ", ProductID=" + ProductID + ", Quantity=" + Quantity + "]";
+	}
+	public void setProductId(int productID2) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
