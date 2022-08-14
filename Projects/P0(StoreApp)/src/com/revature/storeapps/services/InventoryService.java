@@ -33,8 +33,8 @@ public class InventoryService {
 		List<String> inventories=inventoryDAO.getAllStoreID();
 		return inventories.contains(StoreID);
 	}
-	public void Update(String storeId,int ProductID, int Quantity)
+	public void Update( int Quantity)
 	{
-		inventoryDAO.UpdateQuantity(storeId, ProductID, Quantity);
+		inventoryDAO.UpdateQuantity( Quantity);
 	}
 }

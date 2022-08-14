@@ -32,8 +32,8 @@ import com.revature.storeapps.util.Logger.LogLevel;
 public class Menu {
 	
 	 // if i want o use array use DAO 
-	private static DAO<Customer>customerDAO = new CustomerDBDAO();/// without array
-	private static DAO<Customer>customerDAO2=new CustomerDAO();//with array
+	private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
+	private static DAO<Customer>customerDAO=new CustomerDAO();//with array
 	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
 	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
 		private static Logger logger=Logger.getLogger();
@@ -54,11 +54,11 @@ public class Menu {
 			System.out.println("====================================================");
 		
 			System.out.println("Please select form the list of options below:\n");
-			System.out.println("================  Customer Menu   ===================");
+			System.out.println("================  Customer Menu   ===================\n");
 		
 			System.out.println("[1] - Enroll a new customer");
-			System.out.println("[2] - View customer List\n");
-			System.out.println("[3] - Place Order");
+			System.out.println("[2] - View your profile");
+			System.out.println("[3] - Place Order\n");
 			System.out.println("================   Admin Memu   ======================");
 			System.out.println("[4] - Add New Product");
 			System.out.println("[5] - Update the inventory");
@@ -100,7 +100,7 @@ public class Menu {
 					
 					
 				
-				for (Customer customer1:customerDAO2.getAll())
+				for (Customer customer1:customerDAO.getAll())
 				{
 					System.out.println(customer1);
 				}
@@ -108,12 +108,13 @@ public class Menu {
 				
 				break;
 				case"3":
-				System.out.println("Please enter user name");
-				String UserName1=scanner.nextLine();
-				System.out.println("Please enter password");
-				String Password1=scanner.nextLine();
-				customer=customerDAO.getUser(UserName1,Password1);			
-				//PlaceOrderMenu.PlaceOrder();
+//				System.out.println("Please enter user name");
+//				String UserName1=scanner.nextLine();
+//				System.out.println("Please enter password");
+//				String Password1=scanner.nextLine();
+//				customer=customerDAO.getUser(UserName1,Password1);			
+//				//PlaceOrderMenu.PlaceOrder();
+				ShoppingMenu.Start();
 				break;
 				
 				case"4":
@@ -134,10 +135,9 @@ public class Menu {
 					System.out.println("Please enter store Name");
 					String storename=scanner.nextLine();
 					System.out.println("Please enter store Location");
-					String location=scanner.nextLine();
-				
-					Product product=new Product(Brand,Category, price,quantity,storename,location);
+					String location=scanner.nextLine();		
 					
+					Product product=new Product(Brand, Category, price, quantity, storename, location) 	;		
 					productDAO.addInstance(product);
 					////////// can add double times
 					System.out.println(product);
@@ -153,8 +153,8 @@ public class Menu {
 			    break;
 				case"5":
 					
-					AdminMenu.Start();
 					
+				
 					
 				break;
 				case"6":
@@ -171,11 +171,24 @@ public class Menu {
 					for (Product product1:productDAO.GetEverything())
 					{
 						System.out.println(product1);
+						System.out.println("ProductID" +product1.getProductID());
+						System.out.println("Brand"+product1.getBrand());
+						System.out.println("Category"+product1.getCategory());
+						System.out.println("Price"  + product1.getPrice() );
+						System.out.println("Quantity"+product1.getQuantity());
+						System.out.println("Store" +product1.getStore());
+						System.out.println("Location"+product1.getStoreLocation());
+						
 					}
 					
 				
 				break;
 				case"9":
+					System.out.println("Thank you for your search!!!!");
+					
+				break;
+				case"X":
+				case "x":
 					System.out.println("Thank you for your visit!!!!");
 					
 				break;
@@ -188,7 +201,7 @@ public class Menu {
 			    
 			
 			} 
-		while (!userInput.equals("x"));
+		while (!(userInput.equals("X")));
 		logger.log(LogLevel.info, "Existing App");
 	}
 	

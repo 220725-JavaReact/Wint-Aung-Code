@@ -120,8 +120,9 @@ public class ProductDAO implements PDAO<Product> {
 			ResultSet rs=preparedStatement.executeQuery();
 			while(rs.next())
 			{
-				product.add(new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
-				
+				//product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
+				product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
+			
 			}
 		}
 		catch(SQLException e) 

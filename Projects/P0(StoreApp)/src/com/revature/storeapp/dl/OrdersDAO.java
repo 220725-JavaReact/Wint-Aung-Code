@@ -59,12 +59,20 @@ public class OrdersDAO implements DAO<Orders>{
 		try
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(ProductID,Brand,Price ,Quantity)values(?,?,?,?)");
-			preparedStatement.setInt(1, obj.getOrderID());
-			preparedStatement.setInt(2, obj.getProductID());
-			preparedStatement.setString(3,obj.getBrand());
-			preparedStatement.setDouble(4,obj.getPrice());
-			preparedStatement.setInt(5,obj.getQuantity());
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(TotalAmount,Brand,UserName,Store,StoreLocation,ProductID,Quantity)values(?,?,?,?,?,?,?)");
+			preparedStatement.setInt(1,obj.getAmount());
+			preparedStatement.setString(2,obj.getBrand());
+			preparedStatement.setString(3,obj.getUserName());
+			preparedStatement.setString(4,obj.getStore());
+			preparedStatement.setString(5,obj.getLocation());
+			
+			preparedStatement.setInt(6,obj.getProductID());
+			preparedStatement.setInt(7,obj.getQuantity());
+			
+			
+			
+			
+			
 			preparedStatement.execute();
 			
 		}

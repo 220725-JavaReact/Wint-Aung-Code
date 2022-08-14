@@ -8,3 +8,4 @@ public class SecretClass {
 	static final String password= "100%Girlisperfect";
 	
 }
+https://media.discordapp.net/attachments/1001137961523499124/1007362298534441170/the_swamp.png?width=1440&height=624

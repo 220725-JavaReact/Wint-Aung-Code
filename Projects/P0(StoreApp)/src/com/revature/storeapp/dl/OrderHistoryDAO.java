@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.storeapp.models.OrdersHistory;
+import com.revature.storeapps.services.OrderHistoryService;
 import com.revature.storeapps.util.ConnectionFactory;
 
 public class OrderHistoryDAO implements DAO<OrdersHistory>{
@@ -30,7 +31,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 		return null;
 	}
 
-	""
+	
 
 	@Override
 	public OrdersHistory[] getAll() {
@@ -57,7 +58,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
 			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(CustomerID,OrderDate,TotalAmount)values(?,?,?)");
-			preparedStatement.setInt(1, obj.getCustomerID());
+			preparedStatement.setString(1, obj.getCustomerID());
 			preparedStatement.setString(2, obj.getOrderDate());			
 			preparedStatement.setDouble(3,obj.getTotalAmount());
 					preparedStatement.execute();
@@ -89,7 +90,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 	}
 
 	@Override
-	public List<OrdersHistory> GetEverything() {
+	public List<OrderHistoryService> GetEverything() {
 		// TODO Auto-generated method stub
 		List<OrdersHistory> orderHistories= new ArrayList<>();
 		try {
@@ -99,7 +100,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			
 			while(rs.next())
 			{
-				orderHistories.add(new OrdersHistory(rs.getInt("OrderHistoryID"), rs.getInt("CustomerID"),rs.getString("OderDate"),rs.getDouble("TotalAmount")));
+				orderHistories.add(new OrdersHistory(rs.getString("OrderHistoryID"), rs.getString("CustomerID"),rs.getString("OrderDate"),rs.getDouble("TotalAmount")));
 			
 			}
 		}

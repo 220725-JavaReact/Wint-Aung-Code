@@ -65,6 +65,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 	@Override
 	public Customer[] getAll() {
 		// TODO Auto-generated method stub
+		
 		CustomerList customerlist=new CustomerList();
 		
 		try(Connection connection =ConnectionFactory.getInstance().getConnection())

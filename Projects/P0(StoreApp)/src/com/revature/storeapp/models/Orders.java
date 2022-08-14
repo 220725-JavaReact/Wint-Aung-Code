@@ -1,32 +1,42 @@
 package com.revature.storeapp.models;
 
-public class Orders {
+public class Orders
+{
 	
-	int OrderID;
+	String OrderID;
 	int ProductID;
 	String Brand;
-	double Price;
-	int Quantity;
+	int Amount;
+	String Store;
+	String Location;
+int Quantity;
+	String userName;
 	public Orders()
 	{
+		super();
+	}
+	
+	public Orders(int Amount,String Brand, String userName,String Store,String Location,int ProductID ,int Quantity )
+	{
+		//this.OrderID=OrderID;
+		this.ProductID=ProductID;
+		this.Brand=Brand;
+		this.Amount=Amount;
+		this.Quantity=Quantity;
+		this.userName=userName;		
+		this.Store=Store;
+		this.Location=Location;
+		
 		
 	}
 	
-	public Orders(int OrderID,int ProductID,String Brand,double Price,int Quantity)
-	{
-		this.OrderID=OrderID;
-		this.ProductID=ProductID;
-		this.Brand=Brand;
-		this.Price=Price;
-		this.Quantity=Quantity;
-		
-	}
+	
 
-	public int getOrderID() {
+	public String getOrderID() {
 		return OrderID;
 	}
 
-	public void setOrderID(int orderID) {
+	public void setOrderID(String orderID) {
 		OrderID = orderID;
 	}
 
@@ -46,12 +56,28 @@ public class Orders {
 		Brand = brand;
 	}
 
-	public double getPrice() {
-		return Price;
+	public int getAmount() {
+		return Amount;
 	}
 
-	public void setPrice(double price) {
-		Price = price;
+	public void setAmount(int amount) {
+		Amount = amount;
+	}
+
+	public String getStore() {
+		return Store;
+	}
+
+	public void setStore(String store) {
+		Store = store;
+	}
+
+	public String getLocation() {
+		return Location;
+	}
+
+	public void setLocation(String location) {
+		Location = location;
 	}
 
 	public int getQuantity() {
@@ -62,14 +88,26 @@ public class Orders {
 		Quantity = quantity;
 	}
 
-	@Override
-	public String toString() {
-		return "Orders [OrderID=" + OrderID + ", ProductID=" + ProductID + ", Brand=" + Brand + ", Price=" + Price
-				+ ", Quantity=" + Quantity + "]";
-	}
-	public String partialToString()
-	{
-		return "Brand:"+Brand+"\n Price:"+Price+"\n Quantity:" +Quantity;
+	public String getUserName() {
+		return userName;
 	}
 
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	@Override
+	public String toString() {
+		return "Orders [OrderID=" + OrderID + ", ProductID=" + ProductID + ",  Brand="
+				+ Brand + ", Amount=" + Amount + ", Store=" + Store + ", Location=" + Location + ", Quantity="
+				+ Quantity + ", userName=" + userName + "]";
+	}
+
+	public String partialToString()
+	{
+		return "Brand:"+Brand+"\n Price:"+Amount+"\n Quantity:" +Quantity;
+	}
+
+	
+	
 }

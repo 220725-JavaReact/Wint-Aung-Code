@@ -16,9 +16,10 @@ public class OrderHistoryService {
 		orderhistoryDAO.save(orderhistory);
 		
 	}
-	public List<OrdersHistory> getOrdersHistories()
+	public List<OrderHistoryService> getOrdersHistories()
 	
 	{
+		
 	return orderhistoryDAO.GetEverything();	
 	}
 

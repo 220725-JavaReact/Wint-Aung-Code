@@ -1,24 +1,31 @@
 package com.revature.storeapp.models;
 
 public class OrdersHistory {
-	private int OrderHistoryID;
+	private String OrderHistoryID;
 	private String CustomerID;
 	private String OrderDate;
 	private double TotalAmount;
 	
-	public OrdersHistory(int OrderHistoryID,int CustomerID,String OrderDate,double TotalAmount)
-	{ this.OrderHistoryID =OrderHistoryID;
+	
+	
+	
+	
+	
+	public OrdersHistory(String OrderHistoryID,String CustomerID,String OrderDate,double TotalAmount)
+	{
+	this.OrderHistoryID =OrderHistoryID;
 	this.CustomerID=CustomerID;
 	this.OrderDate=OrderDate;
 	this.TotalAmount=TotalAmount;
 		
 	}
 
-	public int getOrderHistoryID() {
+
+	public String getOrderHistoryID() {
 		return OrderHistoryID;
 	}
 
-	public void setOrderHistoryID(int orderHistoryID) {
+	public void setOrderHistoryID(String orderHistoryID) {
 		OrderHistoryID = orderHistoryID;
 	}
 
