@@ -18,57 +18,48 @@ public class Store {
 	 this.description=description;
 	}
 	
-	public Store(String StoreID,String storeName,String location,String description)
+	public Store(String i,String storeName,String location,String description)
 	{
-	this.StoreID=StoreID;
+	this.StoreID=i;
 	 this.StoreName=storeName;
 	 this.location=location;
 	 this.description=description;
 	}
 	
 
-	public String getStoreName() {
-		return StoreName;
-	}
-
-
-	public void setStoreName(String StoreName) {
-		this.StoreName = StoreName;
-	}
-
-
-	public String getLocation() {
-		return location;
-	}
-
-
-	public void setLocation(String location) {
-		this.location = location;
-	}
-
-
-	public String getDescription() {
-		return description;
-	}
-
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-
 	
-
 
 	public String getStoreID() {
 		return StoreID;
 	}
 
-
-	public void setStoreID(String string) {
-		string = string;
+	public void setStoreID(String storeID) {
+		StoreID = storeID;
 	}
 
+	public String getStoreName() {
+		return StoreName;
+	}
+
+	public void setStoreName(String storeName) {
+		StoreName = storeName;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
 	@Override
 	public String toString() {

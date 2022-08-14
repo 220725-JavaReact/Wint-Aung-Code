@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 import com.revature.storeapp.dl.CustomerDAO;
 import com.revature.storeapp.dl.CustomerDBDAO;
 import com.revature.storeapp.dl.DAO;
+import com.revature.storeapp.dl.InventoryDAO;
 import com.revature.storeapp.dl.PDAO;
 import com.revature.storeapp.dl.ProductDAO;
 import com.revature.storeapp.dl.ProductDBDAO;
@@ -41,6 +42,8 @@ public class PlaceOrderMenu  {
 	private static DAO<Customer>customerDAO=new CustomerDAO();
 	private static DAO<Customer>customerDao2=new CustomerDBDAO();
 	private static PDAO<Product>productDAO2=new ProductDAO();
+	private static PDAO<Store>storeDAO= new StoreDAO();
+	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
 	private static DAO<Product>productDAO=new ProductDBDAO();
 	private static Logger logger=Logger.getLogger();
 	private static ProductService productService ;
@@ -73,7 +76,7 @@ public class PlaceOrderMenu  {
 	                        createStore();
 	                        break;
 	                    case "2":
-	                        createProduct();
+	                        //createProduct();
 	                        break;
 	                    case "3":
 	                        createInventory();
@@ -149,49 +152,7 @@ public class PlaceOrderMenu  {
 	        }
 	    }
 
-	    private static void createProduct(){
-	        Scanner scan = new Scanner(System.in);
-	        Product product = new Product();
-
-
-	        exit:
-	        {
-	            while (true) {
-	                System.out.println("\n+------------------------+");
-	                System.out.println("|    Creating Product ...  |");
-	                System.out.println("+------------------------+");
-
-	                product.setProductID(UUID.randomUUID().toString());
-
-	                System.out.print("Name: ");
-	                product.setBrand(scan.nextLine());
-
-	                System.out.print("\nCategory: ");
-	                product.setCategory(scan.nextLine());
-
-	               
-
-	                System.out.print("\nCost: ");
-	                product.setPrice(scan.nextInt());
-	                scan.nextLine();
-
-	                System.out.println("\nPlease confirm updates (y/n)");
-	                System.out.println("\n" + product);
-
-	                switch (scan.nextLine()) {
-	                    case "y":
-	                        productService.register(product);
-	                        break exit;
-	                    case "n":
-	                        break;
-	                    default:
-	                        System.out.println("\nInvalid input.");
-	                        break;
-	                }
-	            }
-	        }
-	    }
-
+	 
 	    public static void createInventory(){
 	        Scanner scan = new Scanner(System.in);
 	        Inventory inventory = new Inventory();
@@ -213,12 +174,19 @@ public class PlaceOrderMenu  {
 	                //get product id and add to inventory
 	                //add quantity to inventory
 
-	                List<Product> allProducts;
+	                List<Product> allProducts = new ArrayList<>();
 	                int prodInput;
 
-	                while(true){
+	                while(true)
+	                {
 	                    System.out.println("What product would you like to add?");
-	                    allProducts = productService.getAllProducts();
+	                    allProducts =productDAO2.GetEverything();
+//	                    for (Product product:productDAO.getAll())
+//	    				{
+//	    					System.out.println(product);
+//	    				}
+	    					//System.out.println("Please choose your pick up store location!");
+	    				
 
 	                    for(int i = 0; i < allProducts.size(); i++){
 	                        System.out.println("[ " + (i + 1) + " ]" + allProducts.get(i).getBrand());
@@ -230,25 +198,30 @@ public class PlaceOrderMenu  {
 	                    if(prodInput < 0 || prodInput >= allProducts.size()){
 	                        System.out.println("Invalid input. Try again.");
 	                    }else{
-	                        inventory.setProductId(allProducts.get(prodInput).getProductID());
+	                    	inventory.setProductID(allProducts.get(prodInput).getProductID());
+	                     
 	                        break;
 	                    }
 	                }
 
+	                List<Store> allStores=new ArrayList<>();
+	                int storeInput;
+	                               
 
 	                System.out.println("How many products would you like to add? ");
 	                int quantity = scan.nextInt();
 	                inventory.setQuantity(quantity);
 
-	                List<Store> allStores;
-	                int storeInput;
-
+	               
 	                while(true){
 	                    System.out.println("What store would you like to add to?");
-	                    allStores = storeService.getAllStores();
-
+	                    allStores = storeDAO.GetEverything();
+                           // System.out.println(allStores);
 	                    for(int i = 0; i < allStores.size(); i++){
+	                    	 System.out.println("=======================================================");
+	                        System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getStoreName());
 	                        System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getLocation());
+	                        System.out.println("=======================================================");
 	                    }
 	                    System.out.println("Enter: ");
 	                    storeInput = scan.nextInt() - 1;
@@ -256,7 +229,8 @@ public class PlaceOrderMenu  {
 	                    if(storeInput < 0 || storeInput >= allStores.size()){
 	                        System.out.println("Invalid input. Try again.");
 	                    }else{
-	                        inventory.setStoreID(allStores.get(storeInput).getStoreID());
+	                    	inventory.setStoreID(allStores.get(storeInput).getStoreID());
+	                       
 	                        scan.nextLine();
 	                        break;
 	                    }
@@ -264,13 +238,34 @@ public class PlaceOrderMenu  {
 
 
 	                System.out.println("\nPlease confirm updates (y/n)");
+	                
+	                System.out.println("Product: "+  allProducts.get(prodInput).getBrand());//
+	                String Brand= allProducts.get(prodInput).getBrand();
+	                
+	                System.out.println("Store: "+  allProducts.get(storeInput).getStore());
+	                String Store=( allProducts.get(storeInput).getStore());
+	                System.out.println("Store: "+  allProducts.get(prodInput).getProductID());
+	                String productID=allProducts.get(prodInput).getProductID();
 	                System.out.println("Store: "+  allStores.get(storeInput).getLocation());
-	                System.out.println("Product: "+  allProducts.get(prodInput).getBrand());
+	                String Location =(allStores.get(storeInput).getLocation());
+	                System.out.println("Price: "+  allProducts.get(prodInput).getPrice());
+	                int Price = allProducts.get(prodInput).getPrice();
 	                System.out.println("Quantity: "+  inventory.getQuantity());
+	                
 
 	                switch (scan.nextLine()) {
 	                    case "y":
-	                        inventoryService.register(inventory);
+	                       // inventoryService.register(inventory);
+	                    	
+	                    	String ProductID=inventory.getProductID();
+	                    	String StoreID=inventory.getStoreID();	 
+	                           	int qty=inventory.getQuantity();
+	                    	Inventory inv=new Inventory(Brand, Store, Location, Price, qty,productID,StoreID);
+	                    	
+	                    	           	
+	                    	
+	                    	inventoryDAO.save(inv);
+	                    	System.out.println( "Brand :"+ProductID + "StoreID:" +StoreID +"Brand :"+Brand +"Store"+ Store+"Lcoaiton:"+Location+"Price"+Price+"Qty"+ qty);
 	                        break exit;
 	                    case "n":
 	                        break;
@@ -308,7 +303,8 @@ public class PlaceOrderMenu  {
 
 	                    switch (scan.nextLine()) {
 	                        case "y":
-	                            storeService.delete(allStores.get(input).getStoreID());
+	                        	storeService.delete(allStores.get(input).getStoreID());
+	                           
 	                            break exit;
 	                        case "n":
 	                            break;

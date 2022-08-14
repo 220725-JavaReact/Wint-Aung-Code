@@ -7,10 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.storeapp.models.Product;
 import com.revature.storeapp.models.Store;
 import com.revature.storeapps.util.ConnectionFactory;
 
-public class StoreDAO implements DAO <Store>{
+public class StoreDAO implements PDAO <Store>{
 
 	@Override
 	public void addInstance(Store newInstance) {
@@ -39,23 +40,11 @@ public class StoreDAO implements DAO <Store>{
 		return null;
 	}
 
-	@Override
-	public Store getUser(String UserName, String Password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public Store setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
-	@Override
-	public Store[] getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public void UpdateInstance(Store updatedInstance) {
@@ -63,11 +52,8 @@ public class StoreDAO implements DAO <Store>{
 		
 	}
 
-	@Override
-	public void UpdateCustInstance(Store updatedCusInstance) {
-		// TODO Auto-generated method stub
-		
-	}
+
+
 
 	@Override
 	public void save(Store obj) {
@@ -119,7 +105,8 @@ public class StoreDAO implements DAO <Store>{
 	@Override
 	public List<Store> GetEverything() {
 		// TODO Auto-generated method stub
-		List<Store> store=new ArrayList();
+		List<Store>store=new ArrayList<>();
+	
 		try {
 			Connection connection = ConnectionFactory.getInstance().getConnection();
 			PreparedStatement preparedstatement=connection.prepareStatement("Select * from Store");
@@ -127,7 +114,7 @@ public class StoreDAO implements DAO <Store>{
 			
 			while(rs.next())
 			{
-				store.add(new Store(rs.getInt("StoreID"),rs.getString("StoreName"),rs.getString("Location"), rs.getString("Description")));
+				store.add(new Store(rs.getString("StoreID"),rs.getString("StoreName"),rs.getString("Location"), rs.getString("Description")));
 			}
 			
 		}
@@ -135,7 +122,7 @@ public class StoreDAO implements DAO <Store>{
 		{
 			throw new RuntimeException("Found error to get everything from store table DB");
 		}
-		return null;
+		return store;
 	}
 	public List <String>getAllLocation()
 	{
@@ -159,6 +146,12 @@ public class StoreDAO implements DAO <Store>{
 	public void updateStoreInventory()
 	{
 		
+	}
+
+	@Override
+	public Store[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

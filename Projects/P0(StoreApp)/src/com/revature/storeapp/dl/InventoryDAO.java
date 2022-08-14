@@ -11,7 +11,7 @@ import com.revature.storeapp.models.Inventory;
 import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapps.util.ConnectionFactory;
 
-public class InventoryDAO implements DAO <Inventory>{
+public class InventoryDAO implements PDAO <Inventory>{
 
 	@Override
 	public void addInstance(Inventory newInstance) {
@@ -25,17 +25,7 @@ public class InventoryDAO implements DAO <Inventory>{
 		return null;
 	}
 
-	@Override
-	public Inventory getUser(String UserName, String Password) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Inventory setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Inventory[] getAll() {
@@ -49,11 +39,7 @@ public class InventoryDAO implements DAO <Inventory>{
 		
 	}
 
-	@Override
-	public void UpdateCustInstance(Inventory updatedCusInstance) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public void save(Inventory obj) {
@@ -62,10 +48,18 @@ public class InventoryDAO implements DAO <Inventory>{
 		try
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(StoreID,ProductID,Quantity)values(?,?,?)");
-			preparedStatement.setInt(1, obj.getStoreID());
-			preparedStatement.setInt(2, obj.getProductID());		
-			preparedStatement.setInt(3,obj.getQuantity());
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Inventory(Brand,Store,Location,Price,Quantity,ProductID,StoreID)values(?,?,?,?,?,?,?)");
+			preparedStatement.setString(1, obj.getBrand());
+			preparedStatement.setString(2, obj.getStore());	
+			
+			preparedStatement.setString(3,obj.getLocation());
+			preparedStatement.setInt(4,obj.getPrice());
+			
+			preparedStatement.setInt(5,obj.getQuantity());
+			preparedStatement.setString(6, obj.getProductID());
+			preparedStatement.setString(7, obj.getStoreID());
+			
+			
 			preparedStatement.execute();
 			
 		}
@@ -106,7 +100,7 @@ public class InventoryDAO implements DAO <Inventory>{
 			
 			while(rs.next())
 			{
-				inventories.add(new Inventory(rs.getInt("StoreID"),rs.getInt("ProductID"),rs.getInt("Quantity")));
+				inventories.add(new Inventory(rs.getString("Brand"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID"),rs.getString("StoreID")));
 			}
 		}
 		catch(SQLException e)

@@ -1,31 +1,70 @@
 package com.revature.storeapp.models;
 
 public class Inventory {
-
+    private String InventoryID;
+	private String Brand;
+	private String Store;
+	private String Location;
+	private int Price;
+	private int Quantity;
 	private String StoreID;
 	private String ProductID;
-	private int Quantity;
 	public Inventory()
 	{
 		super();
-	}public Inventory(String StoreID,String ProductID,int Quantity)
-	{
-		this.StoreID=StoreID;
-		this.ProductID=ProductID;
+	}public Inventory(String Brand,String Store,String Location, int Price,int Quantity,String ProductID,String StoreID)
+	{	this.Brand=Brand;
+		this.Store=Store;
+	
+		this.Location=Location;
+		this.Price=Price;
 		this.Quantity=Quantity;
+		this.ProductID=ProductID;
+		this.StoreID=StoreID;
 		
 	}
+	
 	public String getStoreID() {
 		return StoreID;
 	}
-	public void setStoreID(int i) {
-		i = i;
+	public void setStoreID(String storeID) {
+		StoreID = storeID;
 	}
 	public String getProductID() {
 		return ProductID;
 	}
 	public void setProductID(String productID) {
 		ProductID = productID;
+	}
+	public String getInventoryID() {
+		return InventoryID;
+	}
+	public void setInventoryID(String inventoryID) {
+		InventoryID = inventoryID;
+	}
+	public String getBrand() {
+		return Brand;
+	}
+	public void setBrand(String brand) {
+		Brand = brand;
+	}
+	public String getStore() {
+		return Store;
+	}
+	public void setStore(String store) {
+		Store = store;
+	}
+	public String getLocation() {
+		return Location;
+	}
+	public void setLocation(String location) {
+		Location = location;
+	}
+	public int getPrice() {
+		return Price;
+	}
+	public void setPrice(int price) {
+		Price = price;
 	}
 	public int getQuantity() {
 		return Quantity;
@@ -35,13 +74,8 @@ public class Inventory {
 	}
 	@Override
 	public String toString() {
-		return "Inventory [StoreID=" + StoreID + ", ProductID=" + ProductID + ", Quantity=" + Quantity + "]";
+		return "Inventory [InventoryID=" + InventoryID + ", Brand=" + Brand + ", Store=" + Store + ", Location="
+				+ Location + ", Price=" + Price + ", Quantity=" + Quantity + "]";
 	}
-	public void setProductId(int productID2) {
-		// TODO Auto-generated method stub
-		
-	}
-	
-	
 	
 }

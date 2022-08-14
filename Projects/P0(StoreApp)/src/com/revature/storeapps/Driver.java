@@ -1,6 +1,7 @@
 package com.revature.storeapps;
 
 import com.revature.storeapp.UI.Menu;
+import com.revature.storeapp.UI.PlaceOrderMenu;
 import com.revature.storeapp.UI.ShoppingMenu;
 import com.revature.storeapp.UI.StartMenu;
 import com.revature.storeapp.dl.CustomerDBDAO;
@@ -10,8 +11,9 @@ public class Driver {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-Menu.Open();
+//Menu.Open();
 	// ShoppingMenu.Start();
+PlaceOrderMenu.PlaceOrderMenu();
 		//new StartMenu(new CustomerService(new CustomerDBDAO())).Start();
 	}
  
