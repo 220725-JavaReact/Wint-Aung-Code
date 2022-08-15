@@ -1,27 +1,52 @@
 package com.revature.storeapp.models;
 
 public class Customer {
-	private int CustomerID;
+	private String CustomerID;
 	private String FirstName;
 	private String LastName;
 	private String UserName;
 	private String Password;
 	private String Email;
+
+	private String Role;
+	
+	public String getRole() {
+		return Role;
+	}
+
+
+
+
+	public void setRole(String role) {
+		Role = role;
+	}
+
+
+
+
+	public Customer()
+	{
+		super();
+	}
 	
 	
 	
 	
 	public Customer(String UserName)
-	{   this.FirstName=FirstName;
-		this.LastName=LastName;
+	
+	{  
+		
 		this.UserName=UserName;
-		this.Password=Password;
-		this.Email=Email;
+		//this.Password=Password;
+	
+	
 		 
 		
 		
 		//valid=valid;
 	}
+
+	
 	
 	public Customer(String FirstName,String LastName,String UserName,String Password,String Email)
 	{
@@ -30,23 +55,22 @@ public class Customer {
 		this.UserName=UserName;
 		this.Password=Password;
 		this.Email=Email;
-		this.CustomerID=CustomerID;
+		
 		 
 		
 	}
-	public Customer ()
-	{
-		this.UserName="admin";
-		this.Password="admin";
-	}
 
-	public int getCustomerID() {
+
+	public String getCustomerID() {
 		return CustomerID;
 	}
 
-	public void setCustomerID(int customerID) {
+	public void setCustomerID(String customerID) {
 		CustomerID = customerID;
 	}
+
+	
+	
 
 	public String getFirstName() {
 		return FirstName;
@@ -90,12 +114,18 @@ public class Customer {
 		Email = email;
 	}
 
+
+
+
 	@Override
 	public String toString() {
-		return " [Your first Name is ----" + FirstName + "]\n [Your Last Name is----" + LastName
-				+ "]\n [Your UserName is:" + UserName + "]\n [Your Password is:" + Password + "]\n [Your Email is:" + Email + "]";
-		
+		return "Customer [CustomerID=" + CustomerID + ", FirstName=" + FirstName + ", LastName=" + LastName
+				+ ", UserName=" + UserName + ", Password=" + Password + ", Email=" + Email + "]";
 	}
+
+	
+		
+	
 
 	
 	

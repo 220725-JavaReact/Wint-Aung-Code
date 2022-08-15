@@ -1,5 +1,7 @@
 package com.revature.storeapp.dl;
 
+import java.util.List;
+
 import com.revature.storeapp.Storage.CustomerStorage;
 import com.revature.storeapp.models.Customer;
 import com.revature.storeapps.util.Logger;
@@ -52,10 +54,54 @@ public class CustomerDAO implements DAO<Customer> {
 		}
 	}
 
+	
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Customer getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> GetEverything() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void save(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	@Override
 	public Customer getUser(String UserName, String Password) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Customer setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void UpdateCustInstance(Customer updatedCusInstance) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

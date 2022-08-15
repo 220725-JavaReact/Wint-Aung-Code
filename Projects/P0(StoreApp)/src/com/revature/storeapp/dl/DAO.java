@@ -1,5 +1,7 @@
 package com.revature.storeapp.dl;
 
+import java.util.List;
+
 public interface DAO<T> {
  void addInstance (T newInstance);
  
@@ -11,5 +13,15 @@ public interface DAO<T> {
  
      T[]getAll();
  void UpdateInstance(T updatedInstance);
+ 
  void UpdateCustInstance(T updatedCusInstance);
+ 
+////////////////////////////////
+ void save (T obj);
+  void update (T obj);
+  void delete (String id);
+  
+ T getByID(String ID);
+ List<T>GetEverything();
+ 
  }

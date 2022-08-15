@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.revature.storeapp.Storage.CustomerList;
 
@@ -63,7 +65,9 @@ public class CustomerDBDAO  implements DAO<Customer>{
 	@Override
 	public Customer[] getAll() {
 		// TODO Auto-generated method stub
+		
 		CustomerList customerlist=new CustomerList();
+		
 		try(Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
 			String query = "Select * from Product";
@@ -158,7 +162,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		// TODO Auto-generated method stub
 		try(Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Update Customer set FirstName=? ,LastName =?,UserName=?, Password =?,Email=?";
+			String query="Update Customer set FirstName=? ,LastName =?,UserName=?, Password =?,Email=? where CustomerID=?";
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
 			preparedStatement.setString(1, updatedCusInstance.getFirstName());
@@ -167,7 +171,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 			preparedStatement.setString(4, updatedCusInstance.getPassword());
 			
 			preparedStatement.setString(5, updatedCusInstance.getEmail());
-			preparedStatement.setInt(6, updatedCusInstance.getCustomerID());
+			//preparedStatement.setInt(6, updatedCusInstance.getCustomerID());
 			preparedStatement.execute();
 		}
 		catch(SQLException e)
@@ -177,4 +181,57 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		
 	}
 
+	@Override
+	public Customer getByID(String ID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Customer> GetEverything() {
+		// TODO Auto-generated method stub
+		
+		
+		
+		
+		return null;
+	}
+
+	@Override
+	public void update(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(String id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void save(Customer obj) {
+		// TODO Auto-generated method stub
+		
+	}
+	public List <String>getAllUserName()
+	{
+		List<String> username=new ArrayList<>();
+		try
+		{
+			Connection connection = ConnectionFactory.getInstance().getConnection();
+			PreparedStatement preparedstatement=connection.prepareStatement("Select UserName From Customer");
+			ResultSet rs=preparedstatement.executeQuery();
+			while(rs.next())
+			{
+				username.add(rs.getString("Username"));
+			}
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return username;
+	}
 }

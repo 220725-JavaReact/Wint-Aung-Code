@@ -1,37 +1,46 @@
 package com.revature.storeapp.models;
 
-import com.revature.pointsapp.exceptions.InvalidPointException;
-import com.revature.restrev.exception.InvalidRatingException;
+
+
 import com.revature.storeapp.exception.InvalidPriceException;
 
 public class Product {
-	private int ProductID;
+	private String  ProductID;
 	private String brand;
 	private int price;
 	private String category;
 	private int quantity;
+	private String Store;
+	private String StoreLocation;
 	
+	public Product()
+	{
+		super();
+	}
+	
+	public Product(String ProductID,String brand,String category,int price,int quantity)
+	{this.ProductID=ProductID;
+		this.brand=brand;
+		this.price=price;
+		this.category=category;
+		this.quantity=quantity;
+	
+		
+		
+	}
 	public Product(String brand,String category,int price,int quantity)
 	{
 		this.brand=brand;
 		this.price=price;
 		this.category=category;
 		this.quantity=quantity;
+
 	
 		
 		
 	}
-	public Product(String brand,String category,int price,int quantity,int productID)
-	{
-		this.brand=brand;
-		this.ProductID=ProductID;
-		this.price=price;
-		this.category=category;
-		this.quantity=quantity;
 	
-		
-		
-	}
+	
 	public Product(String Brand)
 	{
 		this.brand=brand;
@@ -39,12 +48,15 @@ public class Product {
 		this.price=price;
 		this.category=category;
 		this.quantity=quantity;
+		this.Store=Store;
+		this.StoreLocation=StoreLocation;
+		
 	}
-	public int getProductID() {
+	public String getProductID() {
 		return ProductID;
 	}
-	public void setProductID(int productID) {
-		ProductID = productID;
+	public void setProductID(String ProductID) {
+		ProductID = ProductID;
 	}
 	public String getBrand() {
 		return brand;
@@ -86,11 +98,33 @@ public class Product {
 		this.price += category.value;
 		return this.price;
 	}
+	
+	public String getStore() {
+		return Store;
+	}
+
+	public void setStore(String store) {
+		Store = store;
+	}
+
+	public String getStoreLocation() {
+		return StoreLocation;
+	}
+
+	public void setStoreLocation(String storeLocation) {
+		StoreLocation = storeLocation;
+	}
+
+	
+
 	@Override
 	public String toString() {
-		return "Product [brand=" + brand + ", price=" + price + ", category=" + category + ", quantity=" + quantity
-				+ "]";
+		return "Product [ProductID=" + ProductID + ", brand=" + brand + ", price=" + price + ", category=" + category
+				+ ", quantity=" + quantity + "]";
 	}
+
+
+
 	public enum PriceCategories
 	{
 		COmputer(1000),Desktop(1000),Monitor(500),Camera(3000),Accessories(300),Laptop(Integer.MIN_VALUE);
