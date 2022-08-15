@@ -2,62 +2,105 @@ package com.revature.storeapp.models;
 
 public class OrdersHistory {
 	private String OrderHistoryID;
-	private String CustomerID;
+	private String UserName;
 	private String OrderDate;
-	private double TotalAmount;
+	private int TotalAmount;
 	
 	
 	
 	
 	
 	
-	public OrdersHistory(String OrderHistoryID,String CustomerID,String OrderDate,double TotalAmount)
+	public OrdersHistory(String OrderHistoryID,String UserName,String OrderDate,int TotalAmount)
 	{
-	this.OrderHistoryID =OrderHistoryID;
-	this.CustomerID=CustomerID;
+	this.OrderHistoryID=OrderHistoryID;
+	this.UserName=UserName;
 	this.OrderDate=OrderDate;
 	this.TotalAmount=TotalAmount;
 		
 	}
 
 
+
+
+
+
 	public String getOrderHistoryID() {
 		return OrderHistoryID;
 	}
+
+
+
+
+
 
 	public void setOrderHistoryID(String orderHistoryID) {
 		OrderHistoryID = orderHistoryID;
 	}
 
-	public String getCustomerID() {
-		return CustomerID;
+
+
+
+
+
+	public String getUserName() {
+		return UserName;
 	}
 
-	public void setCustomerID(String customerID) {
-		CustomerID = customerID;
+
+
+
+
+
+	public void setUserName(String userName) {
+		UserName = userName;
 	}
+
+
+
+
+
 
 	public String getOrderDate() {
 		return OrderDate;
 	}
 
+
+
+
+
+
 	public void setOrderDate(String orderDate) {
 		OrderDate = orderDate;
 	}
 
-	public double getTotalAmount() {
+
+
+
+
+
+	public int getTotalAmount() {
 		return TotalAmount;
 	}
 
-	public void setTotalAmount(double totalAmount) {
+
+
+
+
+
+	public void setTotalAmount(int totalAmount) {
 		TotalAmount = totalAmount;
 	}
 
+
+
+
+
+
 	@Override
 	public String toString() {
-		return "OrdersHistory [OrderHistoryID=" + OrderHistoryID + ", CustomerID=" + CustomerID + ", OrderDate="
-				+ OrderDate + ", TotalAmount=" + TotalAmount + "]";
+		return "OrdersHistory [UserName=" + UserName + ", OrderDate=" + OrderDate + ", TotalAmount=" + TotalAmount
+				+ "]";
 	}
-	
 
 }

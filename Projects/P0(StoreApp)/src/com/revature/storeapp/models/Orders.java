@@ -4,8 +4,10 @@ public class Orders
 {
 	
 	String OrderID;
-	int ProductID;
+	String  ProductID;
+	String StoreID;
 	String Brand;
+	String Category;
 	int Amount;
 	String Store;
 	String Location;
@@ -16,21 +18,49 @@ int Quantity;
 		super();
 	}
 	
-	public Orders(int Amount,String Brand, String userName,String Store,String Location,int ProductID ,int Quantity )
+	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity )
 	{
 		//this.OrderID=OrderID;
-		this.ProductID=ProductID;
+		this.ProductID=productID;
 		this.Brand=Brand;
+		this.Category=Category;
 		this.Amount=Amount;
 		this.Quantity=Quantity;
 		this.userName=userName;		
 		this.Store=Store;
 		this.Location=Location;
+		this.StoreID=StoreID;
 		
 		
 	}
 	
 	
+
+
+
+	public String getProductID() {
+		return ProductID;
+	}
+
+	public void setProductID(String productID) {
+		ProductID = productID;
+	}
+
+	public String getStoreID() {
+		return StoreID;
+	}
+
+	public void setStoreID(String storeID) {
+		StoreID = storeID;
+	}
+
+	public String getCategory() {
+		return Category;
+	}
+
+	public void setCategory(String category) {
+		Category = category;
+	}
 
 	public String getOrderID() {
 		return OrderID;
@@ -40,13 +70,7 @@ int Quantity;
 		OrderID = orderID;
 	}
 
-	public int getProductID() {
-		return ProductID;
-	}
-
-	public void setProductID(int productID) {
-		ProductID = productID;
-	}
+	
 
 	public String getBrand() {
 		return Brand;
@@ -96,11 +120,12 @@ int Quantity;
 		this.userName = userName;
 	}
 
+
 	@Override
 	public String toString() {
-		return "Orders [OrderID=" + OrderID + ", ProductID=" + ProductID + ",  Brand="
-				+ Brand + ", Amount=" + Amount + ", Store=" + Store + ", Location=" + Location + ", Quantity="
-				+ Quantity + ", userName=" + userName + "]";
+		return "Orders [ ProductID=" + ProductID + ", StoreID=" + StoreID + ", Brand=" + Brand
+				+ ", Category=" + Category + ", Amount=" + Amount + ", Store=" + Store + ", Location=" + Location
+				+ ", Quantity=" + Quantity + ", userName=" + userName + "]";
 	}
 
 	public String partialToString()

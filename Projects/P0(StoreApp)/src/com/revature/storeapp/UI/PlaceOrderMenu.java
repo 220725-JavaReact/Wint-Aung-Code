@@ -1,60 +1,42 @@
 package com.revature.storeapp.UI;
-
-
-import java.sql.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Objects;
 import java.util.Scanner;
 import java.util.UUID;
-import java.util.stream.Collectors;
-
-import com.revature.storeapp.dl.CustomerDAO;
-import com.revature.storeapp.dl.CustomerDBDAO;
-import com.revature.storeapp.dl.DAO;
 import com.revature.storeapp.dl.InventoryDAO;
 import com.revature.storeapp.dl.PDAO;
 import com.revature.storeapp.dl.ProductDAO;
-import com.revature.storeapp.dl.ProductDBDAO;
 import com.revature.storeapp.dl.StoreDAO;
-import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.Inventory;
-import com.revature.storeapp.models.Orders;
-import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapp.models.Product;
 import com.revature.storeapp.models.Store;
-import com.revature.storeapps.services.CustomerService;
-import com.revature.storeapps.services.InventoryService;
-import com.revature.storeapps.services.OrderHistoryService;
-import com.revature.storeapps.services.OrderService;
-import com.revature.storeapps.services.ProductService;
 import com.revature.storeapps.services.StoreService;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
-import com.revature.storeapps.util.annotations.Inject;
 
-public class PlaceOrderMenu  {
-	private static DAO<Customer>customerDAO2 = new CustomerDBDAO();
-	private static DAO<Customer>customerDAO=new CustomerDAO();
-	private static DAO<Customer>customerDao2=new CustomerDBDAO();
+
+public class PlaceOrderMenu {
+
 	private static PDAO<Product>productDAO2=new ProductDAO();
 	private static PDAO<Store>storeDAO= new StoreDAO();
 	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
-	private static DAO<Product>productDAO=new ProductDBDAO();
+
 	private static Logger logger=Logger.getLogger();
-	private static ProductService productService ;
-	private static InventoryService inventoryService;
-	private static Customer customer ;
+
 	private static StoreService storeService;
 	
-	public static void PlaceOrderMenu()
-	{   
+	
+	
+
+	public static void Start()
+	{
+		// TODO Auto-generated method stub
 		Scanner scan=new Scanner(System.in);
 		String userInput="";
+		System.out.println("Please enter user name");
+		String UserName1=scan.nextLine();
+		System.out.println("Please enter password");
+		String Password1=scan.nextLine();
 	  logger.log(LogLevel.info,"Starting APP");
 	 
 	        exit:
@@ -68,24 +50,86 @@ public class PlaceOrderMenu  {
 	                System.out.println("[3] Add product to store");
 	                System.out.println("[4] Delete store");
 	                System.out.println("[x] Sign out");
-
+	                logger.log(LogLevel.info," admin choose the option");
 	                System.out.print("\nEnter: ");
 
 	                switch (scan.nextLine()) {
 	                    case "1":
 	                        createStore();
+	                        logger.log(LogLevel.info," admin create the store");
 	                        break;
 	                    case "2":
-	                        //createProduct();
+	                        createProduct();
 	                        break;
 	                    case "3":
 	                        createInventory();
+	                        logger.log(LogLevel.info," admin choose to create the inventory");
 	                        break;
 	                    case "4":
 	                        deleteStore();
+	                        logger.log(LogLevel.info," admin delete the store");
 	                        break;
 	                    case "x":
+	                    	Menu.Open();
 	                        break exit;
+	                    default:
+	                        System.out.println("\nInvalid input.");
+	                        break;
+	                }
+	            }
+	        }	
+	}
+	 private static void createProduct(){
+	       
+
+
+	        exit:
+	        {
+	            while (true) {
+	            	
+	            	 Scanner scanner = new Scanner(System.in);
+	     	        Product product = new Product();
+	            	System.out.println("Creating a Product registration");
+					
+					System.out.println("Plase enter your Brand");			
+					String Brand=scanner.nextLine().toUpperCase();
+					System.out.println("Plase enter your Category");
+					String Category=scanner.nextLine();
+					System.out.println("Plase enter your price ");
+				   
+			     	int price=Integer.parseInt(scanner.nextLine());
+					System.out.println("Plase enter your Quantity");
+					//Product productToUpdate=productDAO.getByName(userInput);
+					int quantity=Integer.parseInt(scanner.nextLine());
+					
+						
+					
+					
+				
+					
+				
+				
+						
+				
+
+	                System.out.println("\nPlease confirm updates (y/n)");
+	                product=new Product(Brand, Category, price, quantity) 	;		
+					productDAO2.addInstance(product);
+	                System.out.println("\n" + product);
+	                System.out.println("====================================================");
+					System.out.println("****************Succssfully Saved !!!*************\n");
+					System.out.println("====================================================");	
+
+	                switch (scanner.nextLine()) {
+	                    case "y":
+	                      
+	                    	
+	                    	
+	                    	
+	                    	
+	                        break exit;
+	                    case "n":
+	                        break;
 	                    default:
 	                        System.out.println("\nInvalid input.");
 	                        break;
@@ -93,10 +137,26 @@ public class PlaceOrderMenu  {
 	            }
 	        }
 	    }
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
 
 	    private  static void createStore() {
 	        Scanner scan = new Scanner(System.in);
 	        Store store = new Store();
+	        Product product=new Product();
 
 	        store.setStoreID(UUID.randomUUID().toString());
 
@@ -107,7 +167,7 @@ public class PlaceOrderMenu  {
 	            	System.out.println("\n====================================================================");
 	                System.out.println("==================     Building a new Store        =================== |");
 	                System.out.println("====================================================================\n");
-
+	                logger.log(LogLevel.info," admin buliding the new  store");
 	                System.out.print("Store Name    -   ");
 	                store.setStoreName(scan.nextLine().toUpperCase());
 
@@ -138,7 +198,7 @@ public class PlaceOrderMenu  {
 							System.out.println("==================================================================");
 							System.out.println("****************Succssfully Saved !!!*************\n");
 							System.out.println("==================================================================");		
-
+							
 	                        break exit;
 	                    case "n":
 	                    	
@@ -164,7 +224,7 @@ public class PlaceOrderMenu  {
 	                System.out.println("\n+-----------------------------+");
 	                System.out.println("|  Adding product to store ...  |");
 	                System.out.println("+-------------------------------+");
-
+	                logger.log(LogLevel.info," admin add the product into  the store");
 	                //ask admin what product they with to add
 	                //provide list of products
 	                //ask admin how many products
@@ -207,13 +267,14 @@ public class PlaceOrderMenu  {
 	                List<Store> allStores=new ArrayList<>();
 	                int storeInput;
 	                               
-
+	                logger.log(LogLevel.info," admin add the quantity of the products into the store");
 	                System.out.println("How many products would you like to add? ");
 	                int quantity = scan.nextInt();
 	                inventory.setQuantity(quantity);
 
 	               
 	                while(true){
+	                	  logger.log(LogLevel.info," admin choose the store to add the products");
 	                    System.out.println("What store would you like to add to?");
 	                    allStores = storeDAO.GetEverything();
                            // System.out.println(allStores);
@@ -236,7 +297,7 @@ public class PlaceOrderMenu  {
 	                    }
 	                }
 
-
+	                logger.log(LogLevel.info," ask the admin for confirm the inventory");
 	                System.out.println("\nPlease confirm updates (y/n)");
 	                
 	                System.out.println("Product: "+  allProducts.get(prodInput).getBrand());//
@@ -244,6 +305,7 @@ public class PlaceOrderMenu  {
 	                
 	                System.out.println("Store: "+  allProducts.get(storeInput).getStore());
 	                String Store=( allProducts.get(storeInput).getStore());
+	                String Category= allProducts.get(storeInput).getCategory();
 	                System.out.println("Store: "+  allProducts.get(prodInput).getProductID());
 	                String productID=allProducts.get(prodInput).getProductID();
 	                System.out.println("Store: "+  allStores.get(storeInput).getLocation());
@@ -260,13 +322,14 @@ public class PlaceOrderMenu  {
 	                    	String ProductID=inventory.getProductID();
 	                    	String StoreID=inventory.getStoreID();	 
 	                           	int qty=inventory.getQuantity();
-	                    	Inventory inv=new Inventory(Brand, Store, Location, Price, qty,productID,StoreID);
+	                    	Inventory inv=new Inventory(Brand,Category,StoreID, Store, Location, Price, qty,productID);
 	                    	
 	                    	           	
 	                    	
 	                    	inventoryDAO.save(inv);
 	                    	System.out.println( "Brand :"+ProductID + "StoreID:" +StoreID +"Brand :"+Brand +"Store"+ Store+"Lcoaiton:"+Location+"Price"+Price+"Qty"+ qty);
-	                        break exit;
+	                    	  logger.log(LogLevel.info," admin create the inventory");
+	                    	break exit;
 	                    case "n":
 	                        break;
 	                    default:
@@ -288,7 +351,7 @@ public class PlaceOrderMenu  {
 	                List<Store> allStores = storeService.getAllStores();
 
 	                for (int i = 0; i < allStores.size(); i++) {
-	                    System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getLocation());
+	                    System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getStoreName());
 	                }
 	                System.out.println("Enter: ");
 	                int input = scan.nextInt() - 1;
@@ -331,13 +394,9 @@ public class PlaceOrderMenu  {
 
 	        return sb.toString();
 	    }
-	
-	
-	
-	
 
 	
-	
+		
 	
 	
 	}

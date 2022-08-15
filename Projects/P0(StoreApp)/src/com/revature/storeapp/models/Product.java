@@ -18,27 +18,23 @@ public class Product {
 		super();
 	}
 	
-	public Product(String ProductID,String brand,String category,int price,int quantity,String Store,String StoreLocation)
+	public Product(String ProductID,String brand,String category,int price,int quantity)
 	{this.ProductID=ProductID;
 		this.brand=brand;
 		this.price=price;
 		this.category=category;
 		this.quantity=quantity;
-		
-		this.Store=Store;
-		this.StoreLocation=StoreLocation;
 	
 		
 		
 	}
-	public Product(String brand,String category,int price,int quantity,String Store,String StoreLocation)
+	public Product(String brand,String category,int price,int quantity)
 	{
 		this.brand=brand;
 		this.price=price;
 		this.category=category;
 		this.quantity=quantity;
-		this.Store=Store;
-		this.StoreLocation=StoreLocation;
+
 	
 		
 		
@@ -120,11 +116,13 @@ public class Product {
 	}
 
 	
+
 	@Override
 	public String toString() {
 		return "Product [ProductID=" + ProductID + ", brand=" + brand + ", price=" + price + ", category=" + category
-				+ ", quantity=" + quantity + ", Store=" + Store + ", StoreLocation=" + StoreLocation + "]";
+				+ ", quantity=" + quantity + "]";
 	}
+
 
 
 	public enum PriceCategories

@@ -48,18 +48,15 @@ public class InventoryDAO implements PDAO <Inventory>{
 		try
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Inventory(Brand,Store,Location,Price,Quantity,ProductID,StoreID)values(?,?,?,?,?,?,?)");
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Inventory(Brand,Store,Location,Price,Quantity,ProductID,StoreID,Category)values(?,?,?,?,?,?,?,?)");
 			preparedStatement.setString(1, obj.getBrand());
 			preparedStatement.setString(2, obj.getStore());	
-			
 			preparedStatement.setString(3,obj.getLocation());
 			preparedStatement.setInt(4,obj.getPrice());
-			
 			preparedStatement.setInt(5,obj.getQuantity());
 			preparedStatement.setString(6, obj.getProductID());
 			preparedStatement.setString(7, obj.getStoreID());
-			
-			
+			preparedStatement.setString(8, obj.getCategory());
 			preparedStatement.execute();
 			
 		}
@@ -74,6 +71,8 @@ public class InventoryDAO implements PDAO <Inventory>{
 	@Override
 	public void update(Inventory obj) {
 		// TODO Auto-generated method stub
+		
+		
 		
 	}
 
@@ -100,7 +99,8 @@ public class InventoryDAO implements PDAO <Inventory>{
 			
 			while(rs.next())
 			{
-				inventories.add(new Inventory(rs.getString("Brand"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID"),rs.getString("StoreID")));
+				inventories.add(new Inventory(rs.getString("Brand"),rs.getString("Category"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID")));
+				
 			}
 		}
 		catch(SQLException e)

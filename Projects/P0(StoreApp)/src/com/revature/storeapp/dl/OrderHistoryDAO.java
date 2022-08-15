@@ -57,11 +57,12 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 		try
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(CustomerID,OrderDate,TotalAmount)values(?,?,?)");
-			preparedStatement.setString(1, obj.getCustomerID());
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into OrderHistory(OrderHistoryID,OrderDate,TotalAmount,UserName)values(?,?,?,?)");
+			preparedStatement.setString(1, obj.getOrderHistoryID());		
 			preparedStatement.setString(2, obj.getOrderDate());			
-			preparedStatement.setDouble(3,obj.getTotalAmount());
-					preparedStatement.execute();
+			preparedStatement.setInt(3,obj.getTotalAmount());
+			preparedStatement.setString(4, obj.getUserName());
+			preparedStatement.execute();
 			
 		}
 		catch(SQLException e)
@@ -90,7 +91,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 	}
 
 	@Override
-	public List<OrderHistoryService> GetEverything() {
+	public List<OrdersHistory> GetEverything() {
 		// TODO Auto-generated method stub
 		List<OrdersHistory> orderHistories= new ArrayList<>();
 		try {
@@ -100,7 +101,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			
 			while(rs.next())
 			{
-				orderHistories.add(new OrdersHistory(rs.getString("OrderHistoryID"), rs.getString("CustomerID"),rs.getString("OrderDate"),rs.getDouble("TotalAmount")));
+				orderHistories.add(new OrdersHistory(rs.getString("OrderHistoryID"), rs.getString("CustomerID"),rs.getString("OrderDate"),rs.getInt("TotalAmount")));
 			
 			}
 		}

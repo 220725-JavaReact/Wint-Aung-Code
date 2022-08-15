@@ -11,17 +11,25 @@ import com.revature.storeapp.Storage.CustomerList;
 import com.revature.storeapp.dl.CustomerDAO;
 import com.revature.storeapp.dl.CustomerDBDAO;
 import com.revature.storeapp.dl.DAO;
+import com.revature.storeapp.dl.InventoryDAO;
+import com.revature.storeapp.dl.OrderHistoryDAO;
+import com.revature.storeapp.dl.OrdersDAO;
 import com.revature.storeapp.dl.PDAO;
 import com.revature.storeapp.dl.ProductDAO;
 import com.revature.storeapp.dl.ProductDBDAO;
+import com.revature.storeapp.dl.StoreDAO;
 import com.revature.storeapp.exception.InvalidPriceException;
+import com.revature.storeapp.exception.InvalidUerException;
 import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.Inventory;
 import com.revature.storeapp.models.Orders;
 import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapp.models.Product;
 import com.revature.storeapp.models.Store;
+import com.revature.storeapps.services.CustomerService;
 import com.revature.storeapps.services.InventoryService;
+import com.revature.storeapps.services.OrderHistoryService;
+import com.revature.storeapps.services.OrderService;
 import com.revature.storeapps.services.ProductService;
 import com.revature.storeapps.services.StoreService;
 import com.revature.storeapps.util.Logger;
@@ -39,6 +47,7 @@ public class Menu {
 		private static Logger logger=Logger.getLogger();
 		private static ProductService productService ;
 		private static InventoryService inventoryService;
+		private static CustomerService customerService;
 		private static StoreService storeService;
 		
 	public static void Open()
@@ -56,19 +65,18 @@ public class Menu {
 			System.out.println("Please select form the list of options below:\n");
 			System.out.println("================  Customer Menu   ===================\n");
 		
-			System.out.println("[1] - Enroll a new customer");
-			System.out.println("[2] - View your profile");
-			System.out.println("[3] - Place Order\n");
-			System.out.println("================   Admin Memu   ======================");
-			System.out.println("[4] - Add New Product");
-			System.out.println("[5] - Update the inventory");
-			System.out.println("[6] - search Customer List");
-			System.out.println("[7] - Stoeadd / product addd in store/ create product \n");
+			System.out.println("[1] - Sign up ?");
+			System.out.println("[2] - View your profile ?");
+			System.out.println("[3] - Shop Now ?   \n");
+			System.out.println("==================  Admin Menu  ======================\n");
+			
+			System.out.println("[4] - admin login\n");
+			
 			System.out.println("=================  other options  ====================");
 		
-			System.out.println("[8] - View the Inventory");
-			System.out.println("[9] - Search for the customer");
-			System.out.println("[x] - Exit");
+			System.out.println("[5] - View all Products ?");
+			System.out.println("[6] - View all inventory?");
+			System.out.println("[7] - Exit? ");
 			System.out.println("====================================================");
 		
 			userInput =scanner.nextLine().toUpperCase();
@@ -104,85 +112,74 @@ public class Menu {
 				{
 					System.out.println(customer1);
 				}
-					System.out.println("Please choose your pick up store location!");
+					
 				
 				break;
 				case"3":
-//				System.out.println("Please enter user name");
-//				String UserName1=scanner.nextLine();
-//				System.out.println("Please enter password");
-//				String Password1=scanner.nextLine();
-//				customer=customerDAO.getUser(UserName1,Password1);			
-//				//PlaceOrderMenu.PlaceOrder();
-				ShoppingMenu.Start();
+//					System.out.println("Please enter user name");
+//					String UserName1=scanner.nextLine();
+//					System.out.println("Please enter password");
+//					String Password1=scanner.nextLine();
+//					try 
+//					{
+//					
+//					 ShoppingMenu.Start();
+//					}
+//					catch(InvalidUerException e)
+//					{
+//						System.out.println(e.getMessage());
+//					}
+					
+					ShoppingMenu.Start();
 				break;
 				
 				case"4":
 					
-					System.out.println("Creating a Product registration");
 					
-					System.out.println("Plase enter your Brand");			
-					String Brand=scanner.nextLine().toUpperCase();
-					System.out.println("Plase enter your Category");
-					String Category=scanner.nextLine();
-					System.out.println("Plase enter your price ");
-				   
-			     	int price=Integer.parseInt(scanner.nextLine());
-					System.out.println("Plase enter your Quantity");
-					//Product productToUpdate=productDAO.getByName(userInput);
-					int quantity=Integer.parseInt(scanner.nextLine());
+					System.out.println("Please enter user name");
+					String UserName1=scanner.nextLine();
+					System.out.println("Please enter password");
+					String Password1=scanner.nextLine();
+					try 
+					{
 					
-					System.out.println("Please enter store Name");
-					String storename=scanner.nextLine();
-					System.out.println("Please enter store Location");
-					String location=scanner.nextLine();		
-					
-					Product product=new Product(Brand, Category, price, quantity, storename, location) 	;		
-					productDAO.addInstance(product);
-					////////// can add double times
-					System.out.println(product);
-					
-				
-				
-					System.out.println("====================================================");
-					System.out.println("****************Succssfully Saved !!!*************\n");
-					System.out.println("====================================================");		
-				
-					
+					  if (UserName1=="admin")
+						  PlaceOrderMenu.Start();
+					}
+					catch(InvalidUerException e)
+					{
+						System.out.println(e.getMessage());
+					}
 					
 			    break;
 				case"5":
-					
-					
-				
-					
-				break;
-				case"6":
-					for(Product product2:productDAO2.getAll())
-					{
-						System.out.println(product2);
-					}
-				break;
-				case"7":
-					PlaceOrderMenu.PlaceOrderMenu();
-//					
-				break;
-				case"8":
 					for (Product product1:productDAO.GetEverything())
 					{
-						System.out.println(product1);
-						System.out.println("ProductID" +product1.getProductID());
-						System.out.println("Brand"+product1.getBrand());
-						System.out.println("Category"+product1.getCategory());
-						System.out.println("Price"  + product1.getPrice() );
-						System.out.println("Quantity"+product1.getQuantity());
-						System.out.println("Store" +product1.getStore());
-						System.out.println("Location"+product1.getStoreLocation());
+						//System.out.println(product1);
+						System.out.println("====================================================");
+						System.out.println("ProductID      -    [" +product1.getProductID()+"]");
+						System.out.println("Brand          -  ["+product1.getBrand()+"]");
+						System.out.println("Category       -  ["+product1.getCategory()+"]");
+						System.out.println("Price          -  ["  + product1.getPrice()+"]" );
+						System.out.println("Quantity       -  ["+product1.getQuantity()+"]");
+						System.out.println("====================================================");
 						
 					}
 					
 				
 				break;
+				
+				case"7":
+					for(Product product2:productDAO2.getAll())
+					{
+						System.out.println(product2);
+					}
+				break;
+				case"6":
+					//PlaceOrderMenu.PlaceOrderMenu();
+//					
+				break;
+				
 				case"9":
 					System.out.println("Thank you for your search!!!!");
 					

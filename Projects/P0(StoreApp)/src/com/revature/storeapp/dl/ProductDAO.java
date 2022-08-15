@@ -28,14 +28,13 @@ public class ProductDAO implements PDAO<Product> {
 		logger.log(LogLevel.info,"Adding a new customer "+newInstance.getBrand());
 		try(Connection connection=ConnectionFactory.getInstance().getConnection())
 		{
-		  String query= "Insert into Product(Brand,Category,Price,Quantity,Store,StoreLocation)Values(?,?,?,?,?,?)";
+		  String query= "Insert into Product(Brand,Category,Price,Quantity)Values(?,?,?,?)";
 		  PreparedStatement preparedStatement=connection.prepareStatement(query);
 		  preparedStatement.setString(1,newInstance.getBrand());
 		  preparedStatement.setString(2,newInstance.getCategory());
 		  preparedStatement.setInt(3,newInstance.getPrice());
 		  preparedStatement.setInt(4,newInstance.getQuantity());
-		  preparedStatement.setString(5,newInstance.getStore());
-		  preparedStatement.setString(6,newInstance.getStoreLocation());
+	
 		  		 
 		  preparedStatement.execute();
 		  }
@@ -107,6 +106,21 @@ public class ProductDAO implements PDAO<Product> {
 		return null;
 	}
 
+	public void UpdateQuantity(int Quantity)
+	{
+		try 
+		{  Connection connection=ConnectionFactory.getInstance().getConnection();
+			PreparedStatement ps=connection.prepareStatement("Insert into inventory Quantity values ? ");
+			ps.setInt(1, Quantity);
+			ps.executeUpdate();
+		}
+		catch(SQLException e)
+		{
+			throw new RuntimeException("error occured while update the table into dbase");
+		}
+	}
+	
+	
 	@Override
 	public List<Product> GetEverything() {
 		// TODO Auto-generated method stub
@@ -121,7 +135,7 @@ public class ProductDAO implements PDAO<Product> {
 			while(rs.next())
 			{
 				//product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
-				product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
+				product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity")));
 			
 			}
 		}
