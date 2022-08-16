@@ -112,12 +112,12 @@ public class OrdersDAO implements DAO<Orders>{
 		List<Orders> order=new ArrayList<>();
 		try {
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Select * from Order");
+			PreparedStatement preparedstatement=connection.prepareStatement("Select * from Orders");
 			ResultSet rs=preparedstatement.executeQuery();
 			
 			while(rs.next())
 			{
-				order.add(new Orders(rs.getInt("Amount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getString("ProductID"),rs.getInt("Quantity")));
+				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getString("ProductID"),rs.getInt("Quantity")));
 			}
 		}
 		catch(SQLException e)

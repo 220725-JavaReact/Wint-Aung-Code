@@ -108,13 +108,33 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		}
 		
 	}
+	public List <String>getAllcustermerbyUserName()
+	{
+		List<String> username=new ArrayList<>();
+		try
+		{
+			Connection connection = ConnectionFactory.getInstance().getConnection();
+			PreparedStatement preparedstatement=connection.prepareStatement("Select UserName From Customer where UserName=?");
+			ResultSet rs=preparedstatement.executeQuery();
+			while(rs.next())
+			{
+				username.add(rs.getString("Username"));
+			}
+			
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
+		return username;
+	}
 
 	@Override
 	public Customer getUser(String UserName, String Password) {
 		// TODO Auto-generated method stub
 		try(Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query= "Select * From Customer where UserName= ?";
+			String query= "Select * From Customer where UserName= ? ";
 			PreparedStatement preparedStatement=connection.prepareStatement(query);
 			preparedStatement.setString(1, UserName);
 			ResultSet rs=preparedStatement.executeQuery();
@@ -220,7 +240,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		try
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Select UserName From Customer");
+			PreparedStatement preparedstatement=connection.prepareStatement("Select * From Customer where UserName =?");
 			ResultSet rs=preparedstatement.executeQuery();
 			while(rs.next())
 			{

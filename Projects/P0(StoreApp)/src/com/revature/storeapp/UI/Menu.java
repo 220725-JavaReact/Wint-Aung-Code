@@ -49,6 +49,8 @@ public class Menu {
 		private static InventoryService inventoryService;
 		private static CustomerService customerService;
 		private static StoreService storeService;
+		private static Orders order;
+		private static OrdersHistory orderHistory;
 		
 	public static void Open()
 	{   
@@ -98,6 +100,7 @@ public class Menu {
 					System.out.println(customer);
 					customerDAO.addInstance(customer);
 					//customerDAO.addInstance(customer);
+					new PlaceOrderMenu(customer,order,new CustomerService(new CustomerDBDAO()),new StoreService(new StoreDAO()),new ProductService(new ProductDAO()),new OrderService(new OrdersDAO()),new InventoryService(new InventoryDAO()) ,new OrderHistoryService(new OrderHistoryDAO())).toString();
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
 					System.out.println("====================================================");				
@@ -136,20 +139,15 @@ public class Menu {
 				case"4":
 					
 					
-					System.out.println("Please enter user name");
-					String UserName1=scanner.nextLine();
-					System.out.println("Please enter password");
-					String Password1=scanner.nextLine();
-					try 
-					{
-					
-					  if (UserName1=="admin")
-						  PlaceOrderMenu.Start();
-					}
-					catch(InvalidUerException e)
-					{
-						System.out.println(e.getMessage());
-					}
+//					System.out.println("Please enter user name");
+//					String UserName1=scanner.nextLine();
+//					System.out.println("Please enter password");
+//					String Password1=scanner.nextLine();
+//					
+//					  if ( UserName1.equals("admin"))
+//					  {
+					  PlaceOrderMenu.Start();
+//					}
 					
 			    break;
 				case"5":
