@@ -3,21 +3,40 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.UUID;
+
+import com.revature.storeapp.dl.CustomerDAO;
+import com.revature.storeapp.dl.CustomerDBDAO;
+import com.revature.storeapp.dl.DAO;
 import com.revature.storeapp.dl.InventoryDAO;
+import com.revature.storeapp.dl.OrderHistoryDAO;
+import com.revature.storeapp.dl.OrdersDAO;
 import com.revature.storeapp.dl.PDAO;
 import com.revature.storeapp.dl.ProductDAO;
+import com.revature.storeapp.dl.ProductDBDAO;
 import com.revature.storeapp.dl.StoreDAO;
+import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.Inventory;
+import com.revature.storeapp.models.Orders;
+import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapp.models.Product;
 import com.revature.storeapp.models.Store;
+import com.revature.storeapps.services.CustomerService;
+import com.revature.storeapps.services.InventoryService;
+import com.revature.storeapps.services.OrderHistoryService;
+import com.revature.storeapps.services.OrderService;
+import com.revature.storeapps.services.ProductService;
 import com.revature.storeapps.services.StoreService;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
 
 public class PlaceOrderMenu {
-
-	private static PDAO<Product>productDAO2=new ProductDAO();
+	private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
+	private static DAO<Customer>customerDAO=new CustomerDAO();//with array
+	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
+	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
+	private static DAO<OrdersHistory> ordershistoryDAO=new OrderHistoryDAO();
+	private static DAO<Orders> orderDAO= new OrdersDAO();
 	private static PDAO<Store>storeDAO= new StoreDAO();
 	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
 
@@ -28,6 +47,11 @@ public class PlaceOrderMenu {
 	
 	
 
+	public PlaceOrderMenu(Customer customer, Orders order, CustomerService customerService, StoreService storeService2,
+			ProductService productService, OrderService orderService, InventoryService inventoryService,
+			OrderHistoryService orderHistoryService) {
+		// TODO Auto-generated constructor stub
+	}
 	public static void Start()
 	{
 		// TODO Auto-generated method stub
@@ -48,7 +72,19 @@ public class PlaceOrderMenu {
 	                System.out.println("[1] Create store");
 	                System.out.println("[2] Create product");
 	                System.out.println("[3] Add product to store");
-	                System.out.println("[4] Delete store");
+	                System.out.println("[4] View Purchase History");
+	                System.out.println("[5] Order List");
+	                System.out.println("[6] Order List");
+	                System.out.println("[7] Customer List");
+	                System.out.println("[8] Inventory");
+	                System.out.println("[9] Products ");
+	                System.out.println("[10] Update  store");
+		               
+		               
+		               
+		               
+		               
+		               
 	                System.out.println("[x] Sign out");
 	                logger.log(LogLevel.info," admin choose the option");
 	                System.out.print("\nEnter: ");
@@ -66,9 +102,58 @@ public class PlaceOrderMenu {
 	                        logger.log(LogLevel.info," admin choose to create the inventory");
 	                        break;
 	                    case "4":
-	                        deleteStore();
+	                    	for (OrdersHistory orderHistory:ordershistoryDAO.GetEverything())
+	        				{
+	        					System.out.println(orderHistory);
+	        					System.out.println("====================================================");
+	        					System.out.println("UserName          -  ["  + orderHistory.getUserName()+"]" );
+	        					System.out.println("HistoryID          -  ["+orderHistory.getOrderHistoryID()+"]");
+	    						System.out.println("Date      -    [" +orderHistory.getOrderDate()+"]");
+	    						
+	    						System.out.println("Amount       -  ["+orderHistory.getTotalAmount()+"]");
+	    						System.out.println("====================================================\n");
+	    					
+	        				}
 	                        logger.log(LogLevel.info," admin delete the store");
 	                        break;
+	                    case "5":
+
+	        				for (Orders order:orderDAO.GetEverything())
+	        				{
+	        					//System.out.println(order);
+	        					//System.out.println(orderHistory);
+	        					System.out.println("====================================================");
+	        					//System.out.println("OrderID    -    [" +order.getOrderID()+"]");
+	    						System.out.println("ProductID    -        [" +order.getProductID()+"]");
+	    						//System.out.println("StoreID      -    [" +order.getStoreID()+"]");
+	        					   System.out.println("UserName     -  ["  + order.getUserName()+"]" );
+	        					System.out.println("Brand       -  ["+order.getBrand()+"]");
+	    						//System.out.println("Category    -    [" +order.getCategory()+"]");
+	    					
+	    						System.out.println("Store       -    [" +order.getStore()+"]");
+	    						System.out.println("Location    -    [" +order.getLocation()+"]");
+	    						
+	    						System.out.println("Quantity    -  ["+order.getQuantity()+"]");
+	    						System.out.println("Amount      -    [" +order.getAmount()+"]");
+	    						
+	    						System.out.println("====================================================\n");
+	        				}
+	                    	break;
+	                    
+	                    case "6":
+	                    	break;
+	                    
+	                    case "7":
+	                    	break;
+	                    
+	                    case "8":
+	                    	break;
+	                    
+	                    case "9":
+	                    	break;
+	                    case "10":
+	                    	break;
+	                    
 	                    case "x":
 	                    	Menu.Open();
 	                        break exit;

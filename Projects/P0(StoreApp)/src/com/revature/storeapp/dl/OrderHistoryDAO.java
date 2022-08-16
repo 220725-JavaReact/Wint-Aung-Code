@@ -101,7 +101,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			
 			while(rs.next())
 			{
-				orderHistories.add(new OrdersHistory(rs.getString("OrderHistoryID"), rs.getString("CustomerID"),rs.getString("OrderDate"),rs.getInt("TotalAmount")));
+				orderHistories.add(new OrdersHistory(rs.getString("OrderHistoryID"), rs.getString("UserName"),rs.getString("OrderDate"),rs.getInt("TotalAmount")));
 			
 			}
 		}

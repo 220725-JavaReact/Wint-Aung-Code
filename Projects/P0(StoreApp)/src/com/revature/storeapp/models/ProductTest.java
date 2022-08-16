@@ -34,9 +34,9 @@ public class ProductTest {
 		//arrange
 		Product product=new Product("Test");
 		//act
-		product.addPrice(10);
+		product.addPrice(100);
 		//assert
-		Assert.willThrow(InvalidPriceException.class, () -> product.addPrice(0));
+		Assert.willThrow(InvalidPriceException.class, () -> product.addPrice(100));
 	}
 	
 }
