@@ -44,6 +44,8 @@ public class Menu {
 	private static DAO<Customer>customerDAO=new CustomerDAO();//with array
 	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
 	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
+	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
+	private static PDAO<Store>storeDAO=new StoreDAO();
 		private static Logger logger=Logger.getLogger();
 		private static ProductService productService ;
 		private static InventoryService inventoryService;
@@ -78,7 +80,9 @@ public class Menu {
 		
 			System.out.println("[5] - View all Products ?");
 			System.out.println("[6] - View all inventory?");
-			System.out.println("[7] - Exit? ");
+			System.out.println("[7] - View all store? ");
+			System.out.println("[x] - Exit");
+			
 			System.out.println("====================================================");
 		
 			userInput =scanner.nextLine().toUpperCase();
@@ -151,6 +155,7 @@ public class Menu {
 					
 			    break;
 				case"5":
+					
 					for (Product product1:productDAO.GetEverything())
 					{
 						//System.out.println(product1);
@@ -167,24 +172,50 @@ public class Menu {
 				
 				break;
 				
-				case"7":
-					for(Product product2:productDAO2.getAll())
+				case"6":
+//					for(Product product2:productDAO2.getAll())
+//					{
+//						System.out.println(product2);
+//					}
+					for (Inventory inv:inventoryDAO.GetEverything())
 					{
-						System.out.println(product2);
+						//System.out.println(product1);
+						System.out.println("====================================================");
+						System.out.println("ProductID      -    [" +inv.getProductID()+"]");
+						System.out.println("Brand          -  ["+inv.getBrand()+"]");
+						System.out.println("Category       -  ["+inv.getCategory()+"]");
+						System.out.println("Price          -  ["  + inv.getPrice()+"]" );
+						System.out.println("Quantity       -  ["+inv.getQuantity()+"]");
+						System.out.println("Store         -  ["+inv.getStore()+"]");
+						System.out.println("Location       -  ["+inv.getLocation()+"]");
+						
+						System.out.println("====================================================");
+						
 					}
 				break;
-				case"6":
-					//PlaceOrderMenu.PlaceOrderMenu();
-//					
-				break;
-				
-				case"9":
-					System.out.println("Thank you for your search!!!!");
+				case "7":
+					for (Store store:storeDAO.GetEverything())
+					{
+						//System.out.println(product1);
+						System.out.println("====================================================");
+						
+						System.out.println("ID       -    ["+store.getStoreID()+"]");
+						System.out.println("Store     -  ["+store.getStoreName()+"]");
+						System.out.println("Location  -  ["+store.getLocation()+"]");
+						System.out.println("Des      -  ["+store.getDescription()+"]");
+						
+						
+						System.out.println("====================================================");
+						
+					}
 					
-				break;
-				case"X":
-				case "x":
-					System.out.println("Thank you for your visit!!!!");
+					
+					break;
+					
+				
+				case"x":
+				
+					System.out.println("Thanks for your visit!!!!");
 					
 				break;
 				default :
