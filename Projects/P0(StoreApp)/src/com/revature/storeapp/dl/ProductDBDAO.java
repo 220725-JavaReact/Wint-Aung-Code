@@ -19,14 +19,13 @@ public class ProductDBDAO implements DAO<Product> {
 		// TODO Auto-generated method stub
 		try(Connection connection=ConnectionFactory.getInstance().getConnection())
 		{
-		  String query= "Insert into Product(Brand,Category,Price,Quantity,Store,StoreLocation)Values(?,?,?,?,?,?)";
+		  String query= "Insert into Product(Brand,Category,Price,Quantity)Values(?,?,?,?)";
 		  PreparedStatement preparedStatement=connection.prepareStatement(query);
 		  preparedStatement.setString(1,newInstance.getBrand());
 		  preparedStatement.setString(2,newInstance.getCategory());
 		  preparedStatement.setInt(3,newInstance.getPrice());
 		  preparedStatement.setInt(4,newInstance.getQuantity());
-		  preparedStatement.setString(5,newInstance.getStore());
-		  preparedStatement.setString(6,newInstance.getStoreLocation());
+		 
 		  		 
 		  preparedStatement.execute();
 		  }
@@ -49,7 +48,7 @@ public class ProductDBDAO implements DAO<Product> {
 			ResultSet rs=preparedStatement.executeQuery();
 			if(rs.next())
 			{
-				return new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation"));
+				return new Product(rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"));
 				
 			}
 			

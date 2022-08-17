@@ -19,12 +19,15 @@ import com.revature.storeapp.dl.InventoryDAO;
 import com.revature.storeapp.dl.OrderHistoryDAO;
 import com.revature.storeapp.dl.OrdersDAO;
 import com.revature.storeapp.dl.PDAO;
+import com.revature.storeapp.dl.StoreDAO;
 import com.revature.storeapp.exception.InvalidUerException;
 import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.Inventory;
 import com.revature.storeapp.models.Orders;
 import com.revature.storeapp.models.OrdersHistory;
+import com.revature.storeapp.models.Store;
 import com.revature.storeapps.services.CustomerService;
+import com.revature.storeapps.services.InventoryService;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
@@ -33,6 +36,7 @@ public class ShoppingMenu
 private static DAO<Orders> orderDAO= new OrdersDAO();
 private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
 private static DAO<Customer>customerDAO=new CustomerDAO();//with array
+private static PDAO<Store>storeDAO= new StoreDAO();
 
 private static Customer customer;
 private static PDAO <Inventory>inventoryDAO=new InventoryDAO();
@@ -65,7 +69,8 @@ private static Inventory inventory;
 					
 					System.out.println("[1] - Login");
 					//System.out.println("[2] - Order History");
-					System.out.println("[x] - Exit");
+					//System.out.println("[2] - Order History");
+					System.out.println("[3] - Exit");
 					
 					
 					System.out.println("====================================================");
@@ -104,6 +109,10 @@ private static Inventory inventory;
 						}
 					break;
 					case "x":
+						customerorderhistory();
+						break;
+					case "3":
+						
 						System.out.println("Thank for your visit");
 						Menu.Open();
 						break;
@@ -134,54 +143,12 @@ private static Inventory inventory;
 		System.out.println(custlist);
 		System.out.println("/////////");
 		System.out.println(allorderHisroty);
-//		List<OrdersHistory>customerHistory=allorderHisroty.stream().filter(h ->h.getUserName().equals(customer.getUserName())).collect(Collectors.toList());
-//		if(customerHistory.size()>0)
-//		{
-//			System.out.println("\n========================================================");
-//			System.out.println("[1] - Sort by earliest to oldest ");
-//			System.out.println("[2] - Sort by Oldest to earlist ");
-//			switch (scanner.nextLine())
-//			{
-//				case "1": 
-//					List<OrdersHistory>sortyByDate = customerHistory.stream().sorted(Comparator.comparing(OrdersHistory::getOrderDate)).collect(Collectors.toList());
-//					sortyByDate.forEach(d ->System.out.println(d+ ""+"\n"));
-//					break;
-//				case "2":
-//					List<OrdersHistory>sortbydatereverse = customerHistory.stream().sorted(Comparator.comparing(OrdersHistory::getOrderDate)).collect(Collectors.toList());
-//					sortbydatereverse.forEach(d ->System.out.println(d+ ""+"\n"));
-//					
-//				break;
-//				default:
-//					System.out.println("Invalid input.try again");
-//					break;
-//			}
-//			
-//			
-//		}
-//		else 
-//		{
-//			System.out.println("You don't have any orders");
-//		}
-//	
 		
-//		while(true)
-//		{
-//			for(int i=0 ; i<custlist.size();i++)
-//			{
-//				System.out.println("[" +(i+1)+custlist.get(i).getUserName());
-//				
-//			}
-//			System.out.println("\nEnter Selection:");
-//			int input= scanner.nextInt() -1;
-//			scanner.nextLine();
-//			
-//			if(input>=0 && input< custlist.size())
-//			{
-//				Customer customer= custlist.get(input);
-//				System.out.println("Viewing customer's ordr hisorys " +);
-//			}
-//		}
-//		
+
+			
+			
+	
+		
 		
 	}
 	
@@ -223,6 +190,8 @@ private static Inventory inventory;
 				int inventoryQuntity=product.getQuantity();
 				System.out.println("Store      -  [" +product.getStore()+"]");
 				System.out.println("Location   -  [" +product.getLocation()+"]");
+				System.out.println("InventoryID   -  [" +product.getInventoryID()+"]");
+				
 				System.out.println("====================================================");
 				System.out.println("PRESS YES [OR] NO");
 			
@@ -251,15 +220,23 @@ private static Inventory inventory;
 						String StoreID=product.getStoreID();
 						String Category=product.getCategory();
 						String location =product.getLocation();
+						String inventoryID=product.getInventoryID();
+						
 						int amount = (product.getPrice() * Quantity);
-						System.out.println("ProductID   -      [" +ProductID+"]" );
-						System.out.println("Brand       -   [" +Brand +"]");
-						System.out.println("Category    -   [" +Category +"]");
-						System.out.println("Quantity    -  [" +Quantity +"]");
-						System.out.println("store       -  [" +store +"]");
-						System.out.println("location    -   [" +location+"]" );
-						System.out.println("Amount      -  [" +amount +"]");
+						System.out.println("ProductID     -    [" +ProductID+"]" );
+						System.out.println("InventoryID   -    [" +inventoryID+"]" );
+						System.out.println("StoreID       -     [" +StoreID +"]");
+						System.out.println("Brand         -   [" +Brand +"]");
+						System.out.println("Category      -   [" +Category +"]");
+						System.out.println("Quantity      -     [" +Quantity +"]");
+						System.out.println("store         -  [" +store +"]");
+						System.out.println("location      -   [" +location+"]" );
+						System.out.println("Amount        -    [" +amount +"]");
+						
+						
 						System.out.println("====================================================");
+						
+					
 						
 						List<Orders>orderList=new ArrayList<>();
 						System.out.println("====================================================");
@@ -269,7 +246,8 @@ private static Inventory inventory;
 						System.out.println("==========================================================================");
 						System.out.println("Hi" +UserName1+" You create the order!!!!");
 						
-						Orders order= new Orders(amount, Brand,Category,UserName1, StoreID,store, location, ProductID, Quantity);
+						Orders order= new Orders(amount, Brand,Category,UserName1, StoreID,store, location, ProductID, Quantity,inventoryID);
+						
 						System.out.println(order);
 						orderList.add(order);
 						
@@ -280,7 +258,8 @@ private static Inventory inventory;
 							String ans=scanner.nextLine().toUpperCase();
 							if(Objects.equals(scanner.nextLine(), "Y"))
 							{	System.out.println("==========================================================================");
-							
+							System.out.println(order);
+							orderDAO.save(order);
 								int sum=0;
 								for(Orders item:orderList)
 								{
@@ -301,23 +280,39 @@ private static Inventory inventory;
 										DateFormat dateFormat= new SimpleDateFormat("mm-dd-yyyy");
 										String strDate=dateFormat.format(date);
 										currentInventory=inventoryQuntity-Quantity;
+										String StoreId=product.getStoreID();
+										String InventoryID=product.getInventoryID();
 										
 										//System.out.println(" order register");
-										System.out.println(order);
-										orderDAO.save(order);
+										
 										System.out.println("==========================================================================");
 										System.out.println("Order History Of  " +UserName1);
-										OrdersHistory orderHistory=new OrdersHistory(UUID.randomUUID().toString(),UserName1, strDate, sum);
-										
-										//System.out.println(" orderhistory register");
-										System.out.println(orderHistory);
-										
+										OrdersHistory orderHistory=new OrdersHistory(UserName1, strDate, sum ,StoreID,InventoryID,ProductID);
+									
+									
+										System.out.println(" You bought this item");
+										System.out.println("====================================================================");
+										System.out.println("[1]UserName      :  "+orderHistory.getUserName());
+										System.out.println("[2]Date          :  "+ strDate);
+										System.out.println("[3]StoreID       :  "+StoreID);
+										System.out.println("[4]InventoryID   :  "+InventoryID);
 										orderHistoryDAO.save(orderHistory);
+										System.out.println("====================================================================");
+										System.out.println("Successfullly save and we will let you know for shippment update");
+										
+										System.out.println("====================================================================");
+										
 										//System.out.println("Inventory update");
 										//System.out.println(inventory);
+
+										//System.out.println("LeftAmount:" +currentInventory);
 										
-										inventoryDAO.update(inventory);
-										ShoppingMenu.Start();
+									   // String InventoryID=orderHistory.getOrderHistoryID();
+									     
+									   //inventoryDAO.update(inventory);
+									   ShoppingMenu.Start();					
+									    
+										
 										
 										break;
 									case "n":
@@ -325,6 +320,7 @@ private static Inventory inventory;
 										 System.out.println(" you want to shop again y/n");
 										String choi= (scanner.nextLine().toUpperCase());
 										if (choi == "Y" )
+											
 										ShoppingMenu.ShoppingItem();
 										else 
 										ShoppingMenu.Start();
@@ -370,6 +366,8 @@ private static Inventory inventory;
 				}
 				
 			}
+			
+		
 			
 }
 

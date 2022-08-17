@@ -70,17 +70,16 @@ public class Menu {
 			System.out.println("================  Customer Menu   ===================\n");
 		
 			System.out.println("[1] - Sign up ?");
-			System.out.println("[2] - View your profile ?");
-			System.out.println("[3] - Shop Now ?   \n");
+			System.out.println("[2] - Shop Now ?   \n");
 			System.out.println("==================  Admin Menu  ======================\n");
 			
-			System.out.println("[4] - admin login\n");
+			System.out.println("[3] - admin login\n");
 			
 			System.out.println("=================  other options  ====================");
 		
-			System.out.println("[5] - View all Products ?");
-			System.out.println("[6] - View all inventory?");
-			System.out.println("[7] - View all store? ");
+			System.out.println("[4] - View all Products ?");
+			System.out.println("[5] - View all inventory?");
+			System.out.println("[6] - View all store? ");
 			System.out.println("[x] - Exit");
 			
 			System.out.println("====================================================");
@@ -102,27 +101,27 @@ public class Menu {
 					String Email=scanner.nextLine(); 
 					Customer customer = new Customer(FirstName,LastName,UserName,Password,Email);
 					System.out.println(customer);
-					customerDAO.addInstance(customer);
+					customerDAO2.addInstance(customer);
 					//customerDAO.addInstance(customer);
 					new PlaceOrderMenu(customer,order,new CustomerService(new CustomerDBDAO()),new StoreService(new StoreDAO()),new ProductService(new ProductDAO()),new OrderService(new OrdersDAO()),new InventoryService(new InventoryDAO()) ,new OrderHistoryService(new OrderHistoryDAO())).toString();
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
 					System.out.println("====================================================");				
 				break;
+//				case"2":
+//					//get all teams
+//					
+//					
+//					
+//				
+//				for (Customer customer1:customerDAO.getAll())
+//				{
+//					System.out.println(customer1);
+//				}
+//					
+//				
+//				break;
 				case"2":
-					//get all teams
-					
-					
-					
-				
-				for (Customer customer1:customerDAO.getAll())
-				{
-					System.out.println(customer1);
-				}
-					
-				
-				break;
-				case"3":
 //					System.out.println("Please enter user name");
 //					String UserName1=scanner.nextLine();
 //					System.out.println("Please enter password");
@@ -140,7 +139,7 @@ public class Menu {
 					ShoppingMenu.Start();
 				break;
 				
-				case"4":
+				case"3":
 					
 					
 //					System.out.println("Please enter user name");
@@ -154,7 +153,7 @@ public class Menu {
 //					}
 					
 			    break;
-				case"5":
+				case"4":
 					
 					for (Product product1:productDAO.GetEverything())
 					{
@@ -172,7 +171,7 @@ public class Menu {
 				
 				break;
 				
-				case"6":
+				case"5":
 //					for(Product product2:productDAO2.getAll())
 //					{
 //						System.out.println(product2);
@@ -193,7 +192,7 @@ public class Menu {
 						
 					}
 				break;
-				case "7":
+				case "6":
 					for (Store store:storeDAO.GetEverything())
 					{
 						//System.out.println(product1);

@@ -59,10 +59,10 @@ public class OrdersDAO implements DAO<Orders>{
 	@Override
 	public void save(Orders obj) {
 		// TODO Auto-generated method stub
-		try
+		try			(Connection connection = ConnectionFactory.getInstance().getConnection())
 		{
-			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(TotalAmount,Brand,UserName,Store,StoreLocation,ProductID,Quantity,Category,StoreID)values(?,?,?,?,?,?,?,?,?)");
+
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(TotalAmount,Brand,UserName,Store,StoreLocation,ProductID,Quantity,Category,StoreID,InventoryID)values(?,?,?,?,?,?,?,?,?,?)");
 			preparedStatement.setInt(1,obj.getAmount());
 			preparedStatement.setString(2,obj.getBrand());
 			preparedStatement.setString(3,obj.getUserName());
@@ -71,8 +71,11 @@ public class OrdersDAO implements DAO<Orders>{
 			
 			preparedStatement.setString(6,obj.getProductID());
 			preparedStatement.setInt(7,obj.getQuantity());
-			preparedStatement.setString(8, obj.getStoreID());
-			preparedStatement.setString(9, obj.getCategory());
+			preparedStatement.setString(8, obj.getCategory());
+			preparedStatement.setString(9, obj.getStoreID());
+			preparedStatement.setString(10, obj.getInventoryID());
+			
+			
 			
 			
 			
@@ -117,7 +120,7 @@ public class OrdersDAO implements DAO<Orders>{
 			
 			while(rs.next())
 			{
-				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getString("ProductID"),rs.getInt("Quantity")));
+				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getString("ProductID"),rs.getInt("Quantity"),rs.getString("InventoryID")));
 			}
 		}
 		catch(SQLException e)
