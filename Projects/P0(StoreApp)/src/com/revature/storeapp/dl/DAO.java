@@ -15,7 +15,7 @@ public interface DAO<T> {
  
      T[]getAll();
     
- void UpdateInstance(T updatedInstance);
+ void UpDateInstance(T updatedInstance);
  
  void UpdateCustInstance(T updatedCusInstance);
  

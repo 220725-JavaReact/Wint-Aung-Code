@@ -26,12 +26,21 @@ public interface PDAO <T>{
 	    List<T>GetEverything();
 
 
-		void update(Inventory in);
+		void update(int currentInventory ,int ProductID);
 
 
 		
 
 
-		void UpdateInstance(int Quantity);
+	
+
+
+		void update(Inventory obj);
+
+
+		
+
+
+		void UpdateInstance(Inventory newInstance);
 
 }

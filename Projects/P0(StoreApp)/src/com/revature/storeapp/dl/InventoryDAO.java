@@ -17,6 +17,32 @@ public class InventoryDAO implements PDAO <Inventory>{
 	public void addInstance(Inventory newInstance) {
 		// TODO Auto-generated method stub
 		
+		try (Connection connection =ConnectionFactory.getInstance().getConnection())
+		{
+			String query="Update Inventory set Quantity = ? where InventoryID = ? and where ProductID =? ";
+			PreparedStatement preparedStatement =connection.prepareStatement(query);
+			
+			preparedStatement.setInt(1,newInstance.getQuantity());
+			
+			
+//			preparedStatement.setString(2,newInstance.getBrand());
+//			preparedStatement.setString(3,newInstance.getStore());
+//			preparedStatement.setString(4,newInstance.getStoreID());
+//			preparedStatement.setString(5,newInstance.getLocation());
+//			preparedStatement.setInt(6,newInstance.getPrice());
+//			preparedStatement.setString(7,newInstance.getProductID());
+//			preparedStatement.setString(8,newInstance.getCategory());
+			
+			
+			//preparedStatement.setInt(6, updatedInstance.getCustomerID());
+			preparedStatement.executeUpdate();
+			
+			}
+		catch(SQLException e)
+		{
+			throw new RuntimeException("Found an error when the inventory update into database"); 
+		}
+		
 	}
 
 	@Override
@@ -34,19 +60,24 @@ public class InventoryDAO implements PDAO <Inventory>{
 	}
 
 	@Override
-	public void UpdateInstance(int Quantity) {
+	public void UpdateInstance(Inventory newInstance) {
 		// TODO Auto-generated method stub\
 		
 		try (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Update Inventory set Quantity = ? where InventoryID= ? ";
+			String query="Update Inventory set Quantity = ? where InventoryID = ? and StoreID = ?   ";
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
-			preparedStatement.setInt(1,Quantity);
-		//	preparedStatement.setString(2,InventoryID);
-			
+			preparedStatement.setString(1,newInstance.getProductID());
+			preparedStatement.setString(2,newInstance.getStoreID());
+			preparedStatement.setString(3,newInstance.getInventoryID());
+			preparedStatement.setString(4,newInstance.getStore());
+			preparedStatement.setString(5,newInstance.getLocation());
+			preparedStatement.setString(6,newInstance.getCategory());
+			preparedStatement.setString(7,newInstance.getBrand());
+			preparedStatement.setInt(8,newInstance.getPrice());
 			//preparedStatement.setInt(6, updatedInstance.getCustomerID());
-			preparedStatement.execute();
+			preparedStatement.executeUpdate();
 			
 			}
 		catch(SQLException e)
@@ -92,10 +123,8 @@ public class InventoryDAO implements PDAO <Inventory>{
 
 		try {
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Insert into Inventory   (Quantity) values (?) where StoreID=?,ProductID=? ");
+			PreparedStatement preparedstatement=connection.prepareStatement("Update  Inventory  set  Quantity = ? where StoreID=?,ProductID=? ");
 			preparedstatement.setInt(1,obj.getQuantity());
-			preparedstatement.setString(2, obj.getProductID());
-			preparedstatement.setString(3, obj.getStoreID());
 			
 			preparedstatement.executeUpdate();
 			
@@ -187,8 +216,33 @@ public class InventoryDAO implements PDAO <Inventory>{
 	@Override
 	public Inventory getByInvID(String InventoryID) {
 		// TODO Auto-generated method stub
-		
+		try 
+		(Connection connection = ConnectionFactory.getInstance().getConnection())
+		{
+			
+			PreparedStatement preparedstatement=connection.prepareStatement("Select * from  Inventory where InventoryID=? ");
+			preparedstatement.setString(1,InventoryID);
+			
+			preparedstatement.executeUpdate();
+			
+			}
+		catch(SQLException e)
+		{
+ 
+		}
 		return null;
+	}
+
+	@Override
+	public void update(int currentInventory, int ProductID) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateInstance(int currentInventory) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

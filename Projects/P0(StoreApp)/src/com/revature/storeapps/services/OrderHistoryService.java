@@ -16,11 +16,11 @@ public class OrderHistoryService {
 		orderhistoryDAO.save(orderhistory);
 		
 	}
-	public List<OrderHistoryService> getOrdersHistories()
+	//public List<OrderHistoryService> getOrdersHistories()
 	
 	{
 		
-	return orderhistoryDAO.GetEverything();	
+	//return orderhistoryDAO.GetEverything();	
 	}
 
 }

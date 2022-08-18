@@ -296,6 +296,7 @@ private static Inventory inventory;
 										System.out.println("[2]Date          :  "+ strDate);
 										System.out.println("[3]StoreID       :  "+StoreID);
 										System.out.println("[4]InventoryID   :  "+InventoryID);
+										
 										orderHistoryDAO.save(orderHistory);
 										System.out.println("====================================================================");
 										System.out.println("Successfullly save and we will let you know for shippment update");
@@ -303,16 +304,12 @@ private static Inventory inventory;
 										System.out.println("====================================================================");
 										
 										//System.out.println("Inventory update");
-										//System.out.println(inventory);
-
-										//System.out.println("LeftAmount:" +currentInventory);
-										
-									   // String InventoryID=orderHistory.getOrderHistoryID();
-									     
-									   //inventoryDAO.update(inventory);
-									   ShoppingMenu.Start();					
-									    
-										
+									
+										ShoppingMenu.Start();
+								      
+									
+								 
+									
 										
 										break;
 									case "n":
