@@ -13,16 +13,26 @@ public class Inventory {
 	public Inventory()
 	{
 		super();
-	}public Inventory(String Brand,String Category,String StoreID,String Store,String Location, int Price,int Quantity,String ProductID)
+	}
+	public Inventory(String InventoryID,String Brand,String Category,String StoreID,String Store,String Location, int Price,int Quantity,String ProductID)
 	{	this.Brand=Brand;
+	this.Category=Category;
 		this.Store=Store;
 		this.StoreID=StoreID;
-		this.Category=Category;
+		
 		this.Location=Location;
 		this.Price=Price;
 		this.Quantity=Quantity;
 		this.ProductID=ProductID;
 		this.StoreID=StoreID;
+		this.InventoryID=InventoryID;
+		
+	}
+	public Inventory(int InventoryID,String StoreID,String ProductID,int Quantity)
+	{  InventoryID=InventoryID;
+		Quantity=Quantity;
+		StoreID=StoreID;
+		ProductID=ProductID;
 		
 	}
 	
@@ -82,8 +92,10 @@ public class Inventory {
 	}
 	@Override
 	public String toString() {
-		return "Inventory [InventoryID=" + InventoryID + ", Brand=" + Brand + ", Store=" + Store + ", Location="
-				+ Location + ", Price=" + Price + ", Quantity=" + Quantity + "]";
+		return "Inventory [InventoryID=" + InventoryID + ", Brand=" + Brand + ", Category=" + Category + ", Store="
+				+ Store + ", Location=" + Location + ", Price=" + Price + ", Quantity=" + Quantity + ", StoreID="
+				+ StoreID + ", ProductID=" + ProductID + "]";
 	}
+	
 	
 }

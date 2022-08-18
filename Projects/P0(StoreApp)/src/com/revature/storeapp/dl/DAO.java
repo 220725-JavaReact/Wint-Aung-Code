@@ -2,6 +2,8 @@ package com.revature.storeapp.dl;
 
 import java.util.List;
 
+import com.revature.storeapp.models.Customer;
+
 public interface DAO<T> {
  void addInstance (T newInstance);
  
@@ -12,6 +14,7 @@ public interface DAO<T> {
  T setUpdate(String FirstName,String LastName,String UserName,String Password,String Email);
  
      T[]getAll();
+    
  void UpdateInstance(T updatedInstance);
  
  void UpdateCustInstance(T updatedCusInstance);
@@ -23,5 +26,10 @@ public interface DAO<T> {
   
  T getByID(String ID);
  List<T>GetEverything();
+
+
+
+
+ 
  
  }

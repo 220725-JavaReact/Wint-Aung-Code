@@ -1,33 +1,393 @@
-info	2022-08-16T00:00:52.382079100 	Starting APP
-info	2022-08-16T00:01:20.212929200 	Starting APP
-info	2022-08-16T00:01:20.214421600 	 admin choose the option
-info	2022-08-16T00:01:33.426797300 	 admin delete the store
-info	2022-08-16T00:01:33.426797300 	 admin choose the option
-info	2022-08-16T00:03:07.622691100 	Starting APP
-info	2022-08-16T00:03:30.620653200 	Starting APP
-info	2022-08-16T00:04:45.840527500 	Starting APP
-info	2022-08-16T00:05:08.861237700 	Starting APP
-info	2022-08-16T00:07:37.029013500 	Starting APP
-info	2022-08-16T00:07:39.955266300 	Starting APP
-info	2022-08-16T00:07:39.957042 	 admin choose the option
-info	2022-08-16T00:08:26.603661300 	Starting APP
-info	2022-08-16T00:08:31.258527 	Starting APP
-info	2022-08-16T00:08:31.259806900 	 admin choose the option
-info	2022-08-16T00:09:59.194698700 	Starting APP
-info	2022-08-16T00:10:04.905672100 	Starting APP
-info	2022-08-16T00:10:04.907136600 	 admin choose the option
-info	2022-08-16T00:10:36.579480500 	Starting APP
-info	2022-08-16T00:10:41.227181 	Starting APP
-info	2022-08-16T00:10:41.228574900 	 admin choose the option
-info	2022-08-16T00:11:14.289731400 	Starting APP
-info	2022-08-16T00:11:23.289088800 	Starting APP
-info	2022-08-16T00:11:23.290081700 	 admin choose the option
-info	2022-08-16T00:12:07.424445300 	Starting APP
-info	2022-08-16T00:12:13.551164400 	Starting APP
-info	2022-08-16T00:12:13.552604800 	 admin choose the option
-info	2022-08-16T00:12:17.274100300 	 admin choose the option
-info	2022-08-16T00:13:17.942017400 	Starting APP
-info	2022-08-16T00:13:21.332193200 	Starting APP
-info	2022-08-16T00:13:21.333497900 	 admin choose the option
-info	2022-08-16T00:13:24.711167800 	 admin choose the option
-info	2022-08-16T00:15:00.461521600 	Starting APP
+info	2022-08-16T20:15:41.775657500 	Starting APP
+info	2022-08-16T20:15:45.630655900 	 Member start to shop 
+info	2022-08-16T20:15:52.403011400 	 Member start to shop 
+info	2022-08-16T20:15:54.499993600 	 Member start to shop 
+info	2022-08-16T20:16:00.186715700 	 Member choose the product 
+info	2022-08-16T20:18:18.629425900 	Starting APP
+info	2022-08-16T20:18:30.761307600 	 Member start to shop 
+info	2022-08-16T20:18:41.712622700 	Starting APP
+info	2022-08-16T20:18:42.685058800 	 Member start to shop 
+info	2022-08-16T20:19:39.755171200 	Starting APP
+info	2022-08-16T20:19:48.466060500 	 Member start to shop 
+info	2022-08-16T20:19:52.458645900 	 Member start to shop 
+info	2022-08-16T20:19:54.371460 	 Member start to shop 
+info	2022-08-16T20:20:06.096595900 	 Member choose the product 
+info	2022-08-16T20:22:15.783596300 	Starting APP
+info	2022-08-16T20:22:40.886978 	Starting APP
+info	2022-08-16T20:23:10.182845600 	Starting APP
+info	2022-08-16T20:23:25.085974 	 Member start to shop 
+info	2022-08-16T20:23:31.471693900 	 Member start to shop 
+info	2022-08-16T20:23:33.560532600 	 Member start to shop 
+info	2022-08-16T20:23:39.734711700 	 Member choose the product 
+info	2022-08-16T20:24:52.374638200 	Starting APP
+info	2022-08-16T20:25:06.856534900 	 Member start to shop 
+info	2022-08-16T20:25:10.433584100 	 Member start to shop 
+info	2022-08-16T20:25:12.965620600 	 Member start to shop 
+info	2022-08-16T20:25:15.057507300 	 Member choose the product 
+info	2022-08-16T20:25:31.427701 	 Member start to shop 
+info	2022-08-16T20:25:56.129944800 	Starting APP
+info	2022-08-16T20:26:55.038936600 	 Member start to shop 
+info	2022-08-16T20:27:06.571067100 	 Member start to shop 
+info	2022-08-16T20:27:08.697007600 	 Member start to shop 
+info	2022-08-16T20:27:10.530088400 	 Member start to shop 
+info	2022-08-16T20:27:15.131879700 	 Member choose the product 
+info	2022-08-16T20:29:47.755253900 	Starting APP
+info	2022-08-16T20:29:53.414797700 	 Member start to shop 
+info	2022-08-16T20:30:00.450090 	 Member start to shop 
+info	2022-08-16T20:30:10.794540100 	Starting APP
+info	2022-08-16T20:30:13.242275 	 Member start to shop 
+info	2022-08-16T20:30:23.762279700 	 Member start to shop 
+info	2022-08-16T20:31:53.902535800 	Starting APP
+info	2022-08-16T20:31:59.540382100 	 Member start to shop 
+info	2022-08-16T20:32:08.333811900 	 Member start to shop 
+info	2022-08-16T20:32:09.261977200 	 Member start to shop 
+info	2022-08-16T20:32:13.283977 	 Member choose the product 
+info	2022-08-16T20:37:43.537526 	Starting APP
+info	2022-08-16T20:37:50.219862100 	 Member start to shop 
+info	2022-08-16T20:41:00.573800100 	Starting APP
+info	2022-08-16T20:41:02.621923200 	 Member start to shop 
+info	2022-08-16T20:41:23.984840900 	Starting APP
+info	2022-08-16T20:41:25.551538900 	 Member start to shop 
+info	2022-08-16T20:41:33.564726900 	Starting APP
+info	2022-08-16T20:41:37.163704500 	 Member start to shop 
+info	2022-08-16T20:41:43.220682700 	 Member start to shop 
+info	2022-08-16T20:41:44.011205300 	 Member start to shop 
+info	2022-08-16T20:41:48.168002900 	 Member choose the product 
+info	2022-08-16T20:54:08.442139200 	Starting APP
+info	2022-08-16T20:54:34.823145600 	 Member start to shop 
+info	2022-08-16T20:54:42.282969800 	 Member start to shop 
+info	2022-08-16T20:54:43.048982 	 Member start to shop 
+info	2022-08-16T20:54:47.746449700 	 Member choose the product 
+info	2022-08-16T20:55:03.737954700 	Starting APP
+info	2022-08-16T20:55:07.331107100 	 Member start to shop 
+info	2022-08-16T20:55:27.047732100 	Starting APP
+info	2022-08-16T20:55:28.128536300 	 Member start to shop 
+info	2022-08-16T20:55:31.764439900 	 Member start to shop 
+info	2022-08-16T20:55:32.566553700 	 Member start to shop 
+info	2022-08-16T20:55:36.062496500 	 Member choose the product 
+info	2022-08-16T20:56:38.152613400 	Starting APP
+info	2022-08-16T20:56:40.311037500 	 Member start to shop 
+info	2022-08-16T20:56:57.357460100 	Starting APP
+info	2022-08-16T20:57:05.200027400 	 Member start to shop 
+info	2022-08-16T20:57:08.521747200 	 Member start to shop 
+info	2022-08-16T20:57:09.260082700 	 Member start to shop 
+info	2022-08-16T20:57:18.614712600 	Starting APP
+info	2022-08-16T20:57:28.883769 	 Member start to shop 
+info	2022-08-16T20:57:37.348898200 	 Member start to shop 
+info	2022-08-16T20:57:38.097500 	 Member start to shop 
+info	2022-08-16T20:57:56.361407900 	 Member choose the product 
+info	2022-08-16T20:58:26.451207700 	Starting APP
+info	2022-08-16T20:58:30.390056300 	 Member start to shop 
+info	2022-08-16T20:58:33.693330100 	 Member start to shop 
+info	2022-08-16T20:58:34.484282800 	 Member start to shop 
+info	2022-08-16T20:58:36.824346900 	 Member choose the product 
+info	2022-08-16T20:58:52.377354400 	Starting APP
+info	2022-08-16T20:58:53.739898400 	 Member start to shop 
+info	2022-08-16T20:59:01.527605700 	 Member start to shop 
+info	2022-08-16T20:59:02.283413400 	 Member start to shop 
+info	2022-08-16T20:59:06.262936900 	 Member choose the product 
+info	2022-08-16T20:59:55.753732300 	Starting APP
+info	2022-08-16T20:59:58.257582 	 Member start to shop 
+info	2022-08-16T21:00:04.573742600 	 Member start to shop 
+info	2022-08-16T21:00:05.385148400 	 Member start to shop 
+info	2022-08-16T21:00:08.809126200 	 Member choose the product 
+info	2022-08-16T21:01:15.826866200 	Starting APP
+info	2022-08-16T21:01:21.607872100 	 Member start to shop 
+info	2022-08-16T21:01:24.800843700 	 Member start to shop 
+info	2022-08-16T21:01:25.550054700 	 Member start to shop 
+info	2022-08-16T21:01:27.790188100 	 Member choose the product 
+info	2022-08-16T21:06:48.204810100 	Starting APP
+info	2022-08-16T21:06:53.666256800 	 Member start to shop 
+info	2022-08-16T21:06:58.032753600 	 Member start to shop 
+info	2022-08-16T21:06:58.941250400 	 Member start to shop 
+info	2022-08-16T21:07:01.566668100 	 Member choose the product 
+info	2022-08-16T21:09:35.810064500 	Starting APP
+info	2022-08-16T21:09:40.253161700 	 Member start to shop 
+info	2022-08-16T21:09:42.784071200 	 Member start to shop 
+info	2022-08-16T21:09:43.585107900 	 Member start to shop 
+info	2022-08-16T21:09:46.535213500 	 Member choose the product 
+info	2022-08-16T21:10:22.402484600 	Starting APP
+info	2022-08-16T21:10:26.532863800 	 Member start to shop 
+info	2022-08-16T21:10:30.571290600 	 Member start to shop 
+info	2022-08-16T21:10:31.348360300 	 Member start to shop 
+info	2022-08-16T21:10:33.635079100 	 Member choose the product 
+info	2022-08-16T21:12:14.817539400 	Starting APP
+info	2022-08-16T21:14:23.623361400 	Starting APP
+info	2022-08-16T21:14:25.167296900 	 Member start to shop 
+info	2022-08-16T21:14:31.396966900 	 Member start to shop 
+info	2022-08-16T21:14:32.195436500 	 Member start to shop 
+info	2022-08-16T21:14:34.754421800 	 Member choose the product 
+info	2022-08-16T21:15:33.690871800 	Starting APP
+info	2022-08-16T21:15:37.458090800 	 Member start to shop 
+info	2022-08-16T21:15:45.663262500 	 Member start to shop 
+info	2022-08-16T21:15:46.509404100 	 Member start to shop 
+info	2022-08-16T21:15:48.423622500 	 Member start to shop 
+info	2022-08-16T21:15:50.087798800 	 Member start to shop 
+info	2022-08-16T21:15:55.828792600 	 Member choose the product 
+info	2022-08-16T21:18:50.651951900 	Starting APP
+info	2022-08-16T21:18:52.147892100 	 Member start to shop 
+info	2022-08-16T21:19:07.503371700 	 Member start to shop 
+info	2022-08-16T21:19:08.205827300 	 Member start to shop 
+info	2022-08-16T21:19:10.450549500 	 Member start to shop 
+info	2022-08-16T21:19:11.275321300 	 Member start to shop 
+info	2022-08-16T21:19:12.736631700 	 Member start to shop 
+info	2022-08-16T21:19:19.271195100 	 Member choose the product 
+info	2022-08-16T21:20:21.830828300 	Starting APP
+info	2022-08-16T21:20:40.421313400 	Adding a new customer sam
+info	2022-08-16T21:20:51.045379200 	Getting all customers
+info	2022-08-16T21:22:07.031446100 	Starting APP
+info	2022-08-16T21:22:07.032493600 	 admin choose the option
+info	2022-08-16T21:22:09.758890500 	 admin buliding the new  store
+info	2022-08-16T21:22:29.187513400 	 admin create the store
+info	2022-08-16T21:22:29.188080100 	 admin choose the option
+info	2022-08-16T21:22:36.998847700 	 admin choose the option
+info	2022-08-16T21:23:53.499657900 	Starting APP
+info	2022-08-16T21:23:57.902464700 	Starting APP
+info	2022-08-16T21:23:57.903534200 	 admin choose the option
+info	2022-08-16T21:24:15.469777900 	 admin choose the option
+info	2022-08-16T21:25:08.603357800 	Starting APP
+info	2022-08-16T21:25:11.817040800 	Starting APP
+info	2022-08-16T21:25:11.818029900 	 admin choose the option
+info	2022-08-16T21:25:33.477670700 	Starting APP
+info	2022-08-16T21:25:38.125717700 	Starting APP
+info	2022-08-16T21:25:38.126714200 	 admin choose the option
+info	2022-08-16T21:25:41.112033600 	 admin delete the store
+info	2022-08-16T21:25:41.113199600 	 admin choose the option
+info	2022-08-16T21:27:07.334888600 	Starting APP
+info	2022-08-16T21:27:12.694754200 	Starting APP
+info	2022-08-16T21:27:12.696488600 	 admin choose the option
+info	2022-08-16T21:27:14.467745400 	 admin choose the option
+info	2022-08-16T21:27:19.105230200 	 admin delete the store
+info	2022-08-16T21:27:19.105807500 	 admin choose the option
+info	2022-08-16T21:27:34.374680100 	 admin choose the option
+info	2022-08-16T21:29:16.887198800 	Starting APP
+info	2022-08-16T21:29:21.722760600 	Starting APP
+info	2022-08-16T21:29:21.722760600 	 admin choose the option
+info	2022-08-16T21:29:25.263442900 	 admin choose the option
+info	2022-08-16T21:30:04.497198500 	Starting APP
+info	2022-08-16T21:30:07.483207700 	Starting APP
+info	2022-08-16T21:30:07.484168500 	 admin choose the option
+info	2022-08-16T21:30:09.563029400 	 admin choose the option
+info	2022-08-16T21:30:52.407615900 	 admin choose the option
+info	2022-08-16T21:33:24.543038 	Starting APP
+info	2022-08-16T21:33:28.482960 	Starting APP
+info	2022-08-16T21:33:28.483997100 	 admin choose the option
+info	2022-08-16T21:33:35.284193200 	 admin choose the option
+info	2022-08-16T21:33:53.558521200 	Starting APP
+info	2022-08-16T21:34:00.731790500 	Starting APP
+info	2022-08-16T21:34:00.732777900 	 admin choose the option
+info	2022-08-16T21:35:28.045447100 	Starting APP
+info	2022-08-16T21:36:04.826824 	Starting APP
+info	2022-08-16T21:36:09.798074 	Starting APP
+info	2022-08-16T21:36:09.799665800 	 admin choose the option
+info	2022-08-16T21:36:40.728229700 	Starting APP
+info	2022-08-16T21:36:43.731206100 	Starting APP
+info	2022-08-16T21:36:43.732225700 	 admin choose the option
+info	2022-08-16T21:39:18.177126500 	Starting APP
+info	2022-08-16T21:39:23.457739800 	Starting APP
+info	2022-08-16T21:39:23.458763900 	 admin choose the option
+info	2022-08-16T21:44:41.391926300 	Starting APP
+info	2022-08-16T21:44:52.618839700 	Getting all customers
+info	2022-08-16T21:44:59.209970 	Starting APP
+info	2022-08-16T21:44:59.211361600 	 admin choose the option
+info	2022-08-16T21:45:28.144933500 	Starting APP
+info	2022-08-16T21:45:31.235653200 	Starting APP
+info	2022-08-16T21:45:31.237293 	 admin choose the option
+info	2022-08-16T21:45:46.580676500 	Starting APP
+info	2022-08-16T21:45:49.931237700 	Starting APP
+info	2022-08-16T21:45:49.932163400 	 admin choose the option
+info	2022-08-16T21:46:32.066005400 	Starting APP
+info	2022-08-16T21:46:40.773119400 	Getting all customers
+info	2022-08-16T21:46:45.967100500 	Starting APP
+info	2022-08-16T21:46:45.968097100 	 admin choose the option
+info	2022-08-16T21:47:00.414549600 	Starting APP
+info	2022-08-16T21:47:04.425211700 	Existing App
+info	2022-08-16T21:47:13.586903 	Starting APP
+info	2022-08-16T21:47:20.808724200 	Starting APP
+info	2022-08-16T21:47:20.809720800 	 admin choose the option
+info	2022-08-16T21:47:23.085378 	Getting all customers
+info	2022-08-16T21:47:23.087373500 	 admin choose the option
+info	2022-08-16T21:47:32.546334600 	Starting APP
+info	2022-08-16T21:47:36.146740100 	Starting APP
+info	2022-08-16T21:47:36.147993 	 admin choose the option
+info	2022-08-16T21:47:38.500462100 	 admin choose the option
+info	2022-08-16T21:51:24.833220700 	Starting APP
+info	2022-08-16T21:51:43.856267100 	Starting APP
+info	2022-08-16T21:51:46.064697100 	Starting APP
+info	2022-08-16T21:51:46.064697100 	 admin choose the option
+info	2022-08-16T21:53:04.436734100 	Starting APP
+info	2022-08-16T21:53:07.608577900 	Starting APP
+info	2022-08-16T21:53:07.609564700 	 admin choose the option
+info	2022-08-16T21:53:39.874966200 	Starting APP
+info	2022-08-16T21:53:59.128830600 	Adding a new customer mike
+info	2022-08-16T21:54:01.100199700 	Getting all customers
+info	2022-08-16T21:54:29.548959500 	Starting APP
+info	2022-08-16T21:54:29.548959500 	 admin choose the option
+info	2022-08-16T21:54:31.826363800 	 admin buliding the new  store
+info	2022-08-16T21:54:55.608194200 	 admin create the store
+info	2022-08-16T21:54:55.608194200 	 admin choose the option
+info	2022-08-16T21:54:58.696615700 	 admin choose the option
+info	2022-08-16T21:55:14.775211100 	 admin choose the option
+info	2022-08-16T21:56:16.262532600 	Starting APP
+info	2022-08-16T21:56:20.196419100 	Starting APP
+info	2022-08-16T21:56:20.197415800 	 admin choose the option
+info	2022-08-16T21:56:22.924655200 	 admin choose the option
+info	2022-08-16T21:56:32.453149200 	 admin delete the store
+info	2022-08-16T21:56:32.453328900 	 admin choose the option
+info	2022-08-16T21:56:45.554089600 	 admin delete the store
+info	2022-08-16T21:56:45.554642500 	 admin choose the option
+info	2022-08-16T21:56:51.755153300 	 admin choose the option
+info	2022-08-16T21:58:22.847653500 	 admin buliding the new  store
+info	2022-08-16T21:58:37.050452500 	Starting APP
+info	2022-08-16T21:58:59.239460700 	Adding a new customer cole
+info	2022-08-16T21:59:04.915984700 	Getting all customers
+info	2022-08-16T21:59:55.393554700 	Starting APP
+info	2022-08-16T22:00:10.601775400 	Getting all customers
+info	2022-08-16T22:00:27.734627500 	Starting APP
+info	2022-08-16T22:00:55.349895500 	Starting APP
+info	2022-08-16T22:01:16.016280500 	Getting all customers
+info	2022-08-16T22:01:38.901748200 	Starting APP
+info	2022-08-16T22:02:25.520677100 	Starting APP
+info	2022-08-16T22:03:26.096052500 	Starting APP
+info	2022-08-16T22:03:38.694724300 	Starting APP
+info	2022-08-16T22:03:39.785544500 	Getting all customers
+info	2022-08-16T22:03:55.437137100 	Getting all customers
+info	2022-08-16T22:04:54.432283300 	Starting APP
+info	2022-08-16T22:05:10.903700400 	Starting APP
+info	2022-08-16T22:05:19.771137600 	Starting APP
+info	2022-08-16T22:05:32.821474200 	Starting APP
+info	2022-08-16T22:06:30.012217 	Starting APP
+info	2022-08-16T22:06:46.870024800 	Starting APP
+info	2022-08-16T22:06:50.399252 	Getting all customers
+info	2022-08-16T22:07:08.137790100 	Getting all customers
+info	2022-08-16T22:09:16.867835200 	Starting APP
+info	2022-08-16T22:09:18.034337400 	Getting all customers
+info	2022-08-16T22:09:31.368098300 	Getting all customers
+info	2022-08-16T22:10:39.825359500 	Starting APP
+info	2022-08-16T22:10:54.935468800 	Starting APP
+info	2022-08-16T22:10:58.582889700 	Starting APP
+info	2022-08-16T22:10:58.583886400 	 admin choose the option
+info	2022-08-16T22:11:06.138648800 	Starting APP
+info	2022-08-16T22:11:13.676972 	Starting APP
+info	2022-08-16T22:11:13.677895500 	 admin choose the option
+info	2022-08-16T22:46:16.582062600 	Starting APP
+info	2022-08-16T22:46:19.162162400 	Getting all customers
+info	2022-08-16T22:46:32.675091900 	Getting all customers
+info	2022-08-16T22:50:31.977515700 	Starting APP
+info	2022-08-16T22:50:38.429893700 	Getting all customers
+info	2022-08-16T22:53:34.629239 	Starting APP
+info	2022-08-16T22:53:53.732427300 	Starting APP
+info	2022-08-16T22:54:01.368069800 	Getting all customers
+info	2022-08-16T22:56:15.029799900 	Starting APP
+info	2022-08-16T22:56:17.762759700 	 Member start to shop 
+info	2022-08-16T22:56:21.344680800 	Starting APP
+info	2022-08-16T22:56:30.164890400 	Starting APP
+info	2022-08-16T22:56:30.164890400 	 admin choose the option
+info	2022-08-16T22:56:31.646591800 	 admin buliding the new  store
+info	2022-08-16T22:56:51.821333700 	 admin create the store
+info	2022-08-16T22:56:51.822248100 	 admin choose the option
+info	2022-08-16T22:57:16.687685 	 admin choose the option
+info	2022-08-16T22:58:03.477036100 	 admin choose the option
+info	2022-08-16T22:58:14.031121800 	 admin choose the option
+info	2022-08-16T22:58:26.601904800 	 admin choose the option
+info	2022-08-16T22:58:56.291084600 	 admin choose the option
+info	2022-08-16T22:59:42.391373700 	Starting APP
+info	2022-08-16T22:59:53.126747300 	Starting APP
+info	2022-08-16T22:59:53.127704700 	 admin choose the option
+info	2022-08-16T23:00:03.771217500 	 admin delete the store
+info	2022-08-16T23:00:03.771840600 	 admin choose the option
+info	2022-08-16T23:00:33.301621200 	 admin choose the option
+info	2022-08-16T23:01:15.888094100 	 admin choose the option
+info	2022-08-16T23:01:30.652504100 	 admin add the product into  the store
+info	2022-08-16T23:01:37.913571900 	 admin add the quantity of the products into the store
+info	2022-08-16T23:01:40.418983 	 admin choose the store to add the products
+info	2022-08-16T23:01:47.440772200 	 ask the admin for confirm the inventory
+info	2022-08-16T23:01:54.615848100 	 admin create the inventory
+info	2022-08-16T23:01:54.616844900 	 admin choose to create the inventory
+info	2022-08-16T23:01:54.616844900 	 admin choose the option
+info	2022-08-16T23:02:07.854401700 	 admin choose the option
+info	2022-08-16T23:06:59.079154400 	 admin choose the option
+info	2022-08-16T23:09:50.510689700 	Starting APP
+info	2022-08-16T23:09:58.720041800 	Starting APP
+info	2022-08-16T23:09:58.721035200 	 admin choose the option
+info	2022-08-16T23:10:00.440441900 	 admin add the product into  the store
+info	2022-08-16T23:10:04.805092500 	 admin add the quantity of the products into the store
+info	2022-08-16T23:10:06.980929600 	 admin choose the store to add the products
+info	2022-08-16T23:10:10.384573800 	 ask the admin for confirm the inventory
+info	2022-08-16T23:10:19.856083700 	 admin create the inventory
+info	2022-08-16T23:10:19.857517200 	 admin choose to create the inventory
+info	2022-08-16T23:10:19.858083 	 admin choose the option
+info	2022-08-16T23:10:46.885415600 	 admin choose the option
+info	2022-08-16T23:10:54.903365100 	 admin choose the option
+info	2022-08-16T23:14:19.353744600 	Starting APP
+info	2022-08-16T23:14:29.338674900 	Starting APP
+info	2022-08-16T23:14:29.340246200 	 admin choose the option
+info	2022-08-16T23:14:30.591052500 	 admin add the product into  the store
+info	2022-08-16T23:14:35.640321900 	 admin add the quantity of the products into the store
+info	2022-08-16T23:14:37.723630500 	 admin choose the store to add the products
+info	2022-08-16T23:14:40.029938300 	 ask the admin for confirm the inventory
+info	2022-08-16T23:14:49.768248800 	 admin create the inventory
+info	2022-08-16T23:14:49.769237500 	 admin choose to create the inventory
+info	2022-08-16T23:14:49.769237500 	 admin choose the option
+info	2022-08-16T23:17:02.497700600 	Starting APP
+info	2022-08-16T23:17:06.266687700 	Starting APP
+info	2022-08-16T23:17:06.267704500 	 admin choose the option
+info	2022-08-16T23:17:08.626538400 	 admin add the product into  the store
+info	2022-08-16T23:17:11.088906400 	 admin add the quantity of the products into the store
+info	2022-08-16T23:17:14.283005 	 admin choose the store to add the products
+info	2022-08-16T23:17:17.690084600 	 ask the admin for confirm the inventory
+info	2022-08-16T23:17:26.469722400 	 admin create the inventory
+info	2022-08-16T23:17:26.470719 	 admin choose to create the inventory
+info	2022-08-16T23:17:26.471430700 	 admin choose the option
+info	2022-08-16T23:17:43.153923900 	Starting APP
+info	2022-08-16T23:17:45.715169500 	 Member start to shop 
+info	2022-08-16T23:17:55.463396900 	 Member start to shop 
+info	2022-08-16T23:17:55.784514600 	 Member start to shop 
+info	2022-08-16T23:17:58.444587700 	 Member start to shop 
+info	2022-08-16T23:18:02.887194200 	 Member choose the product 
+info	2022-08-16T23:18:09.549871 	 Member start to shop 
+info	2022-08-16T23:18:14.686161900 	 Member start to shop 
+info	2022-08-16T23:18:15.137679500 	 Member start to shop 
+info	2022-08-16T23:18:16.712469700 	 Member start to shop 
+info	2022-08-16T23:18:17.720900300 	 Member start to shop 
+info	2022-08-16T23:18:18.806174900 	 Member start to shop 
+info	2022-08-16T23:18:19.873331100 	 Member start to shop 
+info	2022-08-16T23:18:20.983741200 	 Member start to shop 
+info	2022-08-16T23:18:22.002657100 	 Member start to shop 
+info	2022-08-16T23:18:23.493237700 	 Member start to shop 
+info	2022-08-16T23:18:35.093186300 	 Member start to shop 
+info	2022-08-16T23:18:35.626127600 	 Member start to shop 
+info	2022-08-16T23:18:37.780915600 	 Member start to shop 
+info	2022-08-16T23:18:44.852449400 	 Member choose the product 
+info	2022-08-16T23:18:54.144464 	 Member start to shop 
+info	2022-08-16T23:19:14.633606400 	Starting APP
+info	2022-08-16T23:19:41.092143900 	Starting APP
+info	2022-08-16T23:19:41.093140300 	 admin choose the option
+info	2022-08-16T23:19:43.376025100 	 admin choose the option
+info	2022-08-16T23:19:59.303271700 	 admin choose the option
+info	2022-08-16T23:20:08.931628100 	 admin delete the store
+info	2022-08-16T23:20:08.932624800 	 admin choose the option
+info	2022-08-16T23:21:29.855793600 	Starting APP
+info	2022-08-16T23:21:36.474590 	 Member start to shop 
+info	2022-08-16T23:21:41.900942 	 Member start to shop 
+info	2022-08-16T23:21:42.665743800 	 Member start to shop 
+info	2022-08-16T23:21:56.742919400 	 Member choose the product 
+info	2022-08-16T23:22:03.302141500 	 Member start to shop 
+info	2022-08-16T23:22:07.389606100 	Starting APP
+info	2022-08-16T23:22:14.611288900 	Starting APP
+info	2022-08-16T23:22:14.611288900 	 admin choose the option
+info	2022-08-16T23:22:17.624661 	 admin delete the store
+info	2022-08-16T23:22:17.625657200 	 admin choose the option
+info	2022-08-16T23:22:25.606738800 	 admin choose the option
+info	2022-08-16T23:23:15.842089500 	Starting APP
+info	2022-08-16T23:23:23.471257 	 Member start to shop 
+info	2022-08-16T23:23:27.689008900 	 Member start to shop 
+info	2022-08-16T23:23:28.431358600 	 Member start to shop 
+info	2022-08-16T23:23:33.918696700 	 Member choose the product 
+info	2022-08-16T23:23:44.432016500 	 Member start to shop 
+info	2022-08-16T23:23:47.670857100 	Starting APP
+info	2022-08-16T23:24:03.875591300 	Starting APP
+info	2022-08-16T23:24:03.876328200 	 admin choose the option
+info	2022-08-16T23:24:12.368733300 	 admin choose the option
+info	2022-08-16T23:24:21.190218700 	 admin delete the store
+info	2022-08-16T23:24:21.191215400 	 admin choose the option

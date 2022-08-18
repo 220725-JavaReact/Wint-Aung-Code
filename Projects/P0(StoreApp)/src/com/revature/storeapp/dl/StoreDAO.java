@@ -130,11 +130,11 @@ public class StoreDAO implements PDAO <Store>{
 		try 
 		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Select Location from Store");
+			PreparedStatement preparedstatement=connection.prepareStatement("Select StoreLocation from Store");
 			ResultSet rs=preparedstatement.executeQuery();
 			while(rs.next())
 			{
-				location.add(rs.getString("Location"));
+				location.add(rs.getString("StoreLocationLocation"));
 			}
 		}
 		catch (SQLException e)

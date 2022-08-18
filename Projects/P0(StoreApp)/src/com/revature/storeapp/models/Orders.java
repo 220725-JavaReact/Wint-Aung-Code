@@ -11,6 +11,7 @@ public class Orders
 	int Amount;
 	String Store;
 	String Location;
+	String InventoryID;
 int Quantity;
 	String userName;
 	public Orders()
@@ -18,7 +19,7 @@ int Quantity;
 		super();
 	}
 	
-	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity )
+	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity ,String InventoryID)
 	{
 		//this.OrderID=OrderID;
 		this.ProductID=productID;
@@ -30,13 +31,21 @@ int Quantity;
 		this.Store=Store;
 		this.Location=Location;
 		this.StoreID=StoreID;
-		
+		this.InventoryID=InventoryID;
 		
 	}
 	
 	
 
 
+
+	public String getInventoryID() {
+		return InventoryID;
+	}
+
+	public void setInventoryID(String inventoryID) {
+		InventoryID = inventoryID;
+	}
 
 	public String getProductID() {
 		return ProductID;
@@ -121,16 +130,16 @@ int Quantity;
 	}
 
 
-	@Override
-	public String toString() {
-		return "Orders [ ProductID=" + ProductID + ", StoreID=" + StoreID + ", Brand=" + Brand
-				+ ", Category=" + Category + ", Amount=" + Amount + ", Store=" + Store + ", Location=" + Location
-				+ ", Quantity=" + Quantity + ", userName=" + userName + "]";
-	}
-
 	public String partialToString()
 	{
 		return "Brand:"+Brand+"\n Price:"+Amount+"\n Quantity:" +Quantity;
+	}
+
+	@Override
+	public String toString() {
+		return "Orders [OrderID=" + OrderID + ", ProductID=" + ProductID + ", StoreID=" + StoreID + ", Brand=" + Brand
+				+ ", Category=" + Category + ", Amount=" + Amount + ", Store=" + Store + ", Location=" + Location
+				+ ", InventoryID=" + InventoryID + ", Quantity=" + Quantity + ", userName=" + userName + "]";
 	}
 
 	

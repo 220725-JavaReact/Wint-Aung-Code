@@ -68,23 +68,21 @@ public class PlaceOrderMenu {
 	            while (true) {
 	               // System.out.println("\n" + drawHorizontalLine("| Welcome to admin menu  |", customer.getUserName()));
 	              //  System.out.println("| Welcome to admin menu " + customer.getUserName() + " |");
-	              //  System.out.println(drawHorizontalLine("| Welcome to admin menu  |", customer.getUserName()));
-	                System.out.println("[1] Create store");
+	              //
+	            	//System.out.println(drawHorizontalLine("| Welcome to admin menu  |"));
+	            	System.out.println("\n====================================================================");
+	                System.out.println("==================          Admin  Menu           =================== |");
+	                System.out.println("====================================================================\n");
+	               
+	            	System.out.println("[1] Create store");
 	                System.out.println("[2] Create product");
 	                System.out.println("[3] Add product to store");
 	                System.out.println("[4] View Purchase History");
 	                System.out.println("[5] Order List");
-	                System.out.println("[6] Order List");
-	                System.out.println("[7] Customer List");
-	                System.out.println("[8] Inventory");
-	                System.out.println("[9] Products ");
-	                System.out.println("[10] Update  store");
-		               
-		               
-		               
-		               
-		               
-		               
+	                System.out.println("[6] View Product");
+	                //System.out.println("[7] Customer List");
+	                System.out.println("[7] Inventory");
+	                System.out.println("[8]  View Store");
 	                System.out.println("[x] Sign out");
 	                logger.log(LogLevel.info," admin choose the option");
 	                System.out.print("\nEnter: ");
@@ -93,6 +91,7 @@ public class PlaceOrderMenu {
 	                    case "1":
 	                        createStore();
 	                        logger.log(LogLevel.info," admin create the store");
+	                        
 	                        break;
 	                    case "2":
 	                        createProduct();
@@ -107,10 +106,10 @@ public class PlaceOrderMenu {
 	        					System.out.println(orderHistory);
 	        					System.out.println("====================================================");
 	        					System.out.println("UserName          -  ["  + orderHistory.getUserName()+"]" );
-	        					System.out.println("HistoryID          -  ["+orderHistory.getOrderHistoryID()+"]");
-	    						System.out.println("Date      -    [" +orderHistory.getOrderDate()+"]");
+	        					//System.out.println("HistoryID          -  ["+orderHistory.getOrderHistoryID()+"]");
+	    						System.out.println("Date              -[" +orderHistory.getOrderDate()+"]");
 	    						
-	    						System.out.println("Amount       -  ["+orderHistory.getTotalAmount()+"]");
+	    						System.out.println("Amount            -  ["+orderHistory.getTotalAmount()+"]");
 	    						System.out.println("====================================================\n");
 	    					
 	        				}
@@ -122,34 +121,79 @@ public class PlaceOrderMenu {
 	        				{
 	        					//System.out.println(order);
 	        					//System.out.println(orderHistory);
-	        					System.out.println("====================================================");
+	        					System.out.println("==============================================================================");
 	        					//System.out.println("OrderID    -    [" +order.getOrderID()+"]");
-	    						System.out.println("ProductID    -        [" +order.getProductID()+"]");
+	    						System.out.println("ProductID    -        " +order.getProductID());
 	    						//System.out.println("StoreID      -    [" +order.getStoreID()+"]");
-	        					   System.out.println("UserName     -  ["  + order.getUserName()+"]" );
-	        					System.out.println("Brand       -  ["+order.getBrand()+"]");
+	        					   System.out.println("Customer     -  "  + order.getUserName() );
+	        					System.out.println("Brand        -  "+order.getBrand());
 	    						//System.out.println("Category    -    [" +order.getCategory()+"]");
 	    					
-	    						System.out.println("Store       -    [" +order.getStore()+"]");
-	    						System.out.println("Location    -    [" +order.getLocation()+"]");
+	    						System.out.println("Store        -  " +order.getStore());
+	    						System.out.println("Location     -  "+order.getLocation());
 	    						
-	    						System.out.println("Quantity    -  ["+order.getQuantity()+"]");
-	    						System.out.println("Amount      -    [" +order.getAmount()+"]");
+	    						System.out.println("Quantity     -   "+order.getQuantity()+"PCS");
+	    						System.out.println("Amount       -    $ "+order.getAmount());
 	    						
-	    						System.out.println("====================================================\n");
+	    						System.out.println("===========================================================================\n");
 	        				}
 	                    	break;
 	                    
-	                    case "6":
+	                    case "6":for (Product product1:productDAO.GetEverything())
+						{
+							//System.out.println(product1);
+							System.out.println("====================================================");
+							System.out.println("ProductID      -    [" +product1.getProductID()+"]");
+							System.out.println("Brand          -  ["+product1.getBrand()+"]");
+							System.out.println("Category       -  ["+product1.getCategory()+"]");
+							System.out.println("Price          -  ["  + product1.getPrice()+"]" );
+							System.out.println("Quantity       -  ["+product1.getQuantity()+"]");
+							System.out.println("====================================================");
+							
+						}
+	                    	break;
+	                    
+	                    case "11":
+	                    	
+	                    	for (Customer customer1:customerDAO.GetEverything())
+	        				{
+	        					System.out.println(customer1);
+	        				}
 	                    	break;
 	                    
 	                    case "7":
+	                    	for (Inventory inv:inventoryDAO.GetEverything())
+	    					{
+	    						//System.out.println(product1);
+	    						System.out.println("====================================================");
+	    						System.out.println("ProductID      -    [" +inv.getProductID()+"]");
+	    						System.out.println("Brand          -  ["+inv.getBrand()+"]");
+	    						System.out.println("Category       -  ["+inv.getCategory()+"]");
+	    						System.out.println("Price          -  ["  + inv.getPrice()+"]" );
+	    						System.out.println("Quantity       -  ["+inv.getQuantity()+"]");
+	    						System.out.println("Store         -  ["+inv.getStore()+"]");
+	    						System.out.println("Location       -  ["+inv.getLocation()+"]");
+	    						
+	    						System.out.println("====================================================");
+	    						
+	    					}
 	                    	break;
 	                    
 	                    case "8":
-	                    	break;
-	                    
-	                    case "9":
+	                    	for (Store store:storeDAO.GetEverything())
+	    					{
+	    						//System.out.println(product1);
+	    						System.out.println("====================================================");
+	    						
+	    						System.out.println("ID       -    ["+store.getStoreID()+"]");
+	    						System.out.println("Store     -  ["+store.getStoreName()+"]");
+	    						System.out.println("Location  -  ["+store.getLocation()+"]");
+	    						System.out.println("Des      -  ["+store.getDescription()+"]");
+	    						
+	    						
+	    						System.out.println("====================================================");
+	    						
+	    					}
 	                    	break;
 	                    case "10":
 	                    	break;
@@ -201,16 +245,16 @@ public class PlaceOrderMenu {
 	                product=new Product(Brand, Category, price, quantity) 	;		
 					productDAO2.addInstance(product);
 	                System.out.println("\n" + product);
-	                System.out.println("====================================================");
-					System.out.println("****************Succssfully Saved !!!*************\n");
-					System.out.println("====================================================");	
+	               
 
 	                switch (scanner.nextLine()) {
 	                    case "y":
 	                      
 	                    	
 	                    	
-	                    	
+	                    	System.out.println("====================================================");
+	    					System.out.println("****************Succssfully Saved !!!*************\n");
+	    					System.out.println("====================================================");		
 	                    	
 	                        break exit;
 	                    case "n":
@@ -325,7 +369,7 @@ public class PlaceOrderMenu {
 	                while(true)
 	                {
 	                    System.out.println("What product would you like to add?");
-	                    allProducts =productDAO2.GetEverything();
+	                    allProducts =productDAO.GetEverything();
 //	                    for (Product product:productDAO.getAll())
 //	    				{
 //	    					System.out.println(product);
@@ -367,6 +411,7 @@ public class PlaceOrderMenu {
 	                    	 System.out.println("=======================================================");
 	                        System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getStoreName());
 	                        System.out.println("[ " + (i + 1) + " ]" + allStores.get(i).getLocation());
+	                        
 	                        System.out.println("=======================================================");
 	                    }
 	                    System.out.println("Enter: ");
@@ -388,13 +433,22 @@ public class PlaceOrderMenu {
 	                System.out.println("Product: "+  allProducts.get(prodInput).getBrand());//
 	                String Brand= allProducts.get(prodInput).getBrand();
 	                
-	                System.out.println("Store: "+  allProducts.get(storeInput).getStore());
-	                String Store=( allProducts.get(storeInput).getStore());
-	                String Category= allProducts.get(storeInput).getCategory();
-	                System.out.println("Store: "+  allProducts.get(prodInput).getProductID());
+	               // System.out.println("Store: "+  allProducts.get(storeInput).getStore());
+	                
+	                String Category= allProducts.get(prodInput).getCategory();
+	               
 	                String productID=allProducts.get(prodInput).getProductID();
-	                System.out.println("Store: "+  allStores.get(storeInput).getLocation());
-	                String Location =(allStores.get(storeInput).getLocation());
+	                
+	               System.out.println("Location: "+  allStores.get(storeInput).getLocation());
+	               String Location=allStores.get(storeInput).getLocation();
+	               
+	               System.out.println("Store: "+  allStores.get(storeInput).getStoreName());
+	               
+	               String Description=allStores.get(storeInput).getDescription();	               
+	                System.out.println("Store: "+  allStores.get(storeInput).getDescription());
+	                
+	                String StoreName =(allStores.get(storeInput).getStoreName());
+	                
 	                System.out.println("Price: "+  allProducts.get(prodInput).getPrice());
 	                int Price = allProducts.get(prodInput).getPrice();
 	                System.out.println("Quantity: "+  inventory.getQuantity());
@@ -405,14 +459,16 @@ public class PlaceOrderMenu {
 	                       // inventoryService.register(inventory);
 	                    	
 	                    	String ProductID=inventory.getProductID();
-	                    	String StoreID=inventory.getStoreID();	 
+	                    	String StoreID=inventory.getStoreID();	
+	                    	
 	                           	int qty=inventory.getQuantity();
-	                    	Inventory inv=new Inventory(Brand,Category,StoreID, Store, Location, Price, qty,productID);
+	                           	System.out.println(Category);
+	                    	Inventory inv=new Inventory(UUID.randomUUID().toString(),Brand,Category,StoreID, StoreName, Location, Price, qty,productID);
 	                    	
 	                    	           	
 	                    	
 	                    	inventoryDAO.save(inv);
-	                    	System.out.println( "Brand :"+ProductID + "StoreID:" +StoreID +"Brand :"+Brand +"Store"+ Store+"Lcoaiton:"+Location+"Price"+Price+"Qty"+ qty);
+	                    	System.out.println( "ProuctID :"+ProductID + "  | StoreID:" +StoreID +"|  Brand :"+Brand +"|  Store   :"+ StoreName+" |   Location:"+Location+"  |  Price   :"+Price+"   |  Qty   :"+ qty);
 	                    	  logger.log(LogLevel.info," admin create the inventory");
 	                    	break exit;
 	                    case "n":
