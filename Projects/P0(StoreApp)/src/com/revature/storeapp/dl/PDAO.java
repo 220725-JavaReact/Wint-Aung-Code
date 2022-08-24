@@ -35,12 +35,4 @@ public interface PDAO <T>{
 	
 
 
-		void update(Inventory obj);
-
-
-		
-
-
-		void UpdateInstance(Inventory newInstance);
-
 }

@@ -59,30 +59,30 @@ public class InventoryDAO implements PDAO <Inventory>{
 		return null;
 	}
 
-	@Override
 	public void UpdateInstance(Inventory newInstance) {
 		// TODO Auto-generated method stub\
 		
 		try (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Update Inventory set Quantity = ? where InventoryID = ? and StoreID = ?   ";
+			String query="Update Inventory set Quantity = ? where InventoryID = ? ";
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
-			preparedStatement.setString(1,newInstance.getProductID());
-			preparedStatement.setString(2,newInstance.getStoreID());
-			preparedStatement.setString(3,newInstance.getInventoryID());
-			preparedStatement.setString(4,newInstance.getStore());
-			preparedStatement.setString(5,newInstance.getLocation());
-			preparedStatement.setString(6,newInstance.getCategory());
-			preparedStatement.setString(7,newInstance.getBrand());
-			preparedStatement.setInt(8,newInstance.getPrice());
+			preparedStatement.setInt(1,newInstance.getQuantity());
+			preparedStatement.setInt(2,1);
+			//preparedStatement.setString(3,newInstance.getInventoryID());
+			//preparedStatement.setString(4,newInstance.getStore());
+			//preparedStatement.setString(5,newInstance.getLocation());
+			//preparedStatement.setString(6,newInstance.getCategory());
+			//preparedStatement.setString(7,newInstance.getBrand());
+			//preparedStatement.setInt(8,newInstance.getPrice());
 			//preparedStatement.setInt(6, updatedInstance.getCustomerID());
 			preparedStatement.executeUpdate();
 			
 			}
 		catch(SQLException e)
 		{
-			throw new RuntimeException("Found an error when the inventory update into database"); 
+			//throw new RuntimeException("Found an error when the inventory update into database"); 
+		  e.printStackTrace();
 		}
 		
 	}
@@ -116,14 +116,13 @@ public class InventoryDAO implements PDAO <Inventory>{
 		
 	}
 
-	@Override
 	public void update(Inventory obj) {
 		// TODO Auto-generated method stub
 		
 
 		try {
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Update  Inventory  set  Quantity = ? where StoreID=?,ProductID=? ");
+			PreparedStatement preparedstatement=connection.prepareStatement("Update  Inventory  set  Quantity = ? where InventoryID=? ");
 			preparedstatement.setInt(1,obj.getQuantity());
 			
 			preparedstatement.executeUpdate();
@@ -158,7 +157,7 @@ public class InventoryDAO implements PDAO <Inventory>{
 			
 			while(rs.next())
 			{
-				inventories.add(new Inventory(rs.getString("InventoryID"),rs.getString("Brand"),rs.getString("Category"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID")));
+				inventories.add(new Inventory(rs.getInt("InventoryID"),rs.getString("Brand"),rs.getString("Category"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID")));
 				
 			}
 		}
@@ -193,23 +192,23 @@ public class InventoryDAO implements PDAO <Inventory>{
 		
 		return storeID;
 	}
-	public  static void UpdateQuantity(String InventoryID,String StoreID,String ProductID,int Quantity)
+	public  static void UpdateQuantity(int Quantity,int InventoryID)
 	{
 		
 		try (Connection connection = ConnectionFactory.getInstance().getConnection())
 		{
 			PreparedStatement preparedstatement=connection.prepareStatement("Update Inventory set Quantity=? where InventoryID=?");
 			preparedstatement.setInt(1, Quantity);
-			preparedstatement.setString(2, StoreID);
-			preparedstatement.setString(3, ProductID);
-			preparedstatement.setString(4, InventoryID);
+			
+			preparedstatement.setInt(2, InventoryID);
 			
 			preparedstatement.executeUpdate();
 			
 			}
 		catch(SQLException e)
 		{
-			throw new RuntimeException("Found an error when the inventory update into database"); 
+			e.printStackTrace();
+			//throw new RuntimeException("Found an error when the inventory update into database"); 
 		}
 	}
 
@@ -239,11 +238,7 @@ public class InventoryDAO implements PDAO <Inventory>{
 		
 	}
 
-	@Override
-	public void UpdateInstance(int currentInventory) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	
 	

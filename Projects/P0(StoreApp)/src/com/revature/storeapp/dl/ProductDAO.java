@@ -17,7 +17,7 @@ import com.revature.storeapps.util.ConnectionFactory;
 import com.revature.storeapps.util.Logger;
 import com.revature.storeapps.util.Logger.LogLevel;
 
-public class ProductDAO implements PDAO<Product> {
+public class ProductDAO implements DAO<Product> {
 	
 	private static Logger logger=Logger.getLogger();
 
@@ -67,7 +67,6 @@ public class ProductDAO implements PDAO<Product> {
 		
 	}
 
-	@Override
 	public void UpdateInstance(Product updatedInstance) {
 		// TODO Auto-generated method stub
 	
@@ -135,7 +134,7 @@ public class ProductDAO implements PDAO<Product> {
 			while(rs.next())
 			{
 				//product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("Store"),rs.getString("StoreLocation")));
-				product.add(new Product(rs.getString("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity")));
+				product.add(new Product(rs.getInt("ProductID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("Price"),rs.getInt("Quantity")));
 			
 			}
 		}
@@ -144,6 +143,36 @@ public class ProductDAO implements PDAO<Product> {
 			e.printStackTrace();
 		}
 		return  product;
+		
+	}
+
+	@Override
+	public Product getUser(String UserName, String Password) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Product setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void UpDateInstance(Product updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateCustInstance(Product updatedCusInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateInstance(Customer updatedInstance) {
+		// TODO Auto-generated method stub
 		
 	}
 

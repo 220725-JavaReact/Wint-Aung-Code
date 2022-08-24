@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.OrdersHistory;
 import com.revature.storeapps.services.OrderHistoryService;
 import com.revature.storeapps.util.ConnectionFactory;
@@ -39,12 +40,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 		return null;
 	}
 
-	@Override
-	public void UpdateInstance(OrdersHistory updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	@Override
 	public void UpdateCustInstance(OrdersHistory updatedCusInstance) {
 		// TODO Auto-generated method stub
@@ -55,23 +51,22 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 	public void save(OrdersHistory obj) {
 		// TODO Auto-generated method stub
 		try
-		{
-			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into OrderHistory(OrderDate,TotalAmount,UserName,InventoryID,StoreID)values(?,?,?,?,?)");
+		
+		(	Connection connection = ConnectionFactory.getInstance().getConnection())
+				{	PreparedStatement preparedStatement=connection.prepareStatement("Insert Into OrderHistory(OrderDate,TotalAmount,UserName,InventoryID,StoreID,ProductID)values(?,?,?,?,?,?)");
 			//preparedStatement.setString(1, obj.getOrderHistoryID());		
 			preparedStatement.setString(1, obj.getOrderDate());			
 			preparedStatement.setInt(2,obj.getTotalAmount());
 			preparedStatement.setString(3, obj.getUserName());
-			preparedStatement.setString(4, obj.getInventoryID());
+			preparedStatement.setInt(4, obj.getInventoryID());
 			preparedStatement.setString(5, obj.getStoreID());
-			
+			preparedStatement.setInt(6, obj.getProductID());
 			preparedStatement.execute();
 			
 		}
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-			throw new RuntimeException("An error occured when creat an Order detail  into the database ");
 		}
 	}
 
@@ -104,7 +99,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			
 			while(rs.next())
 			{
-				orderHistories.add(new OrdersHistory(rs.getString("UserName"),rs.getString("OrderDate"),rs.getInt("TotalAmount"),rs.getString("StoreID"),rs.getString("InventoryID"),rs.getString("ProductID")));
+				orderHistories.add(new OrdersHistory(rs.getString("UserName"),rs.getString("OrderDate"),rs.getInt("TotalAmount"),rs.getString("StoreID"),rs.getInt("InventoryID"),rs.getInt("ProductID")));
 				
 			
 			}
@@ -122,5 +117,13 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public void UpDateInstance(OrdersHistory updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

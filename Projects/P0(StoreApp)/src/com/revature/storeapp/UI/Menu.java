@@ -42,8 +42,8 @@ public class Menu {
 	 // if i want o use array use DAO 
 	private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
 	private static DAO<Customer>customerDAO=new CustomerDAO();//with array
-	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
-	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
+	private static DAO<Product>productDAO=new ProductDAO(); // without array storage
+//	private static PDAO<Product>productDAO2=new ProductDBDAO(); // from array
 	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
 	private static PDAO<Store>storeDAO=new StoreDAO();
 		private static Logger logger=Logger.getLogger();

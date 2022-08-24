@@ -5,7 +5,7 @@ public class OrdersHistory {
 	private String UserName;
 	private String OrderDate;
 	private int TotalAmount;
-	private String InventoryID;
+	private int InventoryID;
 	private String StoreID;
 	private String ProductID;
 	
@@ -16,7 +16,7 @@ public class OrdersHistory {
 	
 	
 	
-	public OrdersHistory(String UserName,String OrderDate,int TotalAmount,String InventoryID,String StoreID,String ProductID)
+	public OrdersHistory(String UserName,String OrderDate,int TotalAmount,int InventoryID,String StoreID,String ProductID)
 	{
 	this.OrderHistoryID=OrderHistoryID;
 	this.ProductID=ProductID;
@@ -28,7 +28,13 @@ public class OrdersHistory {
 	}
 
 
-    public void OrderHistory(String InventoryID,String StoreID,String ProductID,int Quantity)
+    public OrdersHistory(String userName1, String strDate, int sum, String storeID2, int inventoryID2,
+			String productID2) {
+		// TODO Auto-generated constructor stub
+	}
+
+
+	public void OrderHistory(String InventoryID,String StoreID,String ProductID,int Quantity)
     {
     	InventoryID =InventoryID;
     	StoreID=StoreID;
@@ -63,6 +69,16 @@ public class OrdersHistory {
 
 
 
+
+
+	public String getProductID() {
+		return ProductID;
+	}
+
+
+	public void setProductID(String productID) {
+		ProductID = productID;
+	}
 
 
 	public void setUserName(String userName) {
@@ -106,12 +122,12 @@ public class OrdersHistory {
 	}
 
 
-	public String getInventoryID() {
+	public int getInventoryID() {
 		return InventoryID;
 	}
 
 
-	public void setInventoryID(String inventoryID) {
+	public void setInventoryID(int inventoryID) {
 		InventoryID = inventoryID;
 	}
 
@@ -126,15 +142,12 @@ public class OrdersHistory {
 	}
 
 
-	
-	
-	
+	}
 
 
 	
-
-
-
+	
+	
 
 
 	
@@ -144,4 +157,9 @@ public class OrdersHistory {
 
 
 	
-}
+
+
+
+
+
+	

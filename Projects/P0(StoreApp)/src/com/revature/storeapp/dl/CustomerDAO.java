@@ -40,19 +40,18 @@ public class CustomerDAO implements DAO<Customer> {
 		return CustomerStorage.customerlist.getAllElements();
 	}
 
-	@Override
-	public void UpdateInstance(Customer updatedInstance) {
-		// TODO Auto-generated method stub
-		Customer[] allCustomer=getAll();
-
-		for(int i=0;i< allCustomer.length;i++)
-		{
-			if(allCustomer[i].getUserName().equals(updatedInstance.getUserName()));
-			allCustomer[i]=updatedInstance;
-			logger.log(LogLevel.info,"Customer" +updatedInstance.getCustomerID()+"Successfully updated");
-			break;
-		}
-	}
+//	public void UpdateInstance(Customer updatedInstance) {
+//		// TODO Auto-generated method stub
+//		Customer[] allCustomer=getAll();
+//
+//		for(int i=0;i< allCustomer.length;i++)
+//		{
+//			if(allCustomer[i].getUserName().equals(updatedInstance.getUserName()));
+//			allCustomer[i]=updatedInstance;
+//			logger.log(LogLevel.info,"Customer" +updatedInstance.getCustomerID()+"Successfully updated");
+//			break;
+//		}
+//	}
 
 	
 
@@ -83,6 +82,7 @@ public class CustomerDAO implements DAO<Customer> {
 	@Override
 	public void update(Customer obj) {
 		// TODO Auto-generated method stub
+		
 		
 	}
 
