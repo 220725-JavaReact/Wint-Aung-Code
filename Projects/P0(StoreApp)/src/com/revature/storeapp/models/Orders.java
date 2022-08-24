@@ -11,7 +11,7 @@ public class Orders
 	int Amount;
 	String Store;
 	String Location;
-	String InventoryID;
+	int InventoryID;
 int Quantity;
 	String userName;
 	public Orders()
@@ -19,7 +19,7 @@ int Quantity;
 		super();
 	}
 	
-	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity ,String InventoryID)
+	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity ,int InventoryID)
 	{
 		//this.OrderID=OrderID;
 		this.ProductID=productID;
@@ -39,11 +39,11 @@ int Quantity;
 
 
 
-	public String getInventoryID() {
+	public int getInventoryID() {
 		return InventoryID;
 	}
 
-	public void setInventoryID(String inventoryID) {
+	public void setInventoryID(int inventoryID) {
 		InventoryID = inventoryID;
 	}
 

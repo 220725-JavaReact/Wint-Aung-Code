@@ -7,8 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.storeapp.models.Customer;
 import com.revature.storeapp.models.Inventory;
 import com.revature.storeapp.models.Orders;
+import com.revature.storeapp.models.Product;
 import com.revature.storeapps.util.ConnectionFactory;
 
 public class OrdersDAO implements DAO<Orders>{
@@ -32,11 +34,7 @@ public class OrdersDAO implements DAO<Orders>{
 		return null;
 	}
 
-	@Override
-	public void UpdateInstance(Orders updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	@Override
 	public Orders getUser(String UserName, String Password) {
@@ -59,7 +57,7 @@ public class OrdersDAO implements DAO<Orders>{
 	@Override
 	public void save(Orders obj) {
 		// TODO Auto-generated method stub
-		try			(Connection connection = ConnectionFactory.getInstance().getConnection())
+		try		(Connection connection = ConnectionFactory.getInstance().getConnection())
 		{
 
 			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into Orders(TotalAmount,Brand,UserName,Store,StoreLocation,ProductID,Quantity,Category,StoreID,InventoryID)values(?,?,?,?,?,?,?,?,?,?)");
@@ -69,13 +67,12 @@ public class OrdersDAO implements DAO<Orders>{
 			preparedStatement.setString(4,obj.getStore());
 			preparedStatement.setString(5,obj.getLocation());
 			
-			preparedStatement.setString(6,obj.getProductID());
+			preparedStatement.setInt(6,obj.getProductID());
 			preparedStatement.setInt(7,obj.getQuantity());
 			preparedStatement.setString(8, obj.getCategory());
 			preparedStatement.setString(9, obj.getStoreID());
-			preparedStatement.setString(10, obj.getInventoryID());
-			
-			
+			preparedStatement.setInt(10, obj.getInventoryID());
+					
 			
 			
 			
@@ -120,7 +117,7 @@ public class OrdersDAO implements DAO<Orders>{
 			
 			while(rs.next())
 			{
-				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getString("ProductID"),rs.getInt("Quantity"),rs.getString("InventoryID")));
+				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getInt("ProductID"),rs.getInt("Quantity"),rs.getInt("InventoryID")));
 			}
 		}
 		catch(SQLException e)
@@ -129,5 +126,25 @@ public class OrdersDAO implements DAO<Orders>{
 		}
 		return order;
 	}
+
+	@Override
+	public void UpDateInstance(Orders updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateInstance(Customer updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void UpdateInstance(Product updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 }

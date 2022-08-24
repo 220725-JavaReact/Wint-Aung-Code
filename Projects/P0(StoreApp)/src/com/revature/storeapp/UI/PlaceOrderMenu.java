@@ -463,7 +463,7 @@ public class PlaceOrderMenu {
 	                    	
 	                           	int qty=inventory.getQuantity();
 	                           	System.out.println(Category);
-	                    	Inventory inv=new Inventory(UUID.randomUUID().toString(),Brand,Category,StoreID, StoreName, Location, Price, qty,productID);
+	                    	Inventory inv=new Inventory(qty, Brand,Category,StoreID, StoreName, Location, Price, qty,productID);
 	                    	
 	                    	           	
 	                    	

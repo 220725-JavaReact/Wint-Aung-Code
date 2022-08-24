@@ -33,6 +33,7 @@ import com.revature.storeapps.util.Logger.LogLevel;
 
 public class ShoppingMenu 
 {
+private static final int InventoryID = 0;
 private static DAO<Orders> orderDAO= new OrdersDAO();
 private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
 private static DAO<Customer>customerDAO=new CustomerDAO();//with array
@@ -220,7 +221,7 @@ private static Inventory inventory;
 						String StoreID=product.getStoreID();
 						String Category=product.getCategory();
 						String location =product.getLocation();
-						String inventoryID=product.getInventoryID();
+						int inventoryID=product.getInventoryID();
 						
 						int amount = (product.getPrice() * Quantity);
 						System.out.println("ProductID     -    [" +ProductID+"]" );
@@ -281,38 +282,38 @@ private static Inventory inventory;
 										String strDate=dateFormat.format(date);
 										currentInventory=inventoryQuntity-Quantity;
 										String StoreId=product.getStoreID();
-										String InventoryID=product.getInventoryID();
+										int InventoryID=product.getInventoryID();
 										
 										//System.out.println(" order register");
 										
 										System.out.println("==========================================================================");
 										System.out.println("Order History Of  " +UserName1);
-										OrdersHistory orderHistory=new OrdersHistory(UserName1, strDate, sum ,StoreID,InventoryID,ProductID);
-									
-									
+										
 										System.out.println(" You bought this item");
 										System.out.println("====================================================================");
-										System.out.println("[1]UserName      :  "+orderHistory.getUserName());
+										System.out.println("[1]UserName      :  " +UserName1);
 										System.out.println("[2]Date          :  "+ strDate);
 										System.out.println("[3]StoreID       :  "+StoreID);
-										System.out.println("[4]InventoryID   :  "+InventoryID);
+										System.out.println("[4]InventoryID   :  "+inventoryID);
+									
+										OrdersHistory orderHistory=new OrdersHistory(UserName1, strDate, sum ,StoreID,inventoryID,ProductID);
+										System.out.println(orderHistory);
 										orderHistoryDAO.save(orderHistory);
 										System.out.println("====================================================================");
 										System.out.println("Successfullly save and we will let you know for shippment update");
 										
 										System.out.println("====================================================================");
+									   //  int productid=Integer.valueOf(ProductID);
+									   
+										InventoryDAO.UpdateQuantity( currentInventory,inventoryID);
 										
-										//System.out.println("Inventory update");
-										//System.out.println(inventory);
-
-										//System.out.println("LeftAmount:" +currentInventory);
 										
-									   // String InventoryID=orderHistory.getOrderHistoryID();
-									     
-									   //inventoryDAO.update(inventory);
-									   ShoppingMenu.Start();					
-									    
-										
+									
+										ShoppingMenu.Start();
+								      
+									
+								 
+									
 										
 										break;
 									case "n":

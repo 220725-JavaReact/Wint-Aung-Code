@@ -1,7 +1,7 @@
 package com.revature.storeapp.models;
 
 public class Inventory {
-    private String InventoryID;
+    private int InventoryID;
 	private String Brand;
 	private String Category;
 	private String Store;
@@ -14,7 +14,7 @@ public class Inventory {
 	{
 		super();
 	}
-	public Inventory(String InventoryID,String Brand,String Category,String StoreID,String Store,String Location, int Price,int Quantity,String ProductID)
+	public Inventory(int InventoryID,String Brand,String Category,String StoreID,String Store,String Location, int Price,int Quantity,String ProductID)
 	{	this.Brand=Brand;
 	this.Category=Category;
 		this.Store=Store;
@@ -28,13 +28,7 @@ public class Inventory {
 		this.InventoryID=InventoryID;
 		
 	}
-	public Inventory(int InventoryID,String StoreID,String ProductID,int Quantity)
-	{  InventoryID=InventoryID;
-		Quantity=Quantity;
-		StoreID=StoreID;
-		ProductID=ProductID;
-		
-	}
+	
 	
 	public String getCategory() {
 		return Category;
@@ -54,10 +48,11 @@ public class Inventory {
 	public void setProductID(String productID) {
 		ProductID = productID;
 	}
-	public String getInventoryID() {
+	
+	public int getInventoryID() {
 		return InventoryID;
 	}
-	public void setInventoryID(String inventoryID) {
+	public void setInventoryID(int inventoryID) {
 		InventoryID = inventoryID;
 	}
 	public String getBrand() {

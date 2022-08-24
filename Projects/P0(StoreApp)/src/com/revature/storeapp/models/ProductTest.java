@@ -13,7 +13,7 @@ public class ProductTest {
 		//arrange
 		Product product=new Product("Test");
 		//act
-		product.addPrice(100);
+		product.addPrice(10);
 		//assert
 		Assert.equal(1000,product.getPrice());
 	}
@@ -34,9 +34,11 @@ public class ProductTest {
 		//arrange
 		Product product=new Product("Test");
 		//act
-		product.addPrice(100);
+		product.addPrice(1000);
 		//assert
-		Assert.willThrow(InvalidPriceException.class, () -> product.addPrice(100));
+		Assert.willThrow(InvalidPriceException.class, () -> product.addPrice(0));
 	}
+	
+	
 	
 }

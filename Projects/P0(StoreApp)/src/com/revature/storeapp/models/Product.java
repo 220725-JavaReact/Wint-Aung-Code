@@ -5,7 +5,7 @@ package com.revature.storeapp.models;
 import com.revature.storeapp.exception.InvalidPriceException;
 
 public class Product {
-	private String  ProductID;
+	private int  ProductID;
 	private String brand;
 	private int price;
 	private String category;
@@ -18,7 +18,7 @@ public class Product {
 		super();
 	}
 	
-	public Product(String ProductID,String brand,String category,int price,int quantity)
+	public Product(int ProductID,String brand,String category,int price,int quantity)
 	{this.ProductID=ProductID;
 		this.brand=brand;
 		this.price=price;
@@ -52,53 +52,55 @@ public class Product {
 		this.StoreLocation=StoreLocation;
 		
 	}
-	public String getProductID() {
+	
+
+
+	@Override
+	public String toString() {
+		return "Product [ProductID=" + ProductID + ", brand=" + brand + ", price=" + price + ", category=" + category
+				+ ", quantity=" + quantity + ", Store=" + Store + ", StoreLocation=" + StoreLocation + "]";
+	}
+
+	public int getProductID() {
 		return ProductID;
 	}
-	public void setProductID(String ProductID) {
-		ProductID = ProductID;
+
+	public void setProductID(int productID) {
+		ProductID = productID;
 	}
+
 	public String getBrand() {
 		return brand;
 	}
-	
+
 	public void setBrand(String brand) {
 		this.brand = brand;
 	}
+
 	public int getPrice() {
-//		if (price < 0 || price >1000) 
-//			
-//			throw new InvalidPriceException ("Invalid Price . pls enter between 0 and 1000");
-//	
 		return price;
 	}
+
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
 		this.category = category;
 	}
+
 	public int getQuantity() {
 		return quantity;
 	}
+
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public int addPrice( int Price)
-	{
-		if(Price == 0 )throw new InvalidPriceException("You can't add nothing .You either give points or you take em away");
-		 this.price+=price;
-		 return this.price;
-	}
-	public int addPrice(PriceCategories category)
-	{
-		this.price += category.value;
-		return this.price;
-	}
-	
+
 	public String getStore() {
 		return Store;
 	}
@@ -113,14 +115,6 @@ public class Product {
 
 	public void setStoreLocation(String storeLocation) {
 		StoreLocation = storeLocation;
-	}
-
-	
-
-	@Override
-	public String toString() {
-		return "Product [ProductID=" + ProductID + ", brand=" + brand + ", price=" + price + ", category=" + category
-				+ ", quantity=" + quantity + "]";
 	}
 
 
