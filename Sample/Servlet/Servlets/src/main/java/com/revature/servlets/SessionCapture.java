@@ -9,9 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.CustomerDAO;
+import com.revature.dao.CustomerDBDAO;
 import com.revature.model.Customer;
 
 public class SessionCapture extends HttpServlet{
+	
+	private static CustomerDAO<Customer> customerDAO= new CustomerDBDAO() ;
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServerException
 	{
@@ -29,6 +35,7 @@ public class SessionCapture extends HttpServlet{
 			out.println("<b> Customer lastname: "+ customer.getLastName() +"</b></br>");
 			out.println("<b> Customer username: "+ customer.getUserName() +"</b></br>");
 			out.println("<i> Customer password: "+ customer.getPassword() +"php</i></br>");
+			
 		}
 		else
 		{
@@ -42,7 +49,13 @@ public class SessionCapture extends HttpServlet{
 	{
 		HttpSession session=req.getSession();
 		//clearing the session
-		
+		Customer customer =new Customer();
+		String fname= customer.getFirstName();
+		String lname= customer.getLastName();
+		String username= customer.getUserName();
+		String password= customer.getPassword();
+		 Customer customer1 =new Customer(fname,lname,username,password);
+		 customerDAO.addInstance(customer1);
 		session.invalidate();
 	}
 }

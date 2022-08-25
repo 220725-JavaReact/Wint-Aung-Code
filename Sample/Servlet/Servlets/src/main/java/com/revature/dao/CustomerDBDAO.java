@@ -1,6 +1,7 @@
 package com.revature.dao;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,8 +15,24 @@ import com.revature.util.ConnectionUtil;
 public class CustomerDBDAO implements CustomerDAO<Customer> {
 
 	@Override
-	public Customer addInstance(Customer instance) {
+	public  Customer addInstance(Customer instance) {
 		// TODO Auto-generated method stub
+		try(Connection con=ConnectionFactory.getInstance().getConnection())
+		{
+			String query="Insert into Customer(FirstName,LastName,UserName,Password)values (?,?,?,?)";
+			PreparedStatement ps=con.prepareStatement(query);
+			//ps.setInt(1, instance.getCustomerID());
+			ps.setString(1, instance.getFirstName());
+			ps.setString(2, instance.getLastName());
+			ps.setString(3, instance.getUserName());
+			ps.setString(4, instance.getPassword());
+			ps.execute();
+		}
+		
+		catch(SQLException e) 
+		{e.printStackTrace();
+		}
+		
 		return null;
 	}
 
@@ -42,23 +59,46 @@ public class CustomerDBDAO implements CustomerDAO<Customer> {
 		return listofCustomer;
 	}
 
-	
-	
-
-	
 	@Override
-	public Customer updateInstance(Customer instance) {
+	public void getByID(int CustomerID,String UserName,String Password) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Customer deleteInstance(Customer instance) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
+		Customer customer=new Customer();
+		try(Connection con=ConnectionFactory.getInstance().getConnection())
+		{
+			PreparedStatement ps=con.prepareStatement("Select * from Customer where CustomerID=?");
+			ps.setInt(1, CustomerID);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				customer=new Customer(rs.getInt("CustomerID"),rs.getString("UserName"),rs.getString("Password"));
+				
+			}
+		}
+		catch(SQLException e)
+		{
+			e.printStackTrace();
+		}
 		
+	}
+
+	@Override
+	public void updateInstance(Customer updatinstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteInstance(Customer deleteinstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
+	
+
+	
+
+
 	
 	
 	

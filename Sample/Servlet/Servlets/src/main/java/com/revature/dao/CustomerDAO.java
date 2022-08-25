@@ -3,15 +3,15 @@ package com.revature.dao;
 import java.util.List;
 
 public interface CustomerDAO <T>{
-	public T addInstance (T newinstance);
+	 T addInstance (T newinstance);
 	
 	//T [] getAll();
-	public List <T> getAllInstance();
+	  List <T> getAllInstance();
 
+	void getByID(int CustomerID,String UserName,String Password);
+	 void  updateInstance(T updatinstance);
 	
-	public T updateInstance(T updatinstance);
-	
-	public T deleteInstance(T deleteinstance);
+	 void  deleteInstance(T deleteinstance);
 	
 
 }

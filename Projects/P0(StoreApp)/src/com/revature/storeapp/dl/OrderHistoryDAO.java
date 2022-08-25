@@ -59,7 +59,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			preparedStatement.setInt(2,obj.getTotalAmount());
 			preparedStatement.setString(3, obj.getUserName());
 			preparedStatement.setInt(4, obj.getInventoryID());
-			preparedStatement.setString(5, obj.getStoreID());
+			preparedStatement.setInt(5, obj.getStoreID());
 			preparedStatement.setInt(6, obj.getProductID());
 			preparedStatement.execute();
 			
@@ -99,7 +99,7 @@ public class OrderHistoryDAO implements DAO<OrdersHistory>{
 			
 			while(rs.next())
 			{
-				orderHistories.add(new OrdersHistory(rs.getString("UserName"),rs.getString("OrderDate"),rs.getInt("TotalAmount"),rs.getString("StoreID"),rs.getInt("InventoryID"),rs.getInt("ProductID")));
+				orderHistories.add(new OrdersHistory(rs.getString("UserName"),rs.getString("OrderDate"),rs.getInt("TotalAmount"),rs.getInt("StoreID"),rs.getInt("InventoryID"),rs.getInt("ProductID")));
 				
 			
 			}

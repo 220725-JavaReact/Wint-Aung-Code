@@ -12,7 +12,7 @@ import com.revature.storeapp.Storage.ProductList;
 import com.revature.storeapp.models.Product;
 import com.revature.storeapps.util.ConnectionFactory;
 
-public class ProductDBDAO implements DAO<Product> {
+public class ProductDBDAO implements PDAO<Product> {
 
 	@Override
 	public void addInstance(Product newInstance) {
@@ -82,27 +82,7 @@ public class ProductDBDAO implements DAO<Product> {
 		return  productlist.getAllElements();
 	}
 
-	@Override
-	public void UpdateInstance(Product updatedInstance) {
-		// TODO Auto-generated method stub
 	
-		try(Connection connection =ConnectionFactory.getInstance().getConnection())
-		{
-			String query="Update Product set Brand=? ,Category =?,Price=?, Quantity =?";
-			PreparedStatement preparedStatement =connection.prepareStatement(query);
-			preparedStatement.setString(1, updatedInstance.getBrand());
-			preparedStatement.setString(2,updatedInstance.getCategory());
-			preparedStatement.setInt(3, updatedInstance.getPrice());
-			preparedStatement.setInt(4, updatedInstance.getQuantity());
-			preparedStatement.setString(5, updatedInstance.getProductID());
-			preparedStatement.execute();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		
-	}
 
 
 
@@ -113,14 +93,6 @@ public class ProductDBDAO implements DAO<Product> {
 
 	@Override
 	public void save(Product obj) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void update(Product obj) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -155,8 +127,16 @@ public class ProductDBDAO implements DAO<Product> {
 
 
 
+	
+
+
+
+
+
+
+
 	@Override
-	public Product getUser(String UserName, String Password) {
+	public Product getByInvID(String InventoryID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -164,15 +144,7 @@ public class ProductDBDAO implements DAO<Product> {
 
 
 	@Override
-	public Product setUpdate(String FirstName, String LastName, String UserName, String Password, String Email) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-
-
-	@Override
-	public void UpdateCustInstance(Product updatedCusInstance) {
+	public void update(int currentInventory, int ProductID) {
 		// TODO Auto-generated method stub
 		
 	}

@@ -70,7 +70,7 @@ public class OrdersDAO implements DAO<Orders>{
 			preparedStatement.setInt(6,obj.getProductID());
 			preparedStatement.setInt(7,obj.getQuantity());
 			preparedStatement.setString(8, obj.getCategory());
-			preparedStatement.setString(9, obj.getStoreID());
+			preparedStatement.setInt(9, obj.getStoreID());
 			preparedStatement.setInt(10, obj.getInventoryID());
 					
 			
@@ -117,7 +117,7 @@ public class OrdersDAO implements DAO<Orders>{
 			
 			while(rs.next())
 			{
-				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getInt("ProductID"),rs.getInt("Quantity"),rs.getInt("InventoryID")));
+				order.add(new Orders(rs.getInt("TotalAmount"),rs.getString("Brand"),rs.getString("Category"),rs.getString("UserName"),rs.getInt("StoreID"),rs.getString("Store"),rs.getString("StoreLocation"),rs.getInt("ProductID"),rs.getInt("Quantity"),rs.getInt("InventoryID")));
 			}
 		}
 		catch(SQLException e)
@@ -133,17 +133,6 @@ public class OrdersDAO implements DAO<Orders>{
 		
 	}
 
-	@Override
-	public void UpdateInstance(Customer updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void UpdateInstance(Product updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	
 

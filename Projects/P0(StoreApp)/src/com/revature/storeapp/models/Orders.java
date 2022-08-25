@@ -3,9 +3,9 @@ package com.revature.storeapp.models;
 public class Orders
 {
 	
-	String OrderID;
-	String  ProductID;
-	String StoreID;
+	int OrderID;
+	int  ProductID;
+	int StoreID;
 	String Brand;
 	String Category;
 	int Amount;
@@ -19,7 +19,7 @@ int Quantity;
 		super();
 	}
 	
-	public Orders(int Amount,String Brand, String Category,String userName,String StoreID,String Store,String Location,String productID ,int Quantity ,int InventoryID)
+	public Orders(int Amount,String Brand, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID)
 	{
 		//this.OrderID=OrderID;
 		this.ProductID=productID;
@@ -47,19 +47,19 @@ int Quantity;
 		InventoryID = inventoryID;
 	}
 
-	public String getProductID() {
+	public int getProductID() {
 		return ProductID;
 	}
 
-	public void setProductID(String productID) {
+	public void setProductID(int productID) {
 		ProductID = productID;
 	}
 
-	public String getStoreID() {
+	public int getStoreID() {
 		return StoreID;
 	}
 
-	public void setStoreID(String storeID) {
+	public void setStoreID(int storeID) {
 		StoreID = storeID;
 	}
 
@@ -71,11 +71,11 @@ int Quantity;
 		Category = category;
 	}
 
-	public String getOrderID() {
+	public int getOrderID() {
 		return OrderID;
 	}
 
-	public void setOrderID(String orderID) {
+	public void setOrderID(int orderID) {
 		OrderID = orderID;
 	}
 

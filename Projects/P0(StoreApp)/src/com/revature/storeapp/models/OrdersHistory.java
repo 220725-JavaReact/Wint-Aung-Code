@@ -1,13 +1,13 @@
 package com.revature.storeapp.models;
 
 public class OrdersHistory {
-	private String OrderHistoryID;
+	private int OrderHistoryID;
 	private String UserName;
 	private String OrderDate;
 	private int TotalAmount;
 	private int InventoryID;
-	private String StoreID;
-	private String ProductID;
+	private int StoreID;
+	private int ProductID;
 	
 	
 	
@@ -16,7 +16,7 @@ public class OrdersHistory {
 	
 	
 	
-	public OrdersHistory(String UserName,String OrderDate,int TotalAmount,int InventoryID,String StoreID,String ProductID)
+	public OrdersHistory(String UserName,String OrderDate,int TotalAmount,int StoreID,int InventoryID,int ProductID)
 	{
 	this.OrderHistoryID=OrderHistoryID;
 	this.ProductID=ProductID;
@@ -44,7 +44,7 @@ public class OrdersHistory {
 
 
 
-	public String getOrderHistoryID() {
+	public int getOrderHistoryID() {
 		return OrderHistoryID;
 	}
 
@@ -53,7 +53,7 @@ public class OrdersHistory {
 
 
 
-	public void setOrderHistoryID(String orderHistoryID) {
+	public void setOrderHistoryID(int orderHistoryID) {
 		OrderHistoryID = orderHistoryID;
 	}
 
@@ -71,12 +71,12 @@ public class OrdersHistory {
 
 
 
-	public String getProductID() {
+	public int getProductID() {
 		return ProductID;
 	}
 
 
-	public void setProductID(String productID) {
+	public void setProductID(int productID) {
 		ProductID = productID;
 	}
 
@@ -132,12 +132,12 @@ public class OrdersHistory {
 	}
 
 
-	public String getStoreID() {
+	public int getStoreID() {
 		return StoreID;
 	}
 
 
-	public void setStoreID(String storeID) {
+	public void setStoreID(int storeID) {
 		StoreID = storeID;
 	}
 

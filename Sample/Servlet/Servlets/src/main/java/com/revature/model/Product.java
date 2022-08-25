@@ -66,6 +66,15 @@ public class Product {
 		return "Product [ProductID=" + ProductID + ", ProductName=" + ProductName + ", Category=" + Category
 				+ ", Price=" + Price + ", Quantity=" + Quantity + "]";
 	}
+	public enum PriceCategories
+	{
+		COmputer(1000),Desktop(1000),Monitor(500),Camera(3000),Accessories(300),Laptop(Integer.MIN_VALUE);
+		public final int value;
+		private PriceCategories(int value)
+		{
+			this.value=value;
+		}
+	}
 	  
 	  
 	  

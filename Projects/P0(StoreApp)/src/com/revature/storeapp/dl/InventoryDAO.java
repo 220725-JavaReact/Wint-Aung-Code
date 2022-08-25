@@ -102,8 +102,8 @@ public class InventoryDAO implements PDAO <Inventory>{
 			preparedStatement.setString(3,obj.getLocation());
 			preparedStatement.setInt(4,obj.getPrice());
 			preparedStatement.setInt(5,obj.getQuantity());
-			preparedStatement.setString(6, obj.getProductID());
-			preparedStatement.setString(7, obj.getStoreID());
+			preparedStatement.setInt(6, obj.getProductID());
+			preparedStatement.setInt(7, obj.getStoreID());
 			preparedStatement.setString(8, obj.getCategory());
 			preparedStatement.execute();
 			
@@ -157,14 +157,15 @@ public class InventoryDAO implements PDAO <Inventory>{
 			
 			while(rs.next())
 			{
-				inventories.add(new Inventory(rs.getInt("InventoryID"),rs.getString("Brand"),rs.getString("Category"),rs.getString("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getString("ProductID")));
+				inventories.add(new Inventory(rs.getInt("InventoryID"),rs.getString("Brand"),rs.getString("Category"),rs.getInt("StoreID"),rs.getString("Store"),rs.getString("Location"),rs.getInt("Price"),rs.getInt("Quantity"),rs.getInt("ProductID")));
 				
 			}
 		}
 		catch(SQLException e)
 		{
-			throw new RuntimeException("An error  occured to inject the data into the database.");
-		}
+			
+			e.printStackTrace();
+			}
 		
 		return inventories;
 

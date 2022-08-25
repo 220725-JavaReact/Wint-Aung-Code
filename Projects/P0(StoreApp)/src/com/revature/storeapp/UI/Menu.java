@@ -103,7 +103,7 @@ public class Menu {
 					System.out.println(customer);
 					customerDAO2.addInstance(customer);
 					//customerDAO.addInstance(customer);
-					new PlaceOrderMenu(customer,order,new CustomerService(new CustomerDBDAO()),new StoreService(new StoreDAO()),new ProductService(new ProductDAO()),new OrderService(new OrdersDAO()),new InventoryService(new InventoryDAO()) ,new OrderHistoryService(new OrderHistoryDAO())).toString();
+					//new PlaceOrderMenu(customer,order,new CustomerService(new CustomerDBDAO()),new StoreService(new StoreDAO()),new ProductService(new ProductDAO()),new OrderService(new OrdersDAO()),new InventoryService(new InventoryDAO()) ,new OrderHistoryService(new OrderHistoryDAO())).toString();
 					System.out.println("====================================================");
 					System.out.println("****************Succssfully Saved !!!*************\n");
 					System.out.println("====================================================");				
