@@ -1,18 +1,83 @@
 <html>
+	<head>
+	 <title>
+	 TODO supply a title
+	 </title>
+	 <meta charset="UTF-8">
+	  <meta name= "viewport" content ="width=device-width,initial-scales=1.0">
+ 		
+	</head>
 	<body>
+	 <center>Home Page(Login Successfully) </center>
+	</body>
+</html>
+
+
+
  		<h1>
  		Welcome to New York Market Servlet 
  		</h1>
  		<p>
  		Where all the customer serve their overlords  get it ? "Serve"
  		</p>
+ 		<form method="post" action = "/Servlets/login">
+ 			<p>Customer Login ,Get </p>
+ 			Name:<input type="text" name = "UserName" /></br> </br>
+ 			Password:<input type ="text" name ="Password" /> </br> </br>			
+ 			<input type = "submit" value = "Login"/>
+ 	 	</form>
+ 	 	
+ 	 	
+ 		
+ 				
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
+ 	
+
+
+<-- INDEX--->
+
+
+ 		<h1>
+ 		Welcome to New York Market Servlet 
+ 		</h1>
+ 		<p>
+ 		Where all the customer serve their overlords  get it ? "Serve"
+ 		</p>
+ 		<!--member login form-->
+ 		<form method="get" action = "/Servlets/login">
+ 			<p>Member LogIn </p>
+ 			<input type = "submit" value = "Login"/>
+ 	 	</form>
+ 	 	
+ 	 	
+ 	 	
+ 	 	
+ 	 	<!--member shopping form-->
+ 	 	<form method="get" action = "/Servlets/order">
+ 			<p>Shopping Now? </p>
+ 			<input type = "submit" value = " Shop"/>
+ 	 	</form>
+ 		
+ 		
+ 		
+ 		
+ 		
+ 		
  		<form method="get" action = "/Servlets/customer">
  			<p>Customer info ,Get </p>
  			<input type = "submit" value = "Direct Text Response"/>
  	 	</form>
  	 	
  	 	<form method="get" action = "/Servlets/allcustomer">
- 			<p>Customer Servlet ,Get </p>
+ 			<p>All customer from customer table ,Get </p>
  			<input type = "submit" value = " Customer list"/>
  	 	</form>
  		
@@ -62,16 +127,14 @@
  	 	
  	 	<input type= "text" name ="Password" placeholder="Password"></br>
  	 <!-- 	<input type= "number" name ="password" placeholder="password">-->
- 	 	 </br>
+ 	 	 
  	 	<input type= "submit" value ="Register Customer">
  	 	</form>
 
 
- 	 	<form method="post" action = "
- 	 	/Servlets/seshcap">
+ 	 	<form method="post" action = "/Servlets/seshcap">
  			<p>SessionCapture Servlet ,Post </p>
  			<input type = "submit" value = " Clear A customer cache..."/>
  	 	</form>
 
-	</body>
-</html>
+	

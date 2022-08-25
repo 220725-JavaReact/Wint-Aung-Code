@@ -20,7 +20,11 @@ public class MainMenu extends HttpServlet{
 		//res.getWriter().write(" WInt");
 		System.out.println("Direct Get");
 		res.setContentType("text/html");
-	res.getWriter().write("<html><body><h1>The servlet is directly talk to the client ! </h1></body></html>");
+	res.getWriter().write("<html><body><h1> Customer Login Page </h1>"
+			+ " <p> Please enter username and Password !</p>"
+			
+			
+			+"</body></html>");
 	}
 	
 	@Override

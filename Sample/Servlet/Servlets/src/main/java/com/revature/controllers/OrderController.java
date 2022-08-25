@@ -2,24 +2,43 @@ package com.revature.controllers;
 
 import java.io.IOException;
 import java.rmi.ServerException;
+import java.util.List;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.CustomerDAO;
+import com.revature.dao.CustomerDBDAO;
+import com.revature.dao.ProductDBDAO;
 import com.revature.model.Customer;
+import com.revature.model.Product;
 
 public class OrderController extends HttpServlet {
 
+	private static CustomerDAO<Customer> customerDAO= new CustomerDBDAO() ;
+	private static CustomerDAO<Product> productDAO= new ProductDBDAO() ;
 	@Override
-	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServerException
+	protected void doGet(HttpServletRequest req,HttpServletResponse resp)throws IOException,ServerException
 	{
-		Customer customer=new Customer("Wint","Aung","wintusersession", "wintpasswordsession");
 		
-		HttpSession session=req.getSession();
-		session.setAttribute("the-customer", customer);
-		res.getWriter().write("Megamind is one the loose");
+		
+List<Product> listofProduct=productDAO.getAllInstance();
+		
+		
+		for(Product product : listofProduct)
+		{
+		resp.getWriter().println("============================ ");
+		//resp.getWriter().println(customer.getCustomerID());
+		resp.getWriter().println("ProductID  : ["+product.getProductID()+"]");
+		resp.getWriter().println("Name       : ["+product.getProductName()+"]");
+		resp.getWriter().println("Category   : ["+product.getCategory()+"]");
+		resp.getWriter().println("Price      : ["+product.getPrice()+"]");
+		resp.getWriter().println("Quantity   : ["+product.getQuantity()+"]");
+		
+		}
+		
 	}
 	
  @Override
