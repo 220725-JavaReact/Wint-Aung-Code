@@ -10,8 +10,14 @@ public class Store {
 	{
 		super();
 	}
-	public Store(String StoreName,String City, String State)
-	{
+	public Store( String StoreName,String City, String State)
+	{   this.StoreID=StoreID;
+		this.StoreName=StoreName;
+		this.City=City;
+		this.State=State;
+	}
+	public Store(int storeID,String StoreName,String City, String State)
+	{   this.StoreID=storeID;
 		this.StoreName=StoreName;
 		this.City=City;
 		this.State=State;

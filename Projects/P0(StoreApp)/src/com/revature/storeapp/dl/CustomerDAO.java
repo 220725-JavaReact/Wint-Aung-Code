@@ -103,6 +103,12 @@ public class CustomerDAO implements DAO<Customer> {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void UpDateInstance(Customer updatedInstance) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 

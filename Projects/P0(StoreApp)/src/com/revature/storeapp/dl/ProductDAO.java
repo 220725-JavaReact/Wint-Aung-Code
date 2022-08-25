@@ -170,14 +170,6 @@ public class ProductDAO implements DAO<Product> {
 		
 	}
 
-	@Override
-	public void UpdateInstance(Customer updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
-  
 	
 	
 }

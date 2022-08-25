@@ -42,19 +42,6 @@ public class StoreDAO implements PDAO <Store>{
 
 	
 
-	
-
-	
-
-	@Override
-	public void UpdateInstance(Store updatedInstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-
 	@Override
 	public void save(Store obj) {
 		// TODO Auto-generated method stub
@@ -68,12 +55,6 @@ public class StoreDAO implements PDAO <Store>{
 		{
 			throw new RuntimeException("Error found to inject the data into database store table");
 		}
-		
-	}
-
-	@Override
-	public void update(Store obj) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -152,6 +133,18 @@ public class StoreDAO implements PDAO <Store>{
 	public Store[] getAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public Store getByInvID(String InventoryID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void update(int currentInventory, int ProductID) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

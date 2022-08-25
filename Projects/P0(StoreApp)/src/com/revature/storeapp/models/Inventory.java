@@ -8,13 +8,13 @@ public class Inventory {
 	private String Location;
 	private int Price;
 	private int Quantity;
-	private String StoreID;
-	private String ProductID;
+	private int StoreID;
+	private int ProductID;
 	public Inventory()
 	{
 		super();
 	}
-	public Inventory(int InventoryID,String Brand,String Category,String StoreID,String Store,String Location, int Price,int Quantity,String ProductID)
+	public Inventory(int InventoryID,String Brand,String Category,int StoreID,String Store,String Location, int Price,int Quantity,int ProductID)
 	{	this.Brand=Brand;
 	this.Category=Category;
 		this.Store=Store;
@@ -36,16 +36,16 @@ public class Inventory {
 	public void setCategory(String category) {
 		Category = category;
 	}
-	public String getStoreID() {
+	public int getStoreID() {
 		return StoreID;
 	}
-	public void setStoreID(String storeID) {
+	public void setStoreID(int storeID) {
 		StoreID = storeID;
 	}
-	public String getProductID() {
+	public int getProductID() {
 		return ProductID;
 	}
-	public void setProductID(String productID) {
+	public void setProductID(int productID) {
 		ProductID = productID;
 	}
 	

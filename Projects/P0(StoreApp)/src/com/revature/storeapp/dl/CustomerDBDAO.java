@@ -22,15 +22,16 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		// TODO Auto-generated method stub
 		try(Connection connection=ConnectionFactory.getInstance().getConnection())
 		{
-		  String query= "Insert into Customer(FirstName,LastName,UserName,Password,Email)Values(?,?,?,?,?)";
+		  String query= "Insert into Customer(FirstName,LastName,UserName,Password)Values(?,?,?,?)";
 		  PreparedStatement preparedStatement=connection.prepareStatement(query);
 		  preparedStatement.setString(1,newInstance.getFirstName());
 		  preparedStatement.setString(2,newInstance.getLastName());
 		  preparedStatement.setString(3,newInstance.getUserName());
 		  preparedStatement.setString(4,newInstance.getPassword());
-		  preparedStatement.setString(5,newInstance.getEmail());
+
 		  preparedStatement.execute();
 		  }
+		
 		  catch(SQLException e)
 		{
 			e.printStackTrace();
@@ -85,29 +86,7 @@ public class CustomerDBDAO  implements DAO<Customer>{
 		return  customerlist.getAllElements();
 	}
 
-	@Override
-	public void UpdateInstance(Customer updatedInstance) {
-		// TODO Auto-generated method stub
-		try(Connection connection =ConnectionFactory.getInstance().getConnection())
-		{
-			String query="Update Customer set FirstName=? ,LastName =?,UserName=?, Password =?,Email=? where CustomerID=?";
-			PreparedStatement preparedStatement =connection.prepareStatement(query);
-			
-			preparedStatement.setString(1, updatedInstance.getFirstName());
-			preparedStatement.setString(2,updatedInstance.getLastName());
-			preparedStatement.setString(3, updatedInstance.getUserName());
-			preparedStatement.setString(4, updatedInstance.getPassword());
-			
-			preparedStatement.setString(5, updatedInstance.getEmail());
-			//preparedStatement.setInt(6, updatedInstance.getCustomerID());
-			preparedStatement.execute();
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
-		
-	}
+	
 	public List <String>getAllcustermerbyUserName()
 	{
 		List<String> username=new ArrayList<>();
@@ -253,6 +232,12 @@ public class CustomerDBDAO  implements DAO<Customer>{
 			e.printStackTrace();
 		}
 		return username;
+	}
+
+	@Override
+	public void UpDateInstance(Customer updatedInstance) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

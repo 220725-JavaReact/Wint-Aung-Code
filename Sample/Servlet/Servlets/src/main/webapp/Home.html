@@ -1,0 +1,77 @@
+<html>
+	<body>
+ 		<h1>
+ 		Welcome to New York Market Servlet 
+ 		</h1>
+ 		<p>
+ 		Where all the customer serve their overlords  get it ? "Serve"
+ 		</p>
+ 		<form method="get" action = "/Servlets/customer">
+ 			<p>Customer info ,Get </p>
+ 			<input type = "submit" value = "Direct Text Response"/>
+ 	 	</form>
+ 	 	
+ 	 	<form method="get" action = "/Servlets/allcustomer">
+ 			<p>Customer Servlet ,Get </p>
+ 			<input type = "submit" value = " Customer list"/>
+ 	 	</form>
+ 		
+ 				
+ 		
+ 		
+ 		
+ 		<!-- Direct Servlet           Main File/class (small)              -->
+ 		<form method="get" action = "/Servlets/main">
+ 			<p>Customer Servlet ,Get </p>
+ 			<input type = "submit" value = "Direct Text Response"/>
+ 	 	</form>
+ 	 	
+ 	 	<form method="post" action = "/Servlets/main">
+ 			<p>Customer Servlet ,Post </p>
+ 			<input type = "submit" value = "Direct Text Response"/>
+ 	 	</form>
+ 	 	
+ 	 	<!--Indeirect Servlet-->
+ 	 	<form method="get" action = "/Servlets/redirect">
+ 			<p>Redirect Servlet ,Get </p>
+ 			<input type = "submit" value = "Redirect Text Response"/>
+ 	 	</form>
+ 	 	
+ 	 	<form method="post" action = "/Servlets/redirect">
+ 			<p>Redirect Servlet ,Post </p>
+ 			<input type = "submit" value = "Redirect Text Response"/>
+ 	 	</form>
+ 	 	<!--session servlets-->
+ 	 	
+ 	 	<form method="get" action = "/Servlets/sesh">
+ 			<p>Session Servlet ,Get </p>
+ 			<input type = "submit" value = "Set Magamind Free..."/>
+ 	 	</form>
+ 	 	
+ 	 	
+ 	 	<form method="get" action = "/Servlets/customer">
+ 			<p>SessionCapture Servlet ,Get </p>
+ 			<input type = "submit" value = " obtain A customer ..."/>
+ 	 	</form>
+ 	 	
+ 	 	<form method="post" action = "/Servlets/customer">
+ 	 	<p>Session Servlet POST </p>
+ 	 	<input type= "text" name="FirstName" placeholder="FirstName"></br>
+ 	 	<input type= "text" name ="LastName" placeholder="LastName"></br>
+ 	 	<input type= "text" name ="UserName" placeholder="UserName"></br>
+ 	 	
+ 	 	<input type= "text" name ="Password" placeholder="Password"></br>
+ 	 <!-- 	<input type= "number" name ="password" placeholder="password">-->
+ 	 	 </br>
+ 	 	<input type= "submit" value ="Register Customer">
+ 	 	</form>
+
+
+ 	 	<form method="post" action = "
+ 	 	/Servlets/seshcap">
+ 			<p>SessionCapture Servlet ,Post </p>
+ 			<input type = "submit" value = " Clear A customer cache..."/>
+ 	 	</form>
+
+	</body>
+</html>

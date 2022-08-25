@@ -33,9 +33,8 @@ import com.revature.storeapps.util.Logger.LogLevel;
 public class PlaceOrderMenu {
 	private static DAO<Customer>customerDAO2 = new CustomerDBDAO();/// without array
 	private static DAO<Customer>customerDAO=new CustomerDAO();//with array
-	private static PDAO<Product>productDAO=new ProductDAO(); // without array storage
-	private static DAO<Product>productDAO2=new ProductDBDAO(); // from array
-	private static DAO<OrdersHistory> ordershistoryDAO=new OrderHistoryDAO();
+	private static PDAO<Product>productDAO2=new ProductDBDAO(); // from array
+	private static DAO<OrdersHistory> ordershistoryDAO= new OrderHistoryDAO();
 	private static DAO<Orders> orderDAO= new OrdersDAO();
 	private static PDAO<Store>storeDAO= new StoreDAO();
 	private static PDAO<Inventory>inventoryDAO=new InventoryDAO();
@@ -139,7 +138,7 @@ public class PlaceOrderMenu {
 	        				}
 	                    	break;
 	                    
-	                    case "6":for (Product product1:productDAO.GetEverything())
+	                    case "6":for (Product product1:productDAO2.GetEverything())
 						{
 							//System.out.println(product1);
 							System.out.println("====================================================");
@@ -369,7 +368,7 @@ public class PlaceOrderMenu {
 	                while(true)
 	                {
 	                    System.out.println("What product would you like to add?");
-	                    allProducts =productDAO.GetEverything();
+	                  //  allProducts =productDAO2.GetEverything();
 //	                    for (Product product:productDAO.getAll())
 //	    				{
 //	    					System.out.println(product);
@@ -420,7 +419,7 @@ public class PlaceOrderMenu {
 	                    if(storeInput < 0 || storeInput >= allStores.size()){
 	                        System.out.println("Invalid input. Try again.");
 	                    }else{
-	                    	inventory.setStoreID(allStores.get(storeInput).getStoreID());
+	                    	inventory.setStore(allStores.get(storeInput).getStoreID());
 	                       
 	                        scan.nextLine();
 	                        break;
@@ -437,7 +436,7 @@ public class PlaceOrderMenu {
 	                
 	                String Category= allProducts.get(prodInput).getCategory();
 	               
-	                String productID=allProducts.get(prodInput).getProductID();
+	                int productID=allProducts.get(prodInput).getProductID();
 	                
 	               System.out.println("Location: "+  allStores.get(storeInput).getLocation());
 	               String Location=allStores.get(storeInput).getLocation();
@@ -458,8 +457,8 @@ public class PlaceOrderMenu {
 	                    case "y":
 	                       // inventoryService.register(inventory);
 	                    	
-	                    	String ProductID=inventory.getProductID();
-	                    	String StoreID=inventory.getStoreID();	
+	                    	int ProductID=inventory.getProductID();
+	                    	int StoreID=inventory.getStoreID();	
 	                    	
 	                           	int qty=inventory.getQuantity();
 	                           	System.out.println(Category);

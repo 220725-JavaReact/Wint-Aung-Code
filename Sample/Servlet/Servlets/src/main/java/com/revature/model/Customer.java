@@ -21,13 +21,12 @@ public class Customer {
 		Password = password;
 	}
  
- public Customer( int CustomerID,String firstName, String lastName, String userName, String password) {
-		CustomerID=CustomerID;
-		FirstName = firstName;
-		LastName = lastName;
-		UserName = userName;
-		Password = password;
-	}
+public Customer(int CustomerID,String UserName,String Password)
+{
+this.CustomerID=CustomerID;
+this.UserName=UserName;
+this.Password=Password;
+}
  
 
 public int getCustomerID() {

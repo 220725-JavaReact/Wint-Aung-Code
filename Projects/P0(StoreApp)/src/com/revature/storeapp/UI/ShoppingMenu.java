@@ -179,19 +179,19 @@ private static Inventory inventory;
 				System.out.println("Do you wanna buy this product? ");
 				System.out.println("Please enter yes or no !! ");
 				
-				for (Inventory product:inventoryDAO.GetEverything())
+				for (Inventory inv:inventoryDAO.GetEverything())
 				{
 				System.out.println("====================================================");
-				System.out.println(product);
-				System.out.println("ID         -  [" + product.getProductID()+"]");
-				System.out.println("Brand      -  ["  +product.getBrand()+"]");
-				System.out.println("Category   -  ["+product.getCategory()+"]");
-				System.out.println("Price      -  [" +product.getPrice()+"]");
-				System.out.println("Quantity   -  [" +product.getQuantity()+"]");
-				int inventoryQuntity=product.getQuantity();
-				System.out.println("Store      -  [" +product.getStore()+"]");
-				System.out.println("Location   -  [" +product.getLocation()+"]");
-				System.out.println("InventoryID   -  [" +product.getInventoryID()+"]");
+				System.out.println(inv);
+				System.out.println("ID         -  [" + inv.getProductID()+"]");
+				System.out.println("Brand      -  ["  +inv.getBrand()+"]");
+				System.out.println("Category   -  ["+inv.getCategory()+"]");
+				System.out.println("Price      -  [" +inv.getPrice()+"]");
+				System.out.println("Quantity   -  [" +inv.getQuantity()+"]");
+				int inventoryQuntity=inv.getQuantity();
+				System.out.println("Store      -  [" +inv.getStore()+"]");
+				System.out.println("Location   -  [" +inv.getLocation()+"]");
+				System.out.println("InventoryID   -  [" +inv.getInventoryID()+"]");
 				
 				System.out.println("====================================================");
 				System.out.println("PRESS YES [OR] NO");
@@ -204,26 +204,26 @@ private static Inventory inventory;
 						case "yes":
 						System.out.println("Please enter the ID of the product what what you like to buy!!!");
 						System.out.println("Plase enter ID of your choosen product!! ");
-						String ProductID=scanner.nextLine();
+						int ProductID=scanner.nextInt();
 					
 						System.out.println("Plase enter  Quantity !! ");
 						int Quantity =scanner.nextInt();
-						int qty =product.getQuantity();
+						int qty =inv.getQuantity();
 							if (Quantity > qty)
 						{
 							System.out.println("Pleas enter valid amount ");
 						}
 							logger.log(LogLevel.info," Member choose the product ");
 						System.out.println("This is the list of product you want to buy !!!!!!!");
-						String Brand= product.getBrand();
-						int Price = product.getPrice();
-						String store =product.getStore();
-						String StoreID=product.getStoreID();
-						String Category=product.getCategory();
-						String location =product.getLocation();
-						int inventoryID=product.getInventoryID();
+						String Brand= inv.getBrand();
+						int Price = inv.getPrice();
+						String store =inv.getStore();
+						int StoreID= Integer.valueOf(inv.getStoreID());
+						String Category=inv.getCategory();
+						String location =inv.getLocation();
+						int inventoryID=inv.getInventoryID();
 						
-						int amount = (product.getPrice() * Quantity);
+						int amount = (inv.getPrice() * Quantity);
 						System.out.println("ProductID     -    [" +ProductID+"]" );
 						System.out.println("InventoryID   -    [" +inventoryID+"]" );
 						System.out.println("StoreID       -     [" +StoreID +"]");
@@ -281,8 +281,8 @@ private static Inventory inventory;
 										DateFormat dateFormat= new SimpleDateFormat("mm-dd-yyyy");
 										String strDate=dateFormat.format(date);
 										currentInventory=inventoryQuntity-Quantity;
-										String StoreId=product.getStoreID();
-										int InventoryID=product.getInventoryID();
+										int StoreId=inv.getStoreID();
+										int InventoryID=inv.getInventoryID();
 										
 										//System.out.println(" order register");
 										
