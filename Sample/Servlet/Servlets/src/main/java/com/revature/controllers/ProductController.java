@@ -3,13 +3,14 @@ package com.revature.controllers;
 import java.io.IOException;
 import java.rmi.ServerException;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.revature.model.Customer;
 
-public class ProductController {
+public class ProductController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServerException
 	{

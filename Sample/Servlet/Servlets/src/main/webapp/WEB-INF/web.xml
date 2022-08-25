@@ -10,7 +10,7 @@
   <welcome-file-list>
   <welcome-file>index.html</welcome-file>
   </welcome-file-list>
-
+<!-- customer -->
 <servlet>
 <servlet-name>CustomerController</servlet-name>
 <servlet-class>com.revature.controllers.CustomerController</servlet-class>
@@ -19,6 +19,36 @@
 <servlet-name>CustomerController</servlet-name>
 <url-pattern>/customer</url-pattern>
 <url-pattern>/allcustomer</url-pattern></servlet-mapping>
+
+
+<!-- User login !!-->
+<servlet>
+<servlet-name>UserLoginController</servlet-name>
+<servlet-class>com.revature.dao.UserLoginController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>UserLoginController</servlet-name>
+<url-pattern>/login</url-pattern>
+
+</servlet-mapping>
+
+
+
+
+
+<!-- Shopping page for customer-->
+<servlet>
+<servlet-name>OrderController</servlet-name>
+<servlet-class>com.revature.controllers.OrderController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>OrderController</servlet-name>
+<url-pattern>/order</url-pattern>
+
+</servlet-mapping>
+
 
 
 
