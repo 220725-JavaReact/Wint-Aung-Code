@@ -5,15 +5,38 @@ public class Order {
 	int OrderID;
 	int ProductID;
 	int StoreID;
-	String ProductName;
+	String Brand;
 	String Category;
-	String InventoryID;
+	int InventoryID;
 	String Store;
 	String Location;
-	int Amount;
+	double Amount;
 	int Quantity;
 	String UserName;
-	public int getOrderID() {
+	
+	public Order()
+	{
+		super();
+	}
+	
+	public  Order(double Amount,String Brand, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID)
+	{
+		
+		this.ProductID=productID;
+		this.Brand=Brand;
+		this.Category=Category;
+		this.Amount=Amount;
+		this.Quantity=Quantity;
+		this.UserName=userName;		
+		this.Store=Store;
+		this.Location=Location;
+		this.StoreID=StoreID;
+		this.InventoryID=InventoryID;
+		
+	}
+	
+	
+		public int getOrderID() {
 		return OrderID;
 	}
 	public void setOrderID(int orderID) {
@@ -31,11 +54,11 @@ public class Order {
 	public void setStoreID(int storeID) {
 		StoreID = storeID;
 	}
-	public String getProductName() {
-		return ProductName;
+	public String getBrand() {
+		return Brand;
 	}
-	public void setProductName(String productName) {
-		ProductName = productName;
+	public void setsBrand(String Brand) {
+		Brand = Brand;
 	}
 	public String getCategory() {
 		return Category;
@@ -43,10 +66,10 @@ public class Order {
 	public void setCategory(String category) {
 		Category = category;
 	}
-	public String getInventoryID() {
+	public int getInventoryID() {
 		return InventoryID;
 	}
-	public void setInventoryID(String inventoryID) {
+	public void setInventoryID(int inventoryID) {
 		InventoryID = inventoryID;
 	}
 	public String getStore() {
@@ -61,10 +84,10 @@ public class Order {
 	public void setLocation(String location) {
 		Location = location;
 	}
-	public int getAmount() {
+	public double getAmount() {
 		return Amount;
 	}
-	public void setAmount(int amount) {
+	public void setAmount(double amount) {
 		Amount = amount;
 	}
 	public int getQuantity() {
@@ -82,7 +105,7 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [OrderID=" + OrderID + ", ProductID=" + ProductID + ", StoreID=" + StoreID + ", ProductName="
-				+ ProductName + ", Category=" + Category + ", InventoryID=" + InventoryID + ", Store=" + Store
+				+ Brand + ", Category=" + Category + ", InventoryID=" + InventoryID + ", Store=" + Store
 				+ ", Location=" + Location + ", Amount=" + Amount + ", Quantity=" + Quantity + ", UserName=" + UserName
 				+ "]";
 	}

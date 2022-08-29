@@ -1,48 +1,32 @@
+<!DOCTYPE html>
 <html>
- <head>
- <body>
- <link rel="stylesheet" type="text/css" href="editor.css">
+
+<link rel="stylesheet" type="text/css" href="editor.css">
  	<title> lOG IN PAGE</title>
 	<meta charset="UTF-8">
 	<meta name= "viewport" content ="width=device-width,initial-scales=1.0">
  </head>
  <div class="header">
  
-  <h1 align="left">ウィントケイトゥエアウン</h1>
+  <h1 align="left">Our Logo</h1>
   <u1 class="nav" text-align="right">
-    <li ><a href="#">Home</a></li>
+    <li ><a href="Home.html">Home</a></li>
     <li><a href="CustomerRegistration.html">Register </a></li>
-    <li><a href="Home.html">Login</a></li>
-    <li><a href="Home.jsp">Logout</a></li>
+    <li><a href="index.html">Login</a></li>
+      <li><a href="Home.html">Logout</a></li>
   </u1>
 </div>
+
+ 		
+ <body >
+ <center>
+ 
+ 
+ 
 <div class="hero">
   <div class="hero-inner">
     <h1> Welcome To Our Site!</h1>
     <p>my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung my name is wint kay thwe aung </p>
-   
-    <center>
-  	<form  method ="Post" action ="/Servlets/login">
-  	<table>
-  		<tr>
-  			<th> UserName:</th><th> <input type ="text" name ="UserName"</th>
-  		</tr>
-  		<tr>
-  			<th> Password:</th><th> <input type ="text" name ="Password"</th>
-  		</tr>
-  		<tr>
-  		 <th></th></br>
-  		 <th><input type="submit" value ="login"</th>
-  		</tr></tr>
-  		<tr>
-  		<a href="CustomerRegistration.html" align="left">Create a new account ? </a>
-  		</tr>
-  		</br>
-  		
-  		
-  	</table>
-  	</form>
-  </center>
     <a href="#" class="button">Learn More </a>
   </div>
 </div>
@@ -90,28 +74,32 @@
 </div>
 
 
-
-
-
- <body >
- 
- </body>
  
  
  
  
  
- 
- 
- 
- 
- 
- 
- 
- <div id="templatemo_content_bottom">&nbsp;</div>
+ 	 	<form method="post" action = "/Servlets/customer">
+ 	 	
+ 	 	<table>
+ 	 	<tr><th>FirstName :</th><th><input type= "text" name="FirstName" placeholder="FirstName"></th></tr></br>
+ 	 	<tr><th>LastName:</th><th><input type= "text" name ="LastName" placeholder="LastName"></th></tr></br>
+ 	 	<tr><th>UserName:</th><th><input type= "text" name ="UserName" placeholder="UserName"></th></tr></br>
+ 	 	
+ 	 	<tr><th>Password:</th><th><input type= "text" name ="Password" placeholder="Password"></br>
+ 	 <!-- 	<input type= "number" name ="password" placeholder="password">-->
+ 	 	</table>
+ 	 	<input type= "submit" value ="Register Customer">
+ 	 	</form>
+ 	 	<div id="templatemo_content_bottom">&nbsp;</div>
 <!--  Free CSS Templates by www.TemplateMo.com  -->
  <div id="templatemo_footer">
  <center>
 	    Copyright � 2022 <a href="index.php">Wint kay thwe aung</a> </center>
  </div> <!-- end of footer -->
+ </center>
+ 
+ 
+ 	 	</body>
 </html>
+	

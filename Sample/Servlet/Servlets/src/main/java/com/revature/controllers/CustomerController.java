@@ -37,7 +37,7 @@ public class CustomerController extends HttpServlet{
 		switch (URI)
 		{
 		case "customer":
-			resp.getWriter().println("I am getting a customer");
+			resp.getWriter().println("I am getting a specific custmomer");
 		//logger.log(LogLevel.info, "Retrieve a customer ");
 		 
 //			
@@ -52,6 +52,10 @@ public class CustomerController extends HttpServlet{
 		
 		for(Customer customer : listofCustomer)
 		{
+			
+			
+			
+			
 		resp.getWriter().println("============================ ");
 		//resp.getWriter().println(customer.getCustomerID());
 		resp.getWriter().println("FirstName  : "+customer.getFirstName());
@@ -84,7 +88,7 @@ public class CustomerController extends HttpServlet{
 	  
 	  HttpSession session=req.getSession();
 	  session.setAttribute("the-customer", customer);
-	  res.getWriter().write("The customer firstname :" +fname+ "     lastName:" +lname+ " was register successfully...." );
+	  res.getWriter().write("The customer firstname :" +fname+ "     lastName:" +lname+"UserName:"+username+" was register successfully...." );
 	  
 	 customerDAO.addInstance(customer);
 		
