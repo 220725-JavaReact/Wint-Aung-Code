@@ -7,6 +7,7 @@ public interface CustomerDAO <T>{
 	
 	//T [] getAll();
 	  List <T> getAllInstance();
+	 
 
 	void getByID(int CustomerID,String UserName,String Password);
 	 void  updateInstance(T updatinstance);
