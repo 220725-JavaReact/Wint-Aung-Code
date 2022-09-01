@@ -37,7 +37,7 @@ public class ViewCartItems extends HttpServlet{
 		ResultSet rs;
 		try
 		{
-			Cookie c=new Cookie(request.getParameter("InventoryID"), "1");
+			Cookie c=new Cookie(request.getParameter("UserName"), "1");
 			c.setMaxAge(0);
 			response.addCookie(c);
 			out.print("Product removed from cart successfully...");
