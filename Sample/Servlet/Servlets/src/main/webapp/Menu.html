@@ -1,90 +1,113 @@
- <br />
-    <table align="center" class="content" style="width: 594px; height: 42px">
-        <tr>
-            <td style="width: 100px; height: 13px">
-            <a href="Home.aspx" style="color: purple; text-decoration: underline; font-size:x-small;">Home</a>
-                &gt;               
-                   <a style="color: purple; text-decoration: underline; font-size:x-small;"> Product Detail</a>
-            </td>
-        </tr>
-        <tr>
-            <td style="width: 100px; height: 247px;">
-                <table align="left" class="content" style="width: 12px; height: 1px">
-                    <tr>
-                        <td style="width: 120px" align="center" valign="top">
-                            <asp:Image ID="imgProduct" runat="server" Height="180px" Width="180px" />
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        </td>
-                    </tr>
-                </table>
-                <table align="left" class="content" style="border-right: #ffffff 5px solid; border-top: #ffffff 3px solid; border-left: #ffffff 3px solid; border-bottom: #ffffff 3px solid;" rules="none">
-                    <tr>
-                        <td style="width: 29px; height: 22px;">
-                            <asp:Label ID="Label1" runat="server" Text="Name" Width="48px"></asp:Label></td>
-                        <td style="width: 100px; height: 22px;">
-                            <asp:Label ID="lblName" runat="server" Width="177px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px">
-                            <asp:Label ID="Label7" runat="server" Text="Hardware" Width="65px"></asp:Label></td>
-                        <td style="width: 100px">
-                            <asp:Label ID="lblHW" runat="server"
-                                Width="194px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px; height: 19px;">
-                            <asp:Label ID="Label5" runat="server" Text="Display"></asp:Label></td>
-                        <td style="width: 100px; height: 19px;">
-                            <asp:Label ID="lblDisplay" runat="server"
-                                Width="314px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px; height: 21px">
-                            <asp:Label ID="Label6" runat="server" Text="Camera"></asp:Label></td>
-                        <td style="width: 100px; height: 21px">
-                            <asp:Label ID="lblCamera" runat="server"
-                                Width="304px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px; height: 21px">
-                            <asp:Label ID="Label2" runat="server" Text="Technology"></asp:Label></td>
-                        <td style="width: 100px; height: 21px">
-                            <asp:Label ID="lblTech" runat="server" Width="262px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px">
-                            <asp:Label ID="Label3" runat="server" Text="OS"></asp:Label>&nbsp; &nbsp; &nbsp; &nbsp;</td>
-                        <td style="width: 100px">
-                            <asp:Label ID="lblOS" runat="server" Width="196px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px; height: 29px;">
-                            <asp:Label ID="Label4" runat="server" Text="Announced "></asp:Label></td>
-                        <td style="width: 100px; height: 29px;">
-                            <asp:Label ID="lblAnDate" runat="server" Width="251px"></asp:Label></td>
-                    </tr>
-                    <tr>
-                        <td style="width: 29px; height: 37px;">
-                        </td>
-                        <td style="width: 100px; height: 37px;">
-                            <asp:Button ID="btnAdd" runat="server" Text="Add To Cart" Width="103px" BackColor="MenuBar" OnClick="btnAdd_Click" BorderColor="Purple" BorderStyle="Outset" Font-Size="Small" Height="27px" ForeColor="Purple" /></td>
-                    </tr>
-                </table>
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-               
-            </td>
-        </tr>
-    </table>
-    <br />
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #D6EEEE;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="row">
+<h2>Product Table</h2>
+<p> Prodluct list</p>
+</div>
+<table>
+  <tr>
+  <th>ProductID</th>
+  <th>ProductName</th>
+  <th>Category</th>
+  <th>StoreName</th>
+  <th>Location</th>
+  <th>Price</th>
+  <th>Quantity</th>
+  <a href="add-to-cart?" id=Inventory.getInventoryID() class= "btn btn-dark">Add to Cart</a>
+  </tr>
+  <tr>
+  <td>[[$(Customer.CustomerID)]]</td>
+  <td>Griffin</td>
+  <td>$100</td>
+  </tr>
+  <tr>
+  <td>Lois</td>
+  <td>Griffin</td>
+  <td>$150</td>
+  </tr>
+  <tr>
+  <td>Joe</td>
+  <td>Swanson</td>
+  <td>$300</td>
+  </tr>
+  <tr>
+  <td>Cleveland</td>
+  <td>Brown</td>
+  <td>$250</td>
+  </tr>
+</table>
+
+
+</div>
+
+<div class="container">
+<div class="d-flex py-3"><h3>Total Price:$ 452</h3><a class="mx-3 btn btn-primary" href="#">Check Out </a></h3>
+<table class="table table-loght">
+<thead>
+<tr>
+<th scope="col">Name</th>
+<th scope="col">Category</th>
+<th scope="col">Price</th>
+<th scope="col">Quantity</th>
+<th scope="col">Store</th>
+<th scope="col">Buy Now</th>
+<th scope="col">Cancel</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Wowmen shoes</td>
+<td>Shoes</td>
+<td>$34</td>
+<td>
+<form method="post" action = "" class="form-inline">
+ 			<input type = "hidden" name ="id" value="1" class="form-input"/>
+ 			<div class="from-group d-flex justify-content-between">
+ 			<a class="btn btn-sm bthn-incre" href=""><i class="fas fa-plus-square"></i></a> 
+ 			<input type="text" name="Quantity" class="form-control" value="1" readonly>
+  			<a class="btn btn-sm bthn-incre" href=""><i class="fas fa-minus-square"></i></a> 
+ 			</div>
+ 			
+ 	 	</form>
+
+</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+
+
+
+
+
+
+ 		
+
+
+
+
+
+
+</body>
+</html>
+
+

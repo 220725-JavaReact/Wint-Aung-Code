@@ -51,17 +51,19 @@ public class UserLoginController extends HttpServlet {
 		String Password=req.getParameter("Password");
 		HttpSession session=req.getSession();
 		Customer customer=new Customer();
-		session.setAttribute("username", customer);
+		session.setAttribute("username", Name);
 		if(LoginDBDAO.validate(Name, Password))
+		{
+			resp.sendRedirect("ViewCartItems.java");
+		out.print(Name);
 		
-			resp.sendRedirect("ShoppingPage.html");
 			
-		
+	}
 		else 
 		{
 			out.print("Sorry username / password error");
 			
-			//res.sendRedirect("Home.html");
+			resp.sendRedirect("Home.html");
 		}
 	}
 	

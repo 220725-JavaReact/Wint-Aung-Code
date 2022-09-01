@@ -7,16 +7,19 @@ public class OrderHistory
 	private int InventoryID;
 	private int StoreID;
 	private int ProductID;
+	private int OrderID;
 	private String OrderDate;
 	private String UserName;
-	private int TotalAmount;
+	private double TotalAmount;
+	
+	
 	
 	public OrderHistory()
 	{
 		super();
 	}
 	
-	public OrderHistory(int InventoryID,int StoreID,int ProductID, String OrderDate,String UserName,int TotalAmount)
+	public OrderHistory(int InventoryID,int StoreID,int ProductID,String OrderDate,String UserName,double TotalAmount)
 	{
 		this.InventoryID=InventoryID;
 		this.StoreID=StoreID;
@@ -29,6 +32,14 @@ public class OrderHistory
 	
 	
 	
+	public int getOrderID() {
+		return OrderID;
+	}
+
+	public void setOrderID(int orderID) {
+		OrderID = orderID;
+	}
+
 	public int getOrderHistoryID() {
 		return OrderHistoryID;
 	}
@@ -65,10 +76,10 @@ public class OrderHistory
 	public void setUserName(String userName) {
 		UserName = userName;
 	}
-	public int getTotalAmount() {
+	public double getTotalAmount() {
 		return TotalAmount;
 	}
-	public void setTotalAmount(int totalAmount) {
+	public void setTotalAmount(double totalAmount) {
 		TotalAmount = totalAmount;
 	}
 	@Override

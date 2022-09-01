@@ -16,6 +16,7 @@ import com.revature.model.Order;
 import com.revature.util.ConnectionFactory;
 
 public class InventoryDBDAO implements ProductDAO<Inventory>{
+	
 	private static ProductDAO<Inventory> productDAO= new InventoryDBDAO();
 	
 	@Override
@@ -116,6 +117,13 @@ public class InventoryDBDAO implements ProductDAO<Inventory>{
 		
 	}
 
+	@Override
+	public Inventory[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 
 
 }
