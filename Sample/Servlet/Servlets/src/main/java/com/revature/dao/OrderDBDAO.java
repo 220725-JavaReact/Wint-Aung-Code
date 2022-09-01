@@ -10,11 +10,11 @@ import java.util.List;
 
 import com.revature.model.Inventory;
 import com.revature.model.Order;
-
+import com.revature.storage.CartStorage;
 import com.revature.util.ConnectionFactory;
 
 
-public class OrderDBDAO implements CustomerDAO<Order>{
+public class OrderDBDAO implements ProductDAO<Order>{
 
 	@Override
 	public Order addInstance(Order newinstance) {
@@ -34,6 +34,7 @@ public class OrderDBDAO implements CustomerDAO<Order>{
 			preparedStatement.setString(8, newinstance.getCategory());
 			preparedStatement.setInt(9, newinstance.getStoreID());
 			preparedStatement.setInt(10, newinstance.getInventoryID());
+			//preparedStatement.setInt(11, newinstance.getOrderID());
 			
 			preparedStatement.execute();
 			
@@ -59,7 +60,7 @@ public class OrderDBDAO implements CustomerDAO<Order>{
 			{//(double Amount,String ProductName, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID)
 				
 			
-				order.add(new Order(rs.getDouble("TotalAmount"), rs.getString("Brand"),rs.getString("Category"), rs.getString("UserName"), rs.getInt("StoreID"), rs.getString("Store"), rs.getString("Location"), rs.getInt("ProductID"),rs.getInt("Quantity"),rs.getInt("InventoryID")));
+				order.add(new Order(rs.getDouble("TotalAmount"), rs.getString("Brand"),rs.getString("Category"), rs.getString("UserName"), rs.getInt("StoreID"), rs.getString("Store"), rs.getString("StoreLocation"), rs.getInt("ProductID"),rs.getInt("Quantity"),rs.getInt("InventoryID")));
 				
 			}
 			}
@@ -74,11 +75,6 @@ public class OrderDBDAO implements CustomerDAO<Order>{
 		
 	}
 
-	@Override
-	public void getByID(int CustomerID, String UserName, String Password) {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void updateInstance(Order updatinstance) {
@@ -89,8 +85,25 @@ public class OrderDBDAO implements CustomerDAO<Order>{
 	@Override
 	public void deleteInstance(Order deleteinstance) {
 		// TODO Auto-generated method stub
+		CartStorage.teams.add(deleteinstance);
+	}
+
+	@Override
+	public Order[] getAll() {
+		// TODO Auto-generated method stub
+		return CartStorage.teams.getAllElements();
+	}
+
+	@Override
+	public void getByID(int id) {
+		// TODO Auto-generated method stub
 		
 	}
+
+		
+	
+
+	
 	
 
 }

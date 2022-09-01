@@ -8,8 +8,12 @@
   
   <!-- List of welcome pages-->
   <welcome-file-list>
-  <welcome-file>index.html</welcome-file>
+   <welcome-file>index.html</welcome-file>
+  <welcome-file>Home.html</welcome-file>
+ 
+  <welcome-file>Menu.html</welcome-file>
   </welcome-file-list>
+  
 <!-- customer -->
 <servlet>
 <servlet-name>CustomerController</servlet-name>
@@ -33,7 +37,17 @@
 <url-pattern>/login</url-pattern>
 
 </servlet-mapping>
+<!--Shopping cat-->
+<servlet>
+<servlet-name>ViewCartItems</servlet-name>
+<servlet-class>com.revature.controllers.ViewCartItems</servlet-class>
+</servlet>
 
+<servlet-mapping>
+<servlet-name>ViewCartItems</servlet-name>
+<url-pattern>/viewcart</url-pattern>
+
+</servlet-mapping>
 
 
 
@@ -73,6 +87,16 @@
 <servlet-mapping>
 <servlet-name>InventoryController</servlet-name>
 <url-pattern>/inventory</url-pattern>
+</servlet-mapping>
+
+<!-- Login -->
+<servlet>
+<servlet-name>WelcomeUserController</servlet-name>
+<servlet-class>com.revature.controllers.WelcomeUserController</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>WelcomeUserController</servlet-name>
+<url-pattern>/welcome</url-pattern>
 </servlet-mapping>
 
 

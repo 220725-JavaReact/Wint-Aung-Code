@@ -5,6 +5,7 @@ import java.rmi.ServerException;
 import java.util.List;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -20,42 +21,22 @@ public class ProductController extends HttpServlet{
 	
 	private static ProductDAO<Product> productDAO= new ProductDBDAO() ;
 	
-	protected void processRequest(HttpServletRequest request,HttpServletResponse response)
+	private static final long serialVersionUID=1L;
 	
-		throws ServletException ,IOException 
-	{  
-		
-		
-	}
-	
-	
-	@Override
-	protected void doGet(HttpServletRequest req,HttpServletResponse resp)throws IOException,ServerException
+	public ProductController()
 	{
-List<Product> listofProduct=productDAO.getAllInstance();
-for(Product product : listofProduct)
-{
-		resp.getWriter().write("text/html");
+		super();
+	}
+	@Override
+	protected void doGet(HttpServletRequest request,HttpServletResponse response)
+			throws IOException,ServletException
+	{
+
+		ProductDBDAO productDAO=new ProductDBDAO();
+		request.setAttribute("products", productDAO.getAll());
+		request.getRequestDispatcher("product/index.jsp").forward(request, response);
 		
 		
- 		
-		resp.getWriter().println("</body></html>");
-		
-		
-		
-		
-		
-		resp.getWriter().println("============================ ");
-		//resp.getWriter().println(customer.getCustomerID());
-//		resp.getWriter().println("ProductID  : ["+product.getProductID()+"]");
-//		resp.getWriter().println("Name       : ["+product.getProductName()+"]");
-//		resp.getWriter().println("Category   : ["+product.getCategory()+"]");
-//		resp.getWriter().println("Price      : ["+product.getPrice()+"]");
-//		resp.getWriter().println("Quantity   : ["+product.getQuantity()+"]");
-//		
-		
-		
-		}
 	}
  @Override
  protected void doPost(HttpServletRequest req,HttpServletResponse res)throws IOException,ServerException

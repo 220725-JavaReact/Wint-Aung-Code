@@ -84,6 +84,15 @@ public class ProductDBDAO implements ProductDAO<Product>{
 		
 	}
 
+	@Override
+	public Product[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+
 	
 	
 

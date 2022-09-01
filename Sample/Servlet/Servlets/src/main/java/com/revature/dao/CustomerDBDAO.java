@@ -7,13 +7,25 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import com.revature.model.Customer;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.ConnectionUtil;
 
 public class CustomerDBDAO implements CustomerDAO<Customer> {
+private CustomerDAO<Customer>customerDAO=new CustomerDBDAO();
 
+
+
+
+public List<Customer>getAllCustomer()
+	{
+		return customerDAO.getAllInstance();
+	}
+	
+	
+	
 	@Override
 	public  Customer addInstance(Customer instance) {
 		// TODO Auto-generated method stub
@@ -62,22 +74,6 @@ public class CustomerDBDAO implements CustomerDAO<Customer> {
 	@Override
 	public void getByID(int CustomerID,String UserName,String Password) {
 		// TODO Auto-generated method stub
-		Customer customer=new Customer();
-		try(Connection con=ConnectionFactory.getInstance().getConnection())
-		{
-			PreparedStatement ps=con.prepareStatement("Select * from Customer where CustomerID=?");
-			ps.setInt(1, CustomerID);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next())
-			{
-				customer=new Customer(rs.getInt("CustomerID"),rs.getString("UserName"),rs.getString("Password"));
-				
-			}
-		}
-		catch(SQLException e)
-		{
-			e.printStackTrace();
-		}
 		
 	}
 

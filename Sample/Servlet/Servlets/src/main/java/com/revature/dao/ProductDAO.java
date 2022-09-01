@@ -4,12 +4,13 @@ import java.util.List;
 
 public interface ProductDAO <T>{
 	 T addInstance (T newinstance);
+	
 		
-		//T [] getAll();
 		  List <T> getAllInstance();
-		 
+		
+		 T[]getAll();
 
-		void getByID(int ProductID);
+		void getByID(int id);
 		 void  updateInstance(T updatinstance);
 		
 		 void  deleteInstance(T deleteinstance);
