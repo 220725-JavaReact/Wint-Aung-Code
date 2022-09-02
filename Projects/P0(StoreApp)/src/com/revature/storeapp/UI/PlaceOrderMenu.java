@@ -368,7 +368,7 @@ public class PlaceOrderMenu {
 	                while(true)
 	                {
 	                    System.out.println("What product would you like to add?");
-	                  //  allProducts =productDAO2.GetEverything();
+	                    allProducts =productDAO2.GetEverything();
 //	                    for (Product product:productDAO.getAll())
 //	    				{
 //	    					System.out.println(product);

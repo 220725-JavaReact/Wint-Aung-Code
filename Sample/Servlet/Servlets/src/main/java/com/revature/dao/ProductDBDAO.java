@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.model.Inventory;
 import com.revature.model.Product;
 import com.revature.util.ConnectionFactory;
 
@@ -75,17 +76,17 @@ public class ProductDBDAO implements ProductDAO<Product>{
 		
 	}
 
-	@Override
-	public void getByID(int ProductID) {
-		// TODO Auto-generated method stub
 		
-		
-		
-		
-	}
+	
 
 	@Override
 	public Product[] getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Inventory getByID(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

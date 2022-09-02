@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.model.Inventory;
 import com.revature.model.OrderHistory;
 
 import com.revature.util.ConnectionFactory;
@@ -71,9 +72,13 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 	}
 
 	@Override
-	public void getByID(int ProductID) {
+	public Inventory getByID(int id) {
 		// TODO Auto-generated method stub
-		
+		return null;
+	}
+
+
+	
 	}
 
 		
@@ -84,4 +89,4 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 
 
 
-}
+
