@@ -120,7 +120,10 @@ public class WelcomeUserController extends HttpServlet{
 					
 						out.print("</table></form></div>");
 						out.print("</form> ");
-						 int InventoryID=inventory.getInventoryID();
+						 
+						
+						
+						int InventoryID=inventory.getInventoryID();
 						  int ProductID=inventory.getProductID();
 						  int StoreID=inventory.getStoreID();
 						  String Store=inventory.getStore();
@@ -131,15 +134,16 @@ public class WelcomeUserController extends HttpServlet{
 						  int Quantity=inventory.getQuantity();
 						  Order order= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
 						 // orderDAO.addInstance(order);
-						//  orderD
+						 HttpSession session=request.getSession();  
+						  session.setAttribute("the-order",order);
 						
-						   HttpSession session=request.getSession();
+						  
 				
 //						 
 //						response.getWriter().write("The customer  :" +UserName +"Customername:"+Login );
 					 
 //						
-						  session.setAttribute("the-order",order);
+						
 //				
 					out.println("</body></html>");
 					

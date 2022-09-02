@@ -54,7 +54,7 @@ public class UserLoginController extends HttpServlet {
 		session.setAttribute("username", Name);
 		if(LoginDBDAO.validate(Name, Password))
 		{
-			resp.sendRedirect("ViewCartItems.java");
+			resp.sendRedirect("DisplayItems.java");
 		out.print(Name);
 		
 			

@@ -39,13 +39,24 @@
 </servlet-mapping>
 <!--Shopping cat-->
 <servlet>
+<servlet-name>DisplayItems</servlet-name>
+<servlet-class>com.revature.controllers.DisplayItems</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>DisplayItems</servlet-name>
+<url-pattern>/DisplayItems</url-pattern>
+
+</servlet-mapping>
+
+<servlet>
 <servlet-name>ViewCartItems</servlet-name>
 <servlet-class>com.revature.controllers.ViewCartItems</servlet-class>
 </servlet>
 
 <servlet-mapping>
 <servlet-name>ViewCartItems</servlet-name>
-<url-pattern>/viewcart</url-pattern>
+<url-pattern>/ViewCartItems</url-pattern>
 
 </servlet-mapping>
 

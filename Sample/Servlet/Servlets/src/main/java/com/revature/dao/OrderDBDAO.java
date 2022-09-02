@@ -95,10 +95,14 @@ public class OrderDBDAO implements ProductDAO<Order>{
 	}
 
 	@Override
-	public void getByID(int id) {
+	public Inventory getByID(int id) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
+
+	
+
+
 
 		
 	

@@ -15,7 +15,7 @@ public class Inventory {
 		{
 			super();
 		}
-		public Inventory(int InventoryID,String Brand,String Category,int StoreID,String Store,String Location, double Price,int Quantity,int ProductID)
+		public Inventory(int InventoryID,int ProductID,int StoreID,String Brand,String Category,String Store,String Location,double Price,int Quantity)
 		{	this.Brand=Brand;
 		this.Category=Category;
 			this.Store=Store;
