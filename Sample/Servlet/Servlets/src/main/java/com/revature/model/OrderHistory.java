@@ -29,9 +29,6 @@ public class OrderHistory
 		this.TotalAmount=TotalAmount;
 	}
 	
-	
-	
-	
 	public int getOrderID() {
 		return OrderID;
 	}

@@ -76,17 +76,15 @@ public class ProductDBDAO implements ProductDAO<Product>{
 		
 	}
 
-		
 	
-
 	@Override
-	public Product[] getAll() {
+	public void getInstance(Product updateinstance) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
 
 	@Override
-	public Inventory getByID(int id) {
+	public List<Product> getAllByID(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

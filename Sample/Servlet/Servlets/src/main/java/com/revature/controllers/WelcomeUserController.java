@@ -59,8 +59,8 @@ public class WelcomeUserController extends HttpServlet{
 	{
 		response.setContentType("text/html");
 		PrintWriter out =response.getWriter();
-		
-		String Name= request.getParameter("UserName");
+	
+		String Name= request.getParameter("customer");
 		
 		out.print("<h1>Welcome :"+Name+"</h1>");
 		 List<Inventory> inventorylist=inventoryDAO.getAllInstance();
@@ -115,27 +115,12 @@ public class WelcomeUserController extends HttpServlet{
 						out.println("<td>"+inventory.getLocation()+"</td>");
 						out.println("<th>"+inventory.getPrice()+"</th>");
 						out.println("<th>"+inventory.getQuantity()+"</th>");
-						out.println("<a href=\"/Servlets/order\" class= \"btn btn-dark\">Add to Cart</a>");
+						out.println("<a href=\"/Servlets/ViewCartItems?ItemId="+inventory.getInventoryID()+"\" class= \"btn btn-dark\">Add to Cart</a>");
 						out.println("</tr>");
 					
 						out.print("</table></form></div>");
 						out.print("</form> ");
 						 
-						
-						
-						int InventoryID=inventory.getInventoryID();
-						  int ProductID=inventory.getProductID();
-						  int StoreID=inventory.getStoreID();
-						  String Store=inventory.getStore();
-						  String Location=inventory.getLocation();
-						  String Category=inventory.getCategory();
-						  String Brand=inventory.getBrand();
-						  double Price=inventory.getPrice();
-						  int Quantity=inventory.getQuantity();
-						  Order order= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
-						 // orderDAO.addInstance(order);
-						 HttpSession session=request.getSession();  
-						  session.setAttribute("the-order",order);
 						
 						  
 				
@@ -151,6 +136,24 @@ public class WelcomeUserController extends HttpServlet{
 		
 		out.close();
 	}
+			Inventory inventory1=new Inventory();
+			int InventoryID=inventory1.getInventoryID();
+			  int ProductID=inventory1.getProductID();
+			  int StoreID=inventory1.getStoreID();
+			  String Store=inventory1.getStore();
+			  String Location=inventory1.getLocation();
+			  String Category=inventory1.getCategory();
+			  String Brand=inventory1.getBrand();
+			  double Price=inventory1.getPrice();
+			  int Quantity=inventory1.getQuantity();
+			 HttpSession session=request.getSession();  
+			 // session.setAttribute("the-order",order);
+			
+		
+			  Order order= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
+				 orderDAO.addInstance(order);
+				
+			
 	}
 
 }

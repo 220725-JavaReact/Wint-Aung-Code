@@ -1,23 +1,23 @@
 package com.revature.storage;
 
-import com.revature.model.Customer;
+import com.revature.model.Inventory;
 
 public class CustomerList {
-	Customer[] backingArray;
+	Inventory[] backingArray;
 	int lastIndex;
 	
 	
 	public CustomerList()
 	{
-		backingArray=new Customer[5];
+		backingArray=new Inventory[5];
 		lastIndex=0;
 	}
-	public void add(Customer newCustomer)
+	public void add(Inventory newCustomer)
 	{
 		if(lastIndex==backingArray.length)
 		{ // wat if the arraylist has reach ed max cap?
 			int newSize=(int)(lastIndex* 1.5);
-			Customer[]newBacking =new Customer[newSize];
+			Inventory[]newBacking =new Inventory[newSize];
 			
 			//newBacking=backingArray.clone();
 			System.arraycopy(backingArray, 0, newBacking, 0, backingArray.length);
@@ -27,7 +27,7 @@ public class CustomerList {
 		lastIndex++;
 	}
 	
-	public Customer[]getAllElements()
+	public Inventory[]getAllElements()
 	{
 		
 		return backingArray;

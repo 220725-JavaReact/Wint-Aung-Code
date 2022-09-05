@@ -18,7 +18,7 @@
     <li ><a href="Home.html">Home</a></li>
     <li><a href="CustomerRegistration.html">Register </a></li>
     <li><a href="index.html">Login</a></li>
-      <li><a href="index.html">Logout</a></li>
+      <li><a href="index.html"id=${p.id}&action=ordernow>Logout</a></li>
   </u1>
 </div>
 	
@@ -32,7 +32,7 @@
  		<p>
  		Where all the customer serve their overlords  get it ? "Serve"
  		</p>
- 		<form method="post" action = "/Servlets/login">
+ 		<form method="service" action = "/Servlets/DisplayItems">
  			<p>Customer Login ,Get </p>
  			Name:<input type="text" name = "UserName" /></br> </br>
  			Password:<input type ="text" name ="Password" /> </br> </br>			
@@ -181,11 +181,25 @@
  	 	
  	 	<form method="post" action = "/Servlets/customer">
  	 	<p>Session Servlet POST </p>
+ 	 	<select>
+ 	 	<option value="Cosco">Cosco</option>
+ 	 	<option value="Target">Target</option>
+ 	 	<option value="Macy's'">Macy's</option>
+ 	 	<option value="BestBuy">Bes Buy</option>
+ 	 	<option value="Amazon">Amazon</option>
+ 	 	</select><select>
+ 	 	<option value="New York">New York</option>
+ 	 	<option value="Los Angeles">Los Angeles</option>
+ 	 	<option value="Texas">Texas</option>
+ 	 	
+ 	 	</select>
  	 	<input type= "text" name="FirstName" placeholder="FirstName"></br>
  	 	<input type= "text" name ="LastName" placeholder="LastName"></br>
  	 	<input type= "text" name ="UserName" placeholder="UserName"></br>
  	 	
  	 	<input type= "text" name ="Password" placeholder="Password"></br>
+ 	 	<input type= "checkbox" name ="InventoryID" placeholder="Unchecked"></br>
+ 	 	
  	 <!-- 	<input type= "number" name ="password" placeholder="password">-->
  	 	 
  	 	<input type= "submit" value ="Register Customer">

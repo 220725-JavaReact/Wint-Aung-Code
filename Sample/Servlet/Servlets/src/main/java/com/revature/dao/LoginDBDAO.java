@@ -34,7 +34,7 @@ public class LoginDBDAO  {
 		}
 		return status;
 	}
-	public static  void InventoryValidate(int InventoryID) {
+	public static  boolean InventoryValidate(int InventoryID) {
 		// TODO Auto-generated method stub
 		boolean status=false;
 		try (Connection con=ConnectionFactory.getInstance().getConnection())
@@ -44,14 +44,13 @@ public class LoginDBDAO  {
 			
 			ResultSet rs=ps.executeQuery();
 			status=rs.next();
-			
-			
-			
+		
 		}
 		catch(SQLException e) 
 		{
 			e.printStackTrace();
 		}
+		return status;
 		
 	}
 	

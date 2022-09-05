@@ -10,7 +10,8 @@
   <welcome-file-list>
    <welcome-file>index.html</welcome-file>
   <welcome-file>Home.html</welcome-file>
- 
+  <welcome-file>index.jsp</welcome-file>
+  
   <welcome-file>Menu.html</welcome-file>
   </welcome-file-list>
   
@@ -24,6 +25,57 @@
 <servlet-name>CustomerController</servlet-name>
 <url-pattern>/customer</url-pattern>
 <url-pattern>/allcustomer</url-pattern></servlet-mapping>
+
+<!--delete cart-->
+
+
+<servlet>
+<servlet-name>CartDeleteController</servlet-name>
+<servlet-class>com.revature.controllers.CartDeleteController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>CartDeleteController</servlet-name>
+<url-pattern>/CartDeleteController</url-pattern>
+
+</servlet-mapping>
+
+
+
+<!-- checkout -->
+
+
+<servlet>
+<servlet-name>CheckoutContorller</servlet-name>
+<servlet-class>com.revature.controllers.CheckoutContorller</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>CheckoutContorller</servlet-name>
+<url-pattern>/CheckoutContorller</url-pattern>
+
+</servlet-mapping>
+
+
+
+
+
+<!-- car -->
+<servlet>
+<servlet-name>CartController</servlet-name>
+<servlet-class>com.revature.controllers.CartController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>CartController</servlet-name>
+<url-pattern>/CartController</url-pattern>
+
+</servlet-mapping>
+
+
+
+
+
 
 
 <!-- User login !!-->
@@ -99,6 +151,23 @@
 <servlet-name>InventoryController</servlet-name>
 <url-pattern>/inventory</url-pattern>
 </servlet-mapping>
+<!-- Cart-->
+
+
+<!-- Inventory -->
+<servlet>
+<servlet-name>CartContorller</servlet-name>
+<servlet-class>com.revature.controllers.CartContorller</servlet-class>
+</servlet>
+<servlet-mapping>
+<servlet-name>CartContorller</servlet-name>
+<url-pattern>/cart</url-pattern>
+</servlet-mapping>
+
+
+
+
+
 
 <!-- Login -->
 <servlet>
