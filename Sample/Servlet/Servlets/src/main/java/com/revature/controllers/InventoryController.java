@@ -33,7 +33,14 @@ public class InventoryController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException ,IOException {
-
+		InventoryDBDAO inventoryDAO=new InventoryDBDAO();
+		String action=request.getParameter("action");
+			if(action==null)
+			{
+			request.setAttribute("products", inventoryDAO.getAll());
+			request.getRequestDispatcher("product/index.jsp")
+			.forward(request, response);
+			}
 		}
 		
 	

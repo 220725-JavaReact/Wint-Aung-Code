@@ -20,6 +20,8 @@ public class CustomerService {
 	{
 		return customerDAO.getAllInstance();
 	}
+	
+	
 	public Customer GetbyUserName(String UserName)
 	{
 		List<Customer> listofCustomer=getAllCustomer();

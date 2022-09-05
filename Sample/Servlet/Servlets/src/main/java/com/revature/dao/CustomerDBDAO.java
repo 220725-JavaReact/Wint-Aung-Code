@@ -14,15 +14,10 @@ import com.revature.util.ConnectionFactory;
 import com.revature.util.ConnectionUtil;
 
 public class CustomerDBDAO implements CustomerDAO<Customer> {
-private CustomerDAO<Customer>customerDAO=new CustomerDBDAO();
+	
 
 
 
-
-public List<Customer>getAllCustomer()
-	{
-		return customerDAO.getAllInstance();
-	}
 	
 	
 	

@@ -19,7 +19,7 @@ public class Order {
 		super();
 	}
 	
-	public  Order(double Amount,String Brand, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID)
+	public  Order(double Amount,String Brand, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID,int OrderID)
 	{
 		
 		this.ProductID=productID;
@@ -32,6 +32,7 @@ public class Order {
 		this.Location=Location;
 		this.StoreID=StoreID;
 		this.InventoryID=InventoryID;
+		this.OrderID=OrderID;
 		
 	}
 	

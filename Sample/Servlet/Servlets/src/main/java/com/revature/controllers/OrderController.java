@@ -222,7 +222,7 @@ public class OrderController extends HttpServlet {
 						  
 						  
 						  
-						  Order order1= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
+						  Order order1= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID,InventoryID);
 						  orderDAO.addInstance(order1);
 						  
 						  
