@@ -87,8 +87,8 @@ public class CheckoutContorller extends HttpServlet {
 					
 					+ "<th>Category</th>"
 					+ "<th>Price</th>"
-					+ "<th>Quantity</th>"
 					+ "<th>Store</th>"
+					+ "<th>Location</th>"
 					);
 			
 			List<Order>ff=orderDAO.getAllInstance();
@@ -104,11 +104,9 @@ public class CheckoutContorller extends HttpServlet {
 						+"<td> $"+foundinv.getAmount()+"</td>"
 						+"<td>"+foundinv.getStore()+"</td>"
 								
-						+"<td>"+foundinv.getLocation()+"</td>"
+						+"<td>"+foundinv.getLocation()+"</td>");
 				
-			+"<tr><td></td><td></td><td></td><td></td><td>Total Amount</td><td>$"+rs.getDouble(1)+"</td></tr>");
 				
-			out.print("</table></body></html>");
 			List< OrderHistory>ID=orderhistoryDAO.getAllInstance();
 			for (OrderHistory oh:ID)
 				{
@@ -124,10 +122,14 @@ public class CheckoutContorller extends HttpServlet {
 			Purchase Ph=new Purchase(OrderHistoryID, foundinv.getInventoryID(), foundinv.getProductID(), foundinv.getStoreID(), foundinv.getBrand(), foundinv.getCategory(), foundinv.getStore(),  foundinv.getLocation(),rs.getDouble(1),1,strDate, Name);
 			purchaseDAO.addInstance(Ph);
 				}
-		}
+				
+			}
+			out.print(	"<tr><td></td><td></td><td></td><td></td><td>Total Amount</td><td>$"+rs.getDouble(1)+"</td></tr>");
+			
 			}
 				
 			
+			out.print("</table></body></html>");
 			
 			
 			//}
