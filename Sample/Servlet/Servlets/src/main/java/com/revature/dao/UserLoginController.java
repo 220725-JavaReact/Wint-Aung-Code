@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.model.Customer;
 import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class UserLoginController extends HttpServlet {
 	private static CustomerDAO<Customer> customerDAO= new CustomerDBDAO() ;
@@ -51,11 +52,15 @@ public class UserLoginController extends HttpServlet {
 		String Password=req.getParameter("Password");
 		HttpSession session=req.getSession();
 		Customer customer=new Customer();
-		session.setAttribute("username", Name);
+		session.setAttribute("Name", Name);
+		Logger.getLogger().log(LogLevel.info,"Username / password check match");
+		
 		if(LoginDBDAO.validate(Name, Password))
 		{  
 			resp.sendRedirect("DisplayItems.java");
-			req.setAttribute("the-Customer",Name);
+			Logger.getLogger().log(LogLevel.info,"Username / password match ");
+			
+			req.setAttribute("Name",Name);
 		out.print(Name);
 		
 			
@@ -63,7 +68,7 @@ public class UserLoginController extends HttpServlet {
 		else 
 		{
 			out.print("Sorry username / password error");
-			
+			Logger.getLogger().log(LogLevel.info,"Username / password wrong intput");
 			resp.sendRedirect("Home.html");
 		}
 	}

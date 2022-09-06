@@ -19,7 +19,7 @@ public class OrderHistory
 		super();
 	}
 	
-	public OrderHistory(int InventoryID,int StoreID,int ProductID,String OrderDate,String UserName,double TotalAmount)
+	public OrderHistory(String OrderDate,String UserName,double TotalAmount)
 	{
 		this.InventoryID=InventoryID;
 		this.StoreID=StoreID;

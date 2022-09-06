@@ -10,6 +10,7 @@ import java.util.List;
 
 import com.revature.model.Inventory;
 import com.revature.model.Order;
+import com.revature.model.OrderHistory;
 import com.revature.storage.CartStorage;
 import com.revature.util.ConnectionFactory;
 
@@ -118,24 +119,6 @@ public class OrderDBDAO implements ProductDAO<Order>{
 		
 	}
 
-	@Override
-	public List<Order> getAllByID(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void getInstance(Order updateinstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
-			String Location, int Price, int Quantity) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public Order deleteInstance(Integer id) {
@@ -167,6 +150,18 @@ public class OrderDBDAO implements ProductDAO<Order>{
 
 	}
 
+	@Override
+	public List<Order> getAllByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
+			String Location, int Price, int Quantity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 
 
