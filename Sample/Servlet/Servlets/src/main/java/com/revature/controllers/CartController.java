@@ -2,45 +2,43 @@ package com.revature.controllers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.dao.InventoryDBDAO;
-import com.revature.dao.InventoryService;
-import com.revature.dao.LoginDBDAO;
 import com.revature.dao.OrderDBDAO;
 import com.revature.dao.ProductDAO;
-import com.revature.model.Customer;
-import com.revature.model.Inventory;
 import com.revature.model.Order;
-import com.revature.storage.CartStorage;
+import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class CartController extends HttpServlet{
 
+	public CartController()
 	
-	private static ObjectMapper objmap=new ObjectMapper();
-	private static InventoryService pokeserv=new InventoryService(new InventoryDBDAO());
-	private static ProductDAO<Inventory>inventoryDAo=new InventoryDBDAO();
+	{
+		super();
+	}
 	private static ProductDAO<Order>orderDAO=new OrderDBDAO();
 
 	
 	protected void service(HttpServletRequest request,HttpServletResponse response)
 			throws ServletException,IOException
 	{
-		
-		 
 		ServletContext sc=getServletContext();
+		String name=(String) sc.getAttribute("UserName");		
+		
+		
+		Logger.getLogger().log(LogLevel.info,"Getting inside of  the shopping cart page");
+		Logger.getLogger().log(LogLevel.info,"======================================");
 		String Name= (String) sc.getAttribute("Name");
-		String name=(String) sc.getAttribute("the-cart");		
+		Logger.getLogger().log(LogLevel.info,"get the cart list  ");
+		Logger.getLogger().log(LogLevel.info,"======================================");
+		
 		
 		
 		//	int id=Integer.parseInt(request.getParameter("the-cart"));/////from viewcart items page
@@ -55,6 +53,7 @@ public class CartController extends HttpServlet{
 			
 			
 			response.setContentType("text/html");
+					out.println("Welcome :"+Name);
 				
 			out.print("<a href='DisplayItems'>Go Back</a>");
 			out.print("<a href='CartController'>Your cart</a>");
@@ -77,7 +76,7 @@ public class CartController extends HttpServlet{
 					+ "<th>Brand</th>"
 				//	+ "<th>StoreID</th>"
 					+ "<th>Catagory</th>"
-					+ "<th>Price</th>"
+					+ "<th>Price($)</th>"
 					
 					+ "<th>Store</th>"
 					+ "<th>Location</th>"
@@ -87,13 +86,16 @@ public class CartController extends HttpServlet{
 			List<Order>foundiv=orderDAO.getAllInstance();
 			for(Order foundinv:foundiv)
 			{
+				Logger.getLogger().log(LogLevel.info,"show the cart list of customer ");
+				Logger.getLogger().log(LogLevel.info,"======================================");
+				
 				out.print("<tr>"
 						+"<td>"+foundinv.getBrand()+"</td>"
 						//+"<td>"+foundinv.getProductID()+"</td>"
 						//+"<td>"+foundinv.getBrand()+"</td>"	
 						+"<td>"+foundinv.getCategory()+"</td>"
 						
-						+"<td>"+foundinv.getAmount()+"</td>"
+						+"<td> $"+foundinv.getAmount()+"</td>"
 						+"<td>"+foundinv.getStore()+"</td>"
 								
 						+"<td>"+foundinv.getLocation()+"</td>");
@@ -105,8 +107,10 @@ public class CartController extends HttpServlet{
 			out.print("<td><a href='CartDeleteController?ItemId="+foundinv.getOrderID()+ "'>Remove from Cart</a></td>"
 					+ "</tr><br><br>");
 			//ServletContext scp=request.getServletContext();
-			sc.setAttribute("Name", Name);
-			//sc.setAttribute("SUM", sum);
+			sc.setAttribute("UserName", Name);
+			Logger.getLogger().log(LogLevel.info,"bring the name to setattibute ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
 			
 			}	
 			out.print("</table></center></body></html>");
@@ -125,7 +129,8 @@ public class CartController extends HttpServlet{
 		
 				
 			 		
-	
+		sc.setAttribute("UserName", Name);
+		
 				
 				
 				

@@ -13,25 +13,24 @@ import com.revature.model.OrderHistory;
 
 import com.revature.util.ConnectionFactory;
 
-public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
+public class OrderHistoryDBDAO implements DAO<OrderHistory> {
 
-	@Override
 	public OrderHistory addInstance(OrderHistory newinstance) {
 		// TODO Auto-generated method stub
 			
 		try	 (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
 
-			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into OrderHistory(InventoryID,StoreID,ProductID,OrderDate,UserName,TotalAmount)values(?,?,?,?,?,?)");
-			preparedStatement.setDouble(6,newinstance.getTotalAmount());
-			preparedStatement.setString(5,newinstance.getUserName());
-			preparedStatement.setString(4,newinstance.getOrderDate());
+			PreparedStatement preparedStatement=connection.prepareStatement("Insert Into OrderHistory(OrderDate,UserName,TotalAmount)values(?,?,?)");
+			preparedStatement.setDouble(3,newinstance.getTotalAmount());
+			preparedStatement.setString(2,newinstance.getUserName());
+			preparedStatement.setString(1,newinstance.getOrderDate());
 		
-			preparedStatement.setInt(3,newinstance.getProductID());
-		//	preparedStatement.setInt(4, newinstance.getOrderID());
-			preparedStatement.setInt(2, newinstance.getStoreID());
-			preparedStatement.setInt(1, newinstance.getInventoryID());
-			
+//			preparedStatement.setInt(3,newinstance.getProductID());
+//		//	preparedStatement.setInt(4, newinstance.getOrderID());
+//			preparedStatement.setInt(2, newinstance.getStoreID());
+//			preparedStatement.setInt(1, newinstance.getInventoryID());
+//			
 			preparedStatement.execute();
 			
 		}
@@ -46,8 +45,6 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 		
 		
 	}
-
-	@Override
 	public List<OrderHistory> getAllInstance() 
 	{
 		
@@ -56,12 +53,12 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 		List<OrderHistory> order=new ArrayList<>();
 		try {
 			Connection connection = ConnectionFactory.getInstance().getConnection();
-			PreparedStatement preparedstatement=connection.prepareStatement("Select Sum(Price) from orders");
+			PreparedStatement preparedstatement=connection.prepareStatement("Select *from OrderHistory");
 			ResultSet rs=preparedstatement.executeQuery();
 			
 			while(rs.next())
 			{
-				order.add(new OrderHistory(rs.getInt("InventoryID"), rs.getInt("StoreID"),rs.getInt("ProductID"), rs.getString("OrderDate"), rs.getString("UserName"), rs.getDouble("TotalAmount")));
+				order.add(new OrderHistory( rs.getString("OrderHistoryID"), rs.getString("UserName"), rs.getDouble("TotalAmount")));
 				
 			}
 		}
@@ -76,21 +73,13 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 	
 
 	
-
-	@Override
-	public void deleteInstance(OrderHistory deleteinstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public List<OrderHistory> getAllByID(int id) {
 		// TODO Auto-generated method stub
 		
 		
 		try (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Select Sum(Price) from orders ";
+			String query="Select OrderHistoryID from OrderHistory ";
 				
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
@@ -111,27 +100,44 @@ public class OrderHistoryDBDAO implements ProductDAO<OrderHistory> {
 
 		return null;
 	}
-
+		
 	@Override
-	public void getInstance(OrderHistory updateinstance) {
+	public void updateInstance(OrderHistory updatinstance) {
 		// TODO Auto-generated method stub
 		
 	}
-
 	@Override
-	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
-			String Location, int Price, int Quantity) {
+	public void deleteInstance(OrderHistory deleteinstance) {
 		// TODO Auto-generated method stub
-		return null;
+		
 	}
-
 	@Override
-	public Order deleteInstance(Integer id) {
+	public void getByID(int id) {
 		// TODO Auto-generated method stub
-		return null;
+
+		
+		try (Connection connection =ConnectionFactory.getInstance().getConnection())
+		{
+			String query="Select OrderHistoryID from OrderHistory ";
+				
+			PreparedStatement preparedStatement =connection.prepareStatement(query);
+			
+			
+			
+			preparedStatement.setInt(1,id);
+			
+			preparedStatement.executeUpdate();
+			
+			}
+		catch(SQLException e)
+		{
+			//throw new RuntimeException("Found an error when the inventory update into database"); 
+		e.printStackTrace();	
+		}
+
 	}
-
-
+		
+	
 	
 	}
 
