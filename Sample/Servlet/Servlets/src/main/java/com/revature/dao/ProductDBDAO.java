@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.revature.model.Inventory;
+import com.revature.model.Order;
 import com.revature.model.Product;
 import com.revature.util.ConnectionFactory;
 
@@ -62,29 +63,26 @@ public class ProductDBDAO implements ProductDAO<Product>{
 		
 	}
 
-	
-
-	@Override
-	public void updateInstance(Product updatinstance) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
+		@Override
 	public void deleteInstance(Product deleteinstance) {
 		// TODO Auto-generated method stub
 		
 	}
-
-	
 	@Override
-	public void getInstance(Product updateinstance) {
+	public List<Product> getAllByID(int id) {
 		// TODO Auto-generated method stub
-		
+		return null;
 	}
 
 	@Override
-	public List<Product> getAllByID(int id) {
+	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
+			String Location, int Price, int Quantity) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Order deleteInstance(Integer id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
