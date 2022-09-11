@@ -88,6 +88,19 @@ public class ProductDBDAO implements ProductDAO<Product>{
 	}
 
 	
+	@Override
+	public void Upinstance(int intentoryqty) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void Upinstance(Inventory updateinstance) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 
 
 	

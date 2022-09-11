@@ -21,10 +21,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.revature.dao.DAO;
+import com.revature.dao.InventoryDBDAO;
 import com.revature.dao.OrderDBDAO;
 import com.revature.dao.OrderHistoryDBDAO;
 import com.revature.dao.ProductDAO;
 import com.revature.dao.PurchaseDBDAO;
+import com.revature.model.Inventory;
 import com.revature.model.Order;
 import com.revature.model.OrderHistory;
 import com.revature.model.Purchase;
@@ -37,6 +39,7 @@ public class CheckoutContorller extends HttpServlet {
 	private static ProductDAO<Order>orderDAO=new OrderDBDAO();
 	private static ProductDAO<Purchase>purchaseDAO=new PurchaseDBDAO();
 	private static DAO<OrderHistory>orderhistoryDAO=new OrderHistoryDBDAO();
+	private static ProductDAO<Inventory>inventoryDAO=new InventoryDBDAO();
 
 
 	
@@ -119,6 +122,9 @@ public class CheckoutContorller extends HttpServlet {
 				
 			Purchase Ph=new Purchase(OrderHistoryID, foundinv.getInventoryID(), foundinv.getProductID(), foundinv.getStoreID(), foundinv.getBrand(), foundinv.getCategory(), foundinv.getStore(),  foundinv.getLocation(),rs.getDouble(1),1,strDate, Name);
 			purchaseDAO.addInstance(Ph);
+			int intentoryqty =foundinv.getQuantity()- 1;
+			inventoryDAO.Upinstance(intentoryqty);
+			
 				}
 				
 			}

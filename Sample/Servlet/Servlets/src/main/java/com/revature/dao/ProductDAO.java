@@ -16,12 +16,15 @@ public interface ProductDAO <T>{
 		
 		 Inventory  getByID(int InventoryID,int ProductID,int StoreID,String Brand,String Category,String Store,String Location,int Price,int Quantity);
 		
-		 void  Upinstance(T updateinstance);
+		 void  Upinstance(int intentoryqty);
 
 		 void  deleteInstance(T deleteinstance);
 
 		 
 		Order deleteInstance(Integer id);
+
+
+		void Upinstance(Inventory updateinstance);
 
 		 
 }

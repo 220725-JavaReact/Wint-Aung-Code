@@ -95,7 +95,8 @@ public class CartDeleteController extends HttpServlet {
 			session.setAttribute("username", Name);
 		    
 				Order order=orderDAO.deleteInstance(id);
-			
+				session.setAttribute("username", Name);
+			    
 			List<Order>orders=new ArrayList<>();
 			for(Order foundinv:orders)
 		
