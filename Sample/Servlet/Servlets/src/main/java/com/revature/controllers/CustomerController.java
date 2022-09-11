@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.ServerException;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class CustomerController extends HttpServlet{
 	private static Logger logger=Logger.getLogger();
 	
 	@Override
-	protected void doGet(HttpServletRequest req,HttpServletResponse resp)throws IOException,ServletException
+	protected void doGet(HttpServletRequest req,HttpServletResponse response)throws IOException,ServletException
 	{ //TLDR- will 
 		final String URI=req.getRequestURI().replace("/Servlets/", "");
 		
@@ -37,7 +38,7 @@ public class CustomerController extends HttpServlet{
 		switch (URI)
 		{
 		case "customer":
-			resp.getWriter().println("I am getting a specific custmomer");
+			response.getWriter().println("I am getting a specific custmomer");
 		//logger.log(LogLevel.info, "Retrieve a customer ");
 		 
 //			
@@ -45,25 +46,61 @@ public class CustomerController extends HttpServlet{
 			
 			break;
 		case "allcustomer":
-			resp.getWriter().println("I'm getting all customer");
+		
+			
+			
+			
+			
+			
+			
+			PrintWriter out=response.getWriter();
+			out.println("<html><body>");
+			
+				out.print("<a href='Home.html'>Go Back</a>");
+				
+				out.print("<style>"//
+						+ "td,th{padding:10px 20px;}"
+						+ "body{font-family:arial;}"
+						+ "table{border:1px solid black;text-align:center; padding:20px;margin-top:50px;background-color:#cce5ff;}"
+						+ "a{text-decoration:none;border:1px solid black;padding:10px 10px;}"
+						+ "button{  background-color:#3949ab;color:#FFF;padding:12px 12px;border-radius:8px;font-size:1.18em;display:inline-block;}"
+						+ "a:hover{color:red;}"
+						+ "</style><center>"
+						+ "<table style= width:100%>"
+						+ "<tr>"
+						
+
+							
+							+ "<th>FistName</td>"
+							+ "<th>LastName</th>"
+							
+							+ "<th>UserName</th>"
+							+ "<th>Password</th>"
+						);					
+
+				
+				
+				
 			//displaying the result of our dao logics
 		List<Customer> listofCustomer=customerDAO.getAllInstance();
-		
-		
-		for(Customer customer : listofCustomer)
+				for(Customer customer : listofCustomer)
 		{
 			
 			
 			
 			
-		resp.getWriter().println("============================ ");
+		response.getWriter().println("============================ ");
 		//resp.getWriter().println(customer.getCustomerID());
-		resp.getWriter().println("FirstName  : "+customer.getFirstName());
-		resp.getWriter().println("LastName   : "+customer.getLastName());
-		resp.getWriter().println("UserName   : "+customer.getUserName());
-		resp.getWriter().println("Password   : "+customer.getPassword());		
-		resp.getWriter().println("============================ ");
+		response.getWriter().println("<tr><td>"+customer.getFirstName()+"</td>");
+		response.getWriter().println("<td>"+customer.getLastName()+"</td>");
+		response.getWriter().println("<td>"+customer.getUserName()+"</td>");
+		response.getWriter().println("<td>"+customer.getPassword()+"</td>");		
+		response.getWriter().println("============================ ");
 		}
+				out.println("</table></center>");
+				
+				out.println("</body></html>");
+			
 		
 		
 		break;

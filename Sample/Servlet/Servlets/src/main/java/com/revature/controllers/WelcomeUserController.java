@@ -150,8 +150,8 @@ public class WelcomeUserController extends HttpServlet{
 			 // session.setAttribute("the-order",order);
 			
 		
-			  Order order= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
-				 orderDAO.addInstance(order);
+			//  Order order= new Order(Price,Brand,Category,Name,StoreID,Store,Location,ProductID,Quantity,InventoryID);
+			//	 orderDAO.addInstance(order);
 				
 			
 	}

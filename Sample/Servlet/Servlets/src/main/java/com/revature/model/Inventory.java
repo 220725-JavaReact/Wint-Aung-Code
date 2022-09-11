@@ -1,5 +1,7 @@
 package com.revature.model;
 
+import com.revature.tests.InvalidPointException;
+
 public class Inventory {
 
 	 private int InventoryID;
@@ -11,10 +13,24 @@ public class Inventory {
 		private int Quantity;
 		private int StoreID;
 		private int ProductID;
+		
+		
+		public Inventory(String Brand)
+		{
+			this.Brand=Brand;
+			Price=0;
+		}
+		public Inventory(String Brand,double initialPrice)
+		{
+			this.Brand=Brand;
+			Price= initialPrice;
+		}
+		
 		public Inventory()
 		{
-			super();
+			this("wint",1.1);
 		}
+		
 		public Inventory(int InventoryID,int ProductID,int StoreID,String Brand,String Category,String Store,String Location,double Price,int Quantity)
 		{	this.Brand=Brand;
 		this.Category=Category;
@@ -50,6 +66,12 @@ public class Inventory {
 			ProductID = productID;
 		}
 		
+		public double addPrice(PriceCategories category)
+		{
+			this.Price+=category.value;
+			return this.Price;
+			
+		}
 		public int getInventoryID() {
 			return InventoryID;
 		}
@@ -74,12 +96,23 @@ public class Inventory {
 		public void setLocation(String location) {
 			Location = location;
 		}
+		
+		public double addPrice(double Price)
+		{
+			if(Price==0)throw new InvalidPointException("You can't add anything");
+			this.Price+=Price;
+			return this.Price;
+		}
+		
 		public double getPrice() {
 			return Price;
 		}
 		public void setPrice(double price) {
 			Price = price;
 		}
+		
+		
+		
 		public int getQuantity() {
 			return Quantity;
 		}
@@ -92,4 +125,21 @@ public class Inventory {
 					+ Store + ", Location=" + Location + ", Price=" + Price + ", Quantity=" + Quantity + ", StoreID="
 					+ StoreID + ", ProductID=" + ProductID + "]";
 		}
+		
+		public enum PriceCategories
+		{
+			Debug_trainer(1.1),Answer_Question(2.2),Fininsh_activity(3.3),Debug_Assoc(4.4),Laughs_atTrrnerjobk(5.5),Laughattrainer(Double.MIN_VALUE);
+			public final double value;
+			private PriceCategories(double value)
+			{
+				
+				this.value=value;
+			}
+			
+		}
+		
+
+			
 }
+
+

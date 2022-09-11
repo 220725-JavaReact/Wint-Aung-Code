@@ -131,6 +131,21 @@
 </servlet-mapping>
 
 
+<!-- Store -->
+
+<servlet>
+<servlet-name>StoreController</servlet-name>
+<servlet-class>com.revature.controllers.StoreController</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>StoreController</servlet-name>
+<url-pattern>/StoreController</url-pattern>
+
+</servlet-mapping>
+
+
+
 <!-- Shopping product-->
 <servlet>
 <servlet-name>ProductController</servlet-name>

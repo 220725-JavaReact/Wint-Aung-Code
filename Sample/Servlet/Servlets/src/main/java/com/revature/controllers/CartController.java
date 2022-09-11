@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.revature.dao.OrderDBDAO;
 import com.revature.dao.ProductDAO;
@@ -29,13 +30,12 @@ public class CartController extends HttpServlet{
 	protected void service(HttpServletRequest request,HttpServletResponse response)
 			throws ServletException,IOException
 	{
-		ServletContext sc=getServletContext();
-		String name=(String) sc.getAttribute("UserName");		
-		
+		HttpSession session=request.getSession();
+		String Name =(String) session.getAttribute("username");
+			
 		
 		Logger.getLogger().log(LogLevel.info,"Getting inside of  the shopping cart page");
 		Logger.getLogger().log(LogLevel.info,"======================================");
-		String Name= (String) sc.getAttribute("Name");
 		Logger.getLogger().log(LogLevel.info,"get the cart list  ");
 		Logger.getLogger().log(LogLevel.info,"======================================");
 		
@@ -43,7 +43,8 @@ public class CartController extends HttpServlet{
 		
 		//	int id=Integer.parseInt(request.getParameter("the-cart"));/////from viewcart items page
 			
-			
+		session.setAttribute("username", Name);
+	    
 		PrintWriter out = response.getWriter();
 		
 		try 
@@ -53,11 +54,16 @@ public class CartController extends HttpServlet{
 			
 			
 			response.setContentType("text/html");
-					out.println("Welcome :"+Name);
+			//	out.println("Welcome :"+Name);
 				
 			out.print("<a href='DisplayItems'>Go Back</a>");
+			session.setAttribute("username", Name);
+			
 			out.print("<a href='CartController'>Your cart</a>");
+			session.setAttribute("username", Name);
+			
 			out.print("<a href='CheckoutContorller'>Check Out</a><br>");
+			session.setAttribute("username", Name);
 			
 			out.print("<style>"//
 					+ "td,th{padding:10px 20px;}"
@@ -103,11 +109,11 @@ public class CartController extends HttpServlet{
 				
 				
 			 	
-			 	
-			out.print("<td><a href='CartDeleteController?ItemId="+foundinv.getOrderID()+ "'>Remove from Cart</a></td>"
+				session.setAttribute("username", Name);
+				
+			out.print("<td><a href='CartDeleteController?ItemId="+foundinv.getOrderID()+ "'>Remove </a></td>"
 					+ "</tr><br><br>");
-			//ServletContext scp=request.getServletContext();
-			sc.setAttribute("UserName", Name);
+			session.setAttribute("username", Name);
 			Logger.getLogger().log(LogLevel.info,"bring the name to setattibute ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
 			
@@ -115,8 +121,8 @@ public class CartController extends HttpServlet{
 			}	
 			out.print("</table></center></body></html>");
 			
-		
-
+			session.setAttribute("username", Name);
+		    
 			
 		}
 			
@@ -127,13 +133,8 @@ public class CartController extends HttpServlet{
 			e.printStackTrace();
 		}
 		
-				
-			 		
-		sc.setAttribute("UserName", Name);
-		
-				
-				
-				
+		session.setAttribute("username", Name);
+	    
 //				String js=objmap.writeValueAsString(id);
 //				response.getWriter().println(js);
 					

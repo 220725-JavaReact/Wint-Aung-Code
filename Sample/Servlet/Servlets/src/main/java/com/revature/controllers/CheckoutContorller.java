@@ -45,15 +45,13 @@ public class CheckoutContorller extends HttpServlet {
 {
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
-		ServletContext sc=getServletContext();
+		HttpSession sc=request.getSession();
+		String Name =(String) sc.getAttribute("username");
 		
-	String Name= request.getParameter("UserName");
-//	String name=(String) sc.getAttribute("UserName");		
-	//out.print("<center>Succesful place order !!!!!!<center>");
 	out.print("<a href='index.html'>Log Out</a></head><br>");
 	
 		try	 
-		{   
+		{   	
 			//out.print("welcome:"+Name);
 			
 			
@@ -139,7 +137,7 @@ public class CheckoutContorller extends HttpServlet {
 		{
 			e.printStackTrace();
 		}
-		sc.setAttribute("UserName", Name);
+		sc.setAttribute("username", Name);
 		
 	//	sc.setAttribute("UserName",name );
 		

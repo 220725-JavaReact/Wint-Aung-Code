@@ -49,12 +49,12 @@ public class StoreDBDAO implements CustomerDAO<Store>{
 			
 			while(rs.next())
 			{
-				store.add(new Store(rs.getInt("StoreID"),rs.getString("StoreName"),rs.getString("City"),rs.getString("State")));
+				store.add(new Store(rs.getInt("StoreID"),rs.getString("StoreName"),rs.getString("Location"),rs.getString("Description")));
 			}
 			
 		}
 		catch(SQLException e)
-		{
+		{e .printStackTrace();
 			throw new RuntimeException("Found error to get everything from store table DB");
 		}
 		return store;

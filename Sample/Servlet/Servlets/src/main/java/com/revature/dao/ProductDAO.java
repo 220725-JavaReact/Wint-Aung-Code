@@ -16,7 +16,8 @@ public interface ProductDAO <T>{
 		
 		 Inventory  getByID(int InventoryID,int ProductID,int StoreID,String Brand,String Category,String Store,String Location,int Price,int Quantity);
 		
-	
+		 void  Upinstance(T updateinstance);
+
 		 void  deleteInstance(T deleteinstance);
 
 		 

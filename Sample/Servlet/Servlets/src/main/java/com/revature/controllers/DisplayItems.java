@@ -39,11 +39,12 @@ public class DisplayItems extends HttpServlet{
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
-		ServletContext sc=getServletContext();
-		//String name=(String) sc.getAttribute("UserName");		
 		
-	String Name= request.getParameter("UserName");
-	
+		String Name =(String) session.getAttribute("username");
+		if (Name == "admin")
+		{
+			response.sendRedirect("Home.html");
+		}
 		
 		try	 
 		{   
@@ -52,27 +53,20 @@ public class DisplayItems extends HttpServlet{
 			PreparedStatement preparedStatement=connection.prepareStatement(query);
 			ResultSet rs=preparedStatement.executeQuery();
 			
-			
+			out.print("Welcome :"+Name );
 			Logger.getLogger().log(LogLevel.info,"select * from Inventory table ");
 			
-			if(Name==null)
-			{
-			//out.print("<h1>Welcome :"+name+"</h1>");
 			Logger.getLogger().log(LogLevel.info,"get the name from userlogin page if not null:name:");
 			
-			}
-			else 
-			{
-				out.print("<h1>Welcome :"+Name+"</h1>");
-				
-			}
-				
 			
-			try {
+			try 
+			{
+				Cookie	cname=new Cookie(request.getParameter("UserName"),"2");
 				
 				Cookie	c=new Cookie(request.getParameter("ItemId"),"1");
 				Logger.getLogger().log(LogLevel.info,"get the parameter from cookie to get stock ");
 				Logger.getLogger().log(LogLevel.info,"======================================");
+				
 				
 						
 				response.addCookie(c);
@@ -80,8 +74,22 @@ public class DisplayItems extends HttpServlet{
 				
 				
 				}catch(Exception e){}
+			session.setAttribute("username", Name);
 			
-			out.print("<a href='ViewCartItems'>View Cart</a><br>");
+			out.print("<a href='ViewCartItems'>View Cart</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='CartController'>Order History</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='CheckoutContorller'>Order Detail</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='index.html'>Log Out</a></head><br>");
+			session.setAttribute("username", Name);
+			
+			
+			
 			Logger.getLogger().log(LogLevel.info,"User choose to view the cart");
 			Logger.getLogger().log(LogLevel.info,"======================================");
 			
@@ -118,10 +126,12 @@ public class DisplayItems extends HttpServlet{
 			+"<td> $"+rs.getInt(9)+"</td>"
 			);
 				
+			session.setAttribute("username", Name);
 			
 			out.print("<td><a href='ViewCartItems?ItemId="+ rs.getInt(1) + "'>Add To Cart</a></td></tr><br><br>");
 			Logger.getLogger().log(LogLevel.info,"use add the prroduct and show the info of the choosen product ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
+			session.setAttribute("username", Name);
 			
 			
 			
@@ -129,9 +139,8 @@ public class DisplayItems extends HttpServlet{
 //			Order order=new Order(rs.getDouble(8),rs.getString(4),rs.getString(5),Name,rs.getInt(3),rs.getString(6), rs.getString(7), rs.getInt(2), rs.getInt(9),rs.getInt(1));
 //			orderDAO.addInstance(order);
 			}
-			
-			 	
 			out.print("</table></center></body></html>");
+			session.setAttribute("username", Name);
 			
 		    }
 			
@@ -141,11 +150,11 @@ public class DisplayItems extends HttpServlet{
 			e.printStackTrace();
 			//throw new RuntimeException("An errorcc  occured when creat an order into the database ");
 		}
-		sc.setAttribute("UserName", Name);
 		Logger.getLogger().log(LogLevel.info,"try to bring the username to ViewCartPage ");
 		Logger.getLogger().log(LogLevel.info,"======================================");
 		
 	//	sc.setAttribute("UserName",name );
+		session.setAttribute("username", Name);
 		
 		}
 }

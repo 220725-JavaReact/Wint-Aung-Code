@@ -38,22 +38,28 @@ public class ViewCartItems extends HttpServlet
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 			ServletContext sc=getServletContext();
-			String Name= (String) sc.getAttribute("UserName");
-			//String name=(String) sc.getAttribute("UserName");		
-				
+		
+			HttpSession session=request.getSession();
+			
+			String Name =(String) session.getAttribute("username");
+			//out.print("<h1>Welcome"+Name+"</h1>");
+			session.setAttribute("GoBack", Name);
+			
+			
+			
+			
 			Logger.getLogger().log(LogLevel.info,"get the attribute of username and cart  ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
+			out.print("welcome :" + Name);
 			
 		try
 		{
-			
 			
 			Cookie c=new Cookie(request.getParameter("ItemId"),"1");
 			c.setMaxAge(0);//
 			response.addCookie(c);
 			Logger.getLogger().log(LogLevel.info,"get the ItemId parameter to put the cookies");
 			Logger.getLogger().log(LogLevel.info,"======================================");
-			out.print("<h1>WelcomeName "+Name+"</h1>");
 			}
 		
 		catch(Exception e) 
@@ -68,7 +74,9 @@ public class ViewCartItems extends HttpServlet
 		Logger.getLogger().log(LogLevel.info,"======================================");
 		out.print("<a href='DisplayItems'>Go Back</a>");
 		
-		out.print("<a href='CartController'>Your Cart</a><br>");
+		out.print("<a href='CartController'>Your Cart</a>");
+		out.print("<a href='index.html'>Log Out</a></head><br>");
+		
 		try {
 				
 			
@@ -122,13 +130,12 @@ public class ViewCartItems extends HttpServlet
 	
 					);
 			out.print("<h1><a href='DisplayItems?"+ Name + ">Continue Shoppeing</a></td><h1></tr><br><br>");
+			session.setAttribute("username", Name);
 			
 			Logger.getLogger().log(LogLevel.info,"show the product list from inventory under specific id ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
 			
-	//}
-			HttpSession session=request.getSession();
-			session.setAttribute("cart",Name);
+	
 			Logger.getLogger().log(LogLevel.info,"set the attribute to get user name  ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
 			
@@ -145,18 +152,15 @@ public class ViewCartItems extends HttpServlet
 			orderDAO.addInstance(order1);
 			Logger.getLogger().log(LogLevel.info,"add the product into the cart (order)table ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
-			
-	
-			
-		   
-			
+						
 			
 			out.print("</table></body></html");
-			ServletContext scp=request.getServletContext();
-			scp.setAttribute("UserName", Name);
+			
 			Logger.getLogger().log(LogLevel.info,"carry the attribute of the Name ");
 			Logger.getLogger().log(LogLevel.info,"======================================");
 			
+		//	session.setAttribute("UserName", Name);
+			sc.setAttribute("username", Name);
 			
 	
 	

@@ -4,7 +4,7 @@ package com.revature.tests;
 public class Assert {
 
 	
-	public static void equal (int expected, int actual)
+	public static void equal (double expected, double actual)
 	{
 		if(expected!=actual) throw new AssertException();
 		
