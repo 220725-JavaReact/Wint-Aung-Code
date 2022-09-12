@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.ServerException;
 import java.util.List;
 
@@ -30,11 +31,53 @@ public class ProductController extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)
 			throws IOException,ServletException
-	{
+	{PrintWriter out=response.getWriter();
+	out.println("<html><body>");
+	
+	 out.print("<a href='Home.html'>Go Back</a>");
+	out.print("<style>"//
+			+ "td,th{padding:10px 20px;}"
+			+ "body{font-family:arial;}"
+			+ "table{border:1px solid black;text-align:center; padding:20px;margin-top:50px;background-color:#cce5ff;}"
+			+ "a{text-decoration:none;border:1px solid black;padding:10px 10px;}"
+			+ "button{  background-color:#3949ab;color:#FFF;padding:12px 12px;border-radius:8px;font-size:1.18em;display:inline-block;}"
+			+ "a:hover{color:red;}"
+			+ "</style><center>"
+			+ "<table style= width:100%>"
+			+ "<tr>"
+			
 
-		ProductDBDAO productDAO=new ProductDBDAO();
-		request.setAttribute("products", productDAO.getAll());
-		request.getRequestDispatcher("product/index.jsp").forward(request, response);
+				
+				+ "<th>ProductID</th>"
+				
+				+ "<th>Brand</th>"
+				+ "<th>Catagory</th>"
+				
+				
+				+ "<th>Price($)</th>"
+				+ "<th>Quantity</th>");
+				
+
+		
+		
+		
+		
+		List <Product>pro=productDAO.getAllInstance();
+for (Product customer:pro)
+{		 response.getWriter().println("============================ ");
+			//resp.getWriter().println(customer.getCustomerID());
+		 response.getWriter().println("<tr><td>"+customer.getProductID()+"</td>");
+		 response.getWriter().println("<td>"+customer.getProductName()+"</td>");		
+		 response.getWriter().println("<td>"+customer.getCategory()+"</td>");
+			
+		 response.getWriter().println("<td>"+customer.getPrice()+"</td>");	
+		 response.getWriter().println("<td>"+customer.getQuantity()+"</td><tr><br>");		
+			
+		 response.getWriter().println("============================ ");
+}
+		
+		
+		
 		
 		
 	}

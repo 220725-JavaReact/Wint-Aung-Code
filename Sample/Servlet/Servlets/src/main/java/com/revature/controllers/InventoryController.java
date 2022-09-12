@@ -32,91 +32,90 @@ public class InventoryController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest request,HttpServletResponse response)
-	throws ServletException ,IOException {
-		InventoryDBDAO inventoryDAO=new InventoryDBDAO();
-		String action=request.getParameter("action");
-			if(action==null)
-			{
-			request.setAttribute("products", inventoryDAO.getAll());
-			request.getRequestDispatcher("product/index.jsp")
-			.forward(request, response);
-			}
-		}
+	throws ServletException ,IOException 
+	{	PrintWriter out=response.getWriter();
+	out.println("<html><body>");
+	
+		out.print("<a href='Home.html'>Go Back</a>");
+		
+	List<	Inventory> in =inventoryDAO.getAllInstance();
+	
+	out.print("<style>"//
+			+ "td,th{padding:10px 20px;}"
+			+ "body{font-family:arial;}"
+			+ "table{border:1px solid black;text-align:center; padding:20px;margin-top:50px;background-color:#cce5ff;}"
+			+ "a{text-decoration:none;border:1px solid black;padding:10px 10px;}"
+			+ "button{  background-color:#3949ab;color:#FFF;padding:12px 12px;border-radius:8px;font-size:1.18em;display:inline-block;}"
+			+ "a:hover{color:red;}"
+			+ "</style><center>"
+			+ "<table style= width:100%>"
+			+ "<tr>"
+			
+
+				
+				+ "<th>InventoryID</td>"
+				+ "<th>ProductID</th>"
+				
+				+ "<th>StoreID</th>"
+				+ "<th>Brand</th>"
+				+ "<th>Catagory</th>"
+				
+				+ "<th>Store</th>"
+				+ "<th>Location</th>"
+				
+				+ "<th>Price($)</th>"
+				+ "<th>Quantity</th>");
+				
 		
 	
+
+	 for (Inventory customer:in)
+	 {
+		 response.getWriter().println("============================ ");
+			//resp.getWriter().println(customer.getCustomerID());
+		 response.getWriter().println("<tr><td>"+customer.getInventoryID()+"</td>");
+		 response.getWriter().println("<td> "+customer.getProductID()+"</td>");
+		 response.getWriter().println("<td> "+customer.getStoreID()+"</td>");
+		 response.getWriter().println("<td> "+customer.getBrand()+"</td>");		
+		 response.getWriter().println("<td>  "+customer.getCategory()+"</td>");		
+		 response.getWriter().println("<td>: "+customer.getStore()+"</td>");		
+		 response.getWriter().println("<td>"+customer.getLocation()+"</td>");		
+		 response.getWriter().println("<td>"+customer.getPrice()+"</td>");		
+		 response.getWriter().println("<td>"+customer.getQuantity()+"</td></tr><br>");		
+			
+		 response.getWriter().println("============================ ");
+			
+	 }
+	out.println("</table></center>");
+		
+		out.println("</body></html>");
+		
 	
+		
+	}
 	@Override
 	protected void doPost(HttpServletRequest request,HttpServletResponse response)
 	throws ServletException ,IOException
 	{
-		response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
-		String Name=request.getParameter("UserName");
-		out.print("welcom"+Name);
-		List<Inventory> inventorylist=inventoryDAO.getAllInstance();
-		
-		out.println("<html><body>");
-		out.println("<div>");
-		out.println("Plase choose the product item below:");
-		out.println("<Style> table,th,td {text-align:center;border:1px solid black; border-collapse: collapse;padding:15 px;border-spaceing :30px;background-color:#D6EEEE;}"
-					+ "th:nth-child(even),td:nth-chiled(even){background-color:white;}body{background-color:#1F618D;}head{background-color:red;}input{color:red;background-color:skyblue;}"
-					+ "div{background-color: white;}</style>");
-
-		
-		
-			out.println(
-					
-					 "<table style= width:100%>");
-			out.println("<tr>");
-			out.println("<th>ProductID</th>");
-			out.println("<th>InventoryID</th>");
-			
-			out.println("<th>ProductName</th>");
-			out.println("<th>Category</th>");
-			out.println("<th>Store</th>");
-			out.println("<th>StoreID</th>");
-			out.println("<th>Location</th>");
-			out.println("<th>Price</th>");
-			out.println("<th>Quantity</th>");
-			out.println("</tr>");	
-			out.println("<tr>");	
-		
-		for(Inventory inventory : inventorylist)
-		
-		{
-			   response.setContentType("text/html");
-			
-				
-					
-					
-									
-					out.println("<td>"+inventory.getProductID()+"</td>");
-					out.println("<td>"+inventory.getInventoryID()+"</td>");
-					out.println("<td>"+inventory.getBrand()+"</td>");
-					out.println("<td>"+inventory.getCategory()+"</td>");
-					out.println("<td>"+inventory.getStore()+"</td>");
-					out.println("<td>"+inventory.getStoreID()+"</td>");
-					out.println("<td>"+inventory.getLocation()+"</td>");
-					out.println("<th>"+inventory.getPrice()+"</th>");
-					out.println("<th>"+inventory.getQuantity()+"</th>");
-					out.println("</tr></table></div>");
-					
-				
-				
-		}
-		
-		out.print("End of table  ");
 	
-		out.println("</body></html>");
-		
-				response.getWriter().write("The customer the line number down :" );
-				
+		   String Brand =request.getParameter("Brand");
+		  String Store=request.getParameter("Store");
+		  String Location=request.getParameter("Location");
+		  String Category=request.getParameter("Category");
+		 String p= request.getParameter("Price");
+		 double Price=Integer.parseInt(p);
+		  String Q=request.getParameter("Quantity");
+		  int Quantity =Integer.parseInt(Q);
+		 int InventoryID=3;
+		 int ProductID=4;
+		 int StoreID=3;
+	Inventory 	inventory =new Inventory(InventoryID, ProductID, StoreID, Brand, Category, Store, Location, Price, Quantity);
+		  inventoryDAO.addInstance(inventory);
+	  
+		  response.sendRedirect("Home.html");
 			
-				  
-			
 		
 		
-	
 	}
 	
 	}

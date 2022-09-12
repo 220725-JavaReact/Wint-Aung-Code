@@ -20,17 +20,27 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.revature.dao.DAO;
+import com.revature.dao.InventoryDBDAO;
 import com.revature.dao.OrderDBDAO;
 import com.revature.dao.OrderHistoryDBDAO;
 import com.revature.dao.ProductDAO;
+import com.revature.dao.PurchaseDBDAO;
+import com.revature.model.Inventory;
 import com.revature.model.Order;
 import com.revature.model.OrderHistory;
+import com.revature.model.Purchase;
 import com.revature.util.ConnectionFactory;
+import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class CheckoutContorller extends HttpServlet {
 	
 	private static ProductDAO<Order>orderDAO=new OrderDBDAO();
-	private static ProductDAO<OrderHistory>orderhisoryDAO=new OrderHistoryDBDAO();
+	private static ProductDAO<Purchase>purchaseDAO=new PurchaseDBDAO();
+	private static DAO<OrderHistory>orderhistoryDAO=new OrderHistoryDBDAO();
+	private static ProductDAO<Inventory>inventoryDAO=new InventoryDBDAO();
+
 
 	
 	protected void service(HttpServletRequest request,HttpServletResponse response)
@@ -38,25 +48,20 @@ public class CheckoutContorller extends HttpServlet {
 {
 		PrintWriter out=response.getWriter();
 		response.setContentType("text/html");
-		HttpSession session=request.getSession();
+		HttpSession sc=request.getSession();
+		String Name =(String) sc.getAttribute("username");
 		
-	String Name= request.getParameter("UserName");
-	String name=request.getParameter("the-cart");		
-		
+	out.print("<a href='index.html'>Log Out</a></head><br>");
+	
 		try	 
-		{   
+		{   	
+			//out.print("welcome:"+Name);
+			
+			
 			Connection connection =ConnectionFactory.getInstance().getConnection();
 			String query="Select Sum(Price) from Orders";
 			PreparedStatement preparedStatement=connection.prepareStatement(query);
 			ResultSet rs=preparedStatement.executeQuery();
-			if(Name==null)
-			{
-			out.print("<h1>Welcome :"+name+"</h1>");
-			}
-			else 
-			{
-				out.print("<h1>Welcome :"+Name+"</h1>");
-					}
 				
 			try {
 				
@@ -64,70 +69,83 @@ public class CheckoutContorller extends HttpServlet {
 						
 				response.addCookie(c);
 				
-				out.print("Product added to your cart successfully..");
 				
 				}catch(Exception e){}
 			
-			out.print("<a href='ViewCartItems'>View Cart</a>");
+		//	out.print("<a href='ViewCartItems'>View Cart</a>");
+			while(rs.next())
+			{
 			
 			out.print(
 					"<style> td,th{padding:14px 20px}body{font-faimily:arial;}table{border:1px solid black ;padding:20px;margin-top:-50px:}"
 					+ "a{text-decoration:none;border:1px solid black;padding :10px 10px;}a:hover{color:red;}"
 					+ "</style>"
 							
-					+"<table><tr>"
-					//+ "<th>InventoryID</th>"
-					//+ "<th>ProductID</th>"
-				//	+ "<th>StoreID</th>"
+					+"<center><table"
+					+ "><tr>");
+				out.print("<th>OrderID</th>"
+					+ "<th>Brand</td>"
 					
-					+ "<th>Brand</th>"
 					+ "<th>Category</th>"
+					+ "<th>Price</th>"
 					+ "<th>Store</th>"
 					+ "<th>Location</th>"
-					
-					+ "<th>Price</th>"
 					);
-			while(rs.next())
+			
+			List<Order>ff=orderDAO.getAllInstance();
+			for(Order foundinv:ff)
 			{
-				//fetch record
-			out.print("<tr>"
-			//+ "<td>"+rs.getInt(1)+"</td>"
-			//+"<td>"+rs.getInt(2)+"</td>"
-			//+"<td>"+rs.getInt(3)+"</td>"
+					
+				
+				out.print("<tr>"
+						+"<td>"+foundinv.getOrderID()+"</td>"
+						+"<td>"+foundinv.getBrand()+"</td>"
+						+"<td>"+foundinv.getCategory()+"</td>"
+						
+						+"<td> $"+foundinv.getAmount()+"</td>"
+						+"<td>"+foundinv.getStore()+"</td>"
+								
+						+"<td>"+foundinv.getLocation()+"</td>");
+				
+				
+			List< OrderHistory>ID=orderhistoryDAO.getAllInstance();
+			for (OrderHistory oh:ID)
+				{
+				int OrderHistoryID = oh.getOrderHistoryID();
+				java.util.Date date=Calendar.getInstance().getTime();
+				DateFormat dateFormat= new SimpleDateFormat("mm-dd-yyyy");
+				String strDate=dateFormat.format(date);
+				Order or=new Order();
+				or.getOrderID();
+				OrderHistory orderhistory=new OrderHistory(strDate,Name,rs.getDouble(1));
+				orderhistoryDAO.addInstance(orderhistory);
+				
+			Purchase Ph=new Purchase(OrderHistoryID, foundinv.getInventoryID(), foundinv.getProductID(), foundinv.getStoreID(), foundinv.getBrand(), foundinv.getCategory(), foundinv.getStore(),  foundinv.getLocation(),rs.getDouble(1),1,strDate, Name);
+			purchaseDAO.addInstance(Ph);
+			int intentoryqty =foundinv.getQuantity()- 1;
+			inventoryDAO.Upinstance(intentoryqty);
 			
-			+"<td>"+rs.getString(4)+"</td>"
-			+"<td>"+rs.getString(5)+"</td>"
-			+"<td>"+rs.getString(6)+"</td>"	
-			+"<td>"+rs.getString(7)+"</td>"
+				}
+				
+			}
+			out.print(	"<tr><td></td><td></td><td></td><td></td><td>Total Amount</td><td>$"+rs.getDouble(1)+"</td></tr>");
 			
-			+"<td>"+rs.getInt(9)+"</td>"
-			);
+			}
 				
 			
-			out.print("<td><a href='ViewCartItems?ItemId="+ rs.getInt(1) + "'>Add To Cart</a></td></tr><br><br>");
-			
-			
-			
-			//(double Amount String Brand, String Category,String userName,int StoreID,String Store,String Location,int productID ,int Quantity ,int InventoryID)
-//			Order order=new Order(rs.getDouble(8),rs.getString(4),rs.getString(5),Name,rs.getInt(3),rs.getString(6), rs.getString(7), rs.getInt(2), rs.getInt(9),rs.getInt(1));
-//			orderDAO.addInstance(order);
-			}
-			
-			 	
 			out.print("</table></body></html>");
 			
-		    }
 			
+			//}
+		}
 		
 		catch(SQLException e)
 		{
 			e.printStackTrace();
-			//throw new RuntimeException("An errorcc  occured when creat an order into the database ");
 		}
-		ServletContext sc=request.getServletContext();
-		sc.setAttribute("UserName", Name);
+		sc.setAttribute("username", Name);
 		
-		sc.setAttribute("the-cart",name );
+	//	sc.setAttribute("UserName",name );
 		
 }
 	

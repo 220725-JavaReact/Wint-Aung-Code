@@ -11,24 +11,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.revature.dao.InventoryDBDAO;
 import com.revature.dao.InventoryService;
 import com.revature.dao.OrderDBDAO;
-import com.revature.dao.OrderHistoryDBDAO;
 import com.revature.dao.ProductDAO;
 import com.revature.model.Inventory;
 import com.revature.model.Order;
-import com.revature.model.OrderHistory;
-import com.revature.storage.CartStorage;
+import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class ViewCartItems extends HttpServlet
 {
 	private static final long serialVersionUID= 1L;
-	private static ObjectMapper objmap=new ObjectMapper();
 	private static InventoryService pokeserv=new InventoryService(new InventoryDBDAO());
-	private static ProductDAO<Inventory>inventoryDAo=new InventoryDBDAO();
-	private static ProductDAO<OrderHistory>orderHistoryDAO=new OrderHistoryDBDAO();
 
 	private static ProductDAO<Order>orderDAO=new OrderDBDAO();
 	public ViewCartItems()
@@ -43,34 +38,52 @@ public class ViewCartItems extends HttpServlet
 		response.setContentType("text/html");
 		PrintWriter out=response.getWriter();
 			ServletContext sc=getServletContext();
-			String Name= (String) sc.getAttribute("UserName");
-			String name=(String) sc.getAttribute("the-cart");		
-				
-        
+		
+			HttpSession session=request.getSession();
+			
+			String Name =(String) session.getAttribute("username");
+			//out.print("<h1>Welcome"+Name+"</h1>");
+			session.setAttribute("GoBack", Name);
+			
+			
+			
+			
+			Logger.getLogger().log(LogLevel.info,"get the attribute of username and cart  ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			out.print("welcome :" + Name);
+			
 		try
 		{
-			
 			
 			Cookie c=new Cookie(request.getParameter("ItemId"),"1");
 			c.setMaxAge(0);//
 			response.addCookie(c);
-			
-		}
+			Logger.getLogger().log(LogLevel.info,"get the ItemId parameter to put the cookies");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			}
 		
 		catch(Exception e) 
 		{
 			
 		}
-		out.print("WelcomeName "+Name);
 		
+		Logger.getLogger().log(LogLevel.info,"welcome custoemr with name ");
+		Logger.getLogger().log(LogLevel.info,"======================================");
+		
+		Logger.getLogger().log(LogLevel.info,"show the linke to go back to the display page ");
+		Logger.getLogger().log(LogLevel.info,"======================================");
 		out.print("<a href='DisplayItems'>Go Back</a>");
+		
 		out.print("<a href='CartController'>Your Cart</a>");
+		out.print("<a href='index.html'>Log Out</a></head><br>");
+		
 		try {
 				
 			
 	
-			Cookie ck[]=request.getCookies();
-		
+			Logger.getLogger().log(LogLevel.info,"get the product list from cookies of the inventory list ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
 		
 			out.print("<style>"//
 					+ "td,th{padding:14px 20px;}"
@@ -81,19 +94,24 @@ public class ViewCartItems extends HttpServlet
 					+ "</style>"
 					+ "<table>"
 					+ "<tr>"
-					+ "<th>InventoryID</tdh>"
+					+ "<th>InventoryID</th>"
 					+ "<th>ProductID</th>"
 					+ "<th>StoreID</th>"
 					+ "<th>Brand</th>"
 					+ "<th>Catagory</th>"
 					+ "<th>Store</th>"
 					+ "<th>Location</th>"
-					+ "<th>Pricess</th>"
+					+ "<th>Price</th>"
 					
 					);
 			
 			int InventoryID=Integer.valueOf(request.getParameter("ItemId"));
+			Logger.getLogger().log(LogLevel.info,"get the inventoryid from ItemId parameter ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
 			Inventory id=pokeserv.getInventoryById(InventoryID);
+			Logger.getLogger().log(LogLevel.info,"validate the inventory id is it match or not and get the info under the specific id ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
 			
 		//	for(int i=0;i<ck.length;i++)
 	//{
@@ -107,32 +125,42 @@ public class ViewCartItems extends HttpServlet
 					+"<td>"+id.getLocation()+"</td>"
 					+"<td>"+id.getStore()+"</td>"
 					+"<td>"+id.getCategory()+"</td>"
-					+"<td>"+id.getPrice()+"</td>"
+					+"<td> $"+id.getPrice()+"</td></tr><br>"
 					
 	
 					);
+			out.print("<h1><a href='DisplayItems?"+ Name + ">Continue Shoppeing</a></td><h1></tr><br><br>");
+			session.setAttribute("username", Name);
 			
-	//}
-			HttpSession session=request.getSession();
-			session.setAttribute("cart",id);
+			Logger.getLogger().log(LogLevel.info,"show the product list from inventory under specific id ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
+	
+			Logger.getLogger().log(LogLevel.info,"set the attribute to get user name  ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
 //			out.print("<p>"+Name+"</p>");
-//			out.print("<p>"+id+"</p>");
-			CartStorage cs=new CartStorage();
-			CartStorage.cartedlist.add(id);
+//			CartStorage.cartedlist.add(id);
+			Logger.getLogger().log(LogLevel.info,"add the product into temporaray storage  ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
 			
-			Inventory []order =CartStorage.cartedlist.getAllElements();
+			
+			
 			int orderid =0;
 			int quantity=1;
 			Order order1=new Order(id.getPrice(),id.getBrand(),id.getCategory(),Name,id.getStoreID(),id.getStore(),id.getLocation(), id.getProductID(),quantity,id.getInventoryID(),orderid);
 			orderDAO.addInstance(order1);
-	
-			
-		   
-			
+			Logger.getLogger().log(LogLevel.info,"add the product into the cart (order)table ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+						
 			
 			out.print("</table></body></html");
-			ServletContext scp=request.getServletContext();
-			sc.setAttribute("Name", Name);
+			
+			Logger.getLogger().log(LogLevel.info,"carry the attribute of the Name ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
+		//	session.setAttribute("UserName", Name);
+			sc.setAttribute("username", Name);
 			
 	
 	

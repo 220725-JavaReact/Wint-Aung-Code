@@ -21,44 +21,40 @@ private static Logger logger=new Logger();
 		String filePath=LocalDate.now().toString()+".log";
 		try(FileWriter writer=new FileWriter(filePath,true))
 		{
-		writer.append(log+"\n");	
-		}
-		catch(IOException e)
+			writer.append(log+"\n");
+		}catch(IOException e)
 		{
 			e.printStackTrace();
 		}
 	}
 	public void log(LogLevel level,String message)
 	{
-		Log log=new Log(level,LocalDateTime.now(),message);
+		Log log=new Log(level, LocalDateTime.now(), message);
 		writeToFile(log.toString());
 	}
 	public void log(LogLevel level,Exception ex)
 	{
-		Log log=new Log(level,LocalDateTime.now(),ex.toString());
+		Log log=new Log(level, LocalDateTime.now(), ex.toString());
 		writeToFile(log.toString());
 	}
 	
-	
 	private class Log{
 		LogLevel level;
-		LocalDateTime timeStamp;
 		String message;
-		
-		private Log(LogLevel level,LocalDateTime timeStamp ,String message) {
-			this.level=level;
+		LocalDateTime timeStamp;
+		private Log(LogLevel level,LocalDateTime timeStamp,String message)
+		{ this.level =level;
 			this.message=message;
 			this.timeStamp=timeStamp;
+			
 		}
-
 		@Override
 		public String toString() {
-			return  level + "\t"  + timeStamp + " \t"+ message  ;
+			return  level + "\t" + timeStamp + "t"+message;
 		}
+		
 	}
- public enum LogLevel
- {
-	 info, debug,verbose ,warning ,error, fatal
- }
-
+	public enum LogLevel{
+		info,debug,verbose,wanring ,error , fatal
+	}
 }

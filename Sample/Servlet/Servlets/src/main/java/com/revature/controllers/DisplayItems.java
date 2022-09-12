@@ -6,9 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -16,22 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.revature.dao.InventoryDBDAO;
-import com.revature.dao.InventoryService;
-import com.revature.dao.LoginDBDAO;
 import com.revature.dao.OrderDBDAO;
 import com.revature.dao.ProductDAO;
-import com.revature.model.Customer;
-import com.revature.model.Inventory;
 import com.revature.model.Order;
-import com.revature.storage.CartStorage;
 import com.revature.util.ConnectionFactory;
+import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class DisplayItems extends HttpServlet{
 	
 	private static ProductDAO<Order>orderDAO=new OrderDBDAO();
+	private static Logger logger=Logger.getLogger();
 
 	private static final long SerialVerionVID=1L;
 	
@@ -48,8 +40,11 @@ public class DisplayItems extends HttpServlet{
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		
-	String Name= request.getParameter("UserName");
-	String name=request.getParameter("the-cart");		
+		String Name =(String) session.getAttribute("username");
+		if (Name == "admin")
+		{
+			response.sendRedirect("Home.html");
+		}
 		
 		try	 
 		{   
@@ -57,33 +52,55 @@ public class DisplayItems extends HttpServlet{
 			String query="Select * from Inventory";
 			PreparedStatement preparedStatement=connection.prepareStatement(query);
 			ResultSet rs=preparedStatement.executeQuery();
-			if(Name==null)
+			
+			out.print("Welcome :"+Name );
+			Logger.getLogger().log(LogLevel.info,"select * from Inventory table ");
+			
+			Logger.getLogger().log(LogLevel.info,"get the name from userlogin page if not null:name:");
+			
+			
+			try 
 			{
-			out.print("<h1>Welcome :"+name+"</h1>");
-			}
-			else 
-			{
-				out.print("<h1>Welcome :"+Name+"</h1>");
-					}
-				
-			try {
+				Cookie	cname=new Cookie(request.getParameter("UserName"),"2");
 				
 				Cookie	c=new Cookie(request.getParameter("ItemId"),"1");
+				Logger.getLogger().log(LogLevel.info,"get the parameter from cookie to get stock ");
+				Logger.getLogger().log(LogLevel.info,"======================================");
+				
+				
 						
 				response.addCookie(c);
-				
 				out.print("Product added to your cart successfully..");
 				
+				
 				}catch(Exception e){}
+			session.setAttribute("username", Name);
 			
 			out.print("<a href='ViewCartItems'>View Cart</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='CartController'>Order History</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='CheckoutContorller'>Order Detail</a>");
+			session.setAttribute("username", Name);
+			
+			out.print("<a href='index.html'>Log Out</a></head><br>");
+			session.setAttribute("username", Name);
+			
+			
+			
+			Logger.getLogger().log(LogLevel.info,"User choose to view the cart");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			
+			
 			
 			out.print(
 					"<style> td,th{padding:14px 20px}body{font-faimily:arial;}table{border:1px solid black ;padding:20px;margin-top:-50px:}"
 					+ "a{text-decoration:none;border:1px solid black;padding :10px 10px;}a:hover{color:red;}"
 					+ "</style>"
 							
-					+"<table><tr>"
+					+"<center><table><tr>"
 					//+ "<th>InventoryID</th>"
 					//+ "<th>ProductID</th>"
 				//	+ "<th>StoreID</th>"
@@ -97,22 +114,24 @@ public class DisplayItems extends HttpServlet{
 					);
 			while(rs.next())
 			{
-				//fetch record
-			out.print("<tr>"
-			//+ "<td>"+rs.getInt(1)+"</td>"
-			//+"<td>"+rs.getInt(2)+"</td>"
-			//+"<td>"+rs.getInt(3)+"</td>"
+			Logger.getLogger().log(LogLevel.info,"show the product list from inventory ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
 			
+			out.print("<tr>"
 			+"<td>"+rs.getString(4)+"</td>"
 			+"<td>"+rs.getString(5)+"</td>"
 			+"<td>"+rs.getString(6)+"</td>"	
 			+"<td>"+rs.getString(7)+"</td>"
 			
-			+"<td>"+rs.getInt(9)+"</td>"
+			+"<td> $"+rs.getInt(9)+"</td>"
 			);
 				
+			session.setAttribute("username", Name);
 			
 			out.print("<td><a href='ViewCartItems?ItemId="+ rs.getInt(1) + "'>Add To Cart</a></td></tr><br><br>");
+			Logger.getLogger().log(LogLevel.info,"use add the prroduct and show the info of the choosen product ");
+			Logger.getLogger().log(LogLevel.info,"======================================");
+			session.setAttribute("username", Name);
 			
 			
 			
@@ -120,9 +139,8 @@ public class DisplayItems extends HttpServlet{
 //			Order order=new Order(rs.getDouble(8),rs.getString(4),rs.getString(5),Name,rs.getInt(3),rs.getString(6), rs.getString(7), rs.getInt(2), rs.getInt(9),rs.getInt(1));
 //			orderDAO.addInstance(order);
 			}
-			
-			 	
-			out.print("</table></body></html>");
+			out.print("</table></center></body></html>");
+			session.setAttribute("username", Name);
 			
 		    }
 			
@@ -132,10 +150,11 @@ public class DisplayItems extends HttpServlet{
 			e.printStackTrace();
 			//throw new RuntimeException("An errorcc  occured when creat an order into the database ");
 		}
-		ServletContext sc=request.getServletContext();
-		sc.setAttribute("UserName", Name);
+		Logger.getLogger().log(LogLevel.info,"try to bring the username to ViewCartPage ");
+		Logger.getLogger().log(LogLevel.info,"======================================");
 		
-		sc.setAttribute("the-cart",name );
+	//	sc.setAttribute("UserName",name );
+		session.setAttribute("username", Name);
 		
 		}
 }

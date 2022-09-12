@@ -12,10 +12,12 @@ import java.util.Optional;
 import com.revature.model.Customer;
 import com.revature.util.ConnectionFactory;
 import com.revature.util.ConnectionUtil;
+import com.revature.util.Logger;
+import com.revature.util.Logger.LogLevel;
 
 public class CustomerDBDAO implements CustomerDAO<Customer> {
 	
-
+private static Logger logger=Logger.getLogger();
 
 
 	
@@ -64,7 +66,7 @@ public class CustomerDBDAO implements CustomerDAO<Customer> {
 			e.printStackTrace();
 		}
 		return listofCustomer;
-	}
+		}
 
 	@Override
 	public void getByID(int CustomerID,String UserName,String Password) {

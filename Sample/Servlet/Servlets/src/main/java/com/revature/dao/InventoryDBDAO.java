@@ -24,19 +24,19 @@ public  class InventoryDBDAO implements ProductDAO<Inventory>{
 		// TODO Auto-generated method stub
 		try (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Update Inventory set Quantity = ? where InventoryID = ? ";
+			String query="Insert into Inventory(ProductID,StoreID,Brand,Category,Store,Location,Price,Quantity)values(?,?,?,?,?,?,?,?) ";
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
-			preparedStatement.setInt(1,newinstance.getInventoryID());
-			preparedStatement.setInt(3,newinstance.getProductID());
-			preparedStatement.setInt(3,newinstance.getStoreID());
-			preparedStatement.setString(4,newinstance.getBrand());
-			preparedStatement.setString(5,newinstance.getCategory());
+			//preparedStatement.setInt(1,newinstance.getInventoryID());
+			preparedStatement.setInt(1,newinstance.getProductID());
+			preparedStatement.setInt(2,newinstance.getStoreID());
+			preparedStatement.setString(3,newinstance.getBrand());
+			preparedStatement.setString(4,newinstance.getCategory());
 
-			preparedStatement.setString(6,newinstance.getStore());
-			preparedStatement.setString(7,newinstance.getLocation());
-			preparedStatement.setDouble(8,newinstance.getPrice());
-			preparedStatement.setInt(9, newinstance.getQuantity());
+			preparedStatement.setString(5,newinstance.getStore());
+			preparedStatement.setString(6,newinstance.getLocation());
+			preparedStatement.setDouble(7,newinstance.getPrice());
+			preparedStatement.setInt(8, newinstance.getQuantity());
 			preparedStatement.executeUpdate();
 			
 			}
@@ -79,13 +79,6 @@ public  class InventoryDBDAO implements ProductDAO<Inventory>{
 	}
 
 	
-	
-		
-		
-		
-		
-	
-
 	@Override
 	public void deleteInstance(Inventory deleteinstance) {
 		// TODO Auto-generated method stub
@@ -99,12 +92,11 @@ public  class InventoryDBDAO implements ProductDAO<Inventory>{
 		// TODO Auto-generated method stub
 List<Inventory> inventory=new ArrayList<>();
 		
-		try {
+		try 
+		{
 			Connection connection = ConnectionFactory.getInstance().getConnection();
 			PreparedStatement ps=connection.prepareStatement("Select InventoryID, ProductID,StoreID,Brand ,Category,Store,Location,Price,Quantity from Inventory where InventoryID=?");
 			ResultSet rs=ps.executeQuery();
-			
-			
 			
 			while(rs.next())
 			{
@@ -113,32 +105,46 @@ List<Inventory> inventory=new ArrayList<>();
 		}
 		catch(SQLException e)
 		{
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 		
 		return inventory;
 	}
-	@Override
-	public void getInstance(Inventory updateinstance) {
-		// TODO Auto-generated method stub
 	
+	@Override
+	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
+			String Location, int Price, int Quantity) {
+		
+		
+		
+		// TODO Auto-generated method stub
+		return null;
+	}
 
+	@Override
+	public Order deleteInstance(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void Upinstance(Inventory updateinstance) {
+		// TODO Auto-generated method stub
 		try (Connection connection =ConnectionFactory.getInstance().getConnection())
 		{
-			String query="Select InventoryID, ProductID,StoreID,Brand ,Category,Store,Location,Price,Quantity from Inventory where InventoryID=?";
-				
+			String query="Update Inventory set Quantity = ? where InventoryID = ? ";
 			PreparedStatement preparedStatement =connection.prepareStatement(query);
 			
 			preparedStatement.setInt(1,updateinstance.getInventoryID());
-			preparedStatement.setInt(1,updateinstance.getProductID());
-			preparedStatement.setInt(1,updateinstance.getInventoryID());
-			preparedStatement.setString(1,updateinstance.getBrand());
-			preparedStatement.setString(1,updateinstance.getCategory());
-			preparedStatement.setString(1,updateinstance.getStore());
-			preparedStatement.setString(1,updateinstance.getLocation());
-			preparedStatement.setDouble(1,updateinstance.getPrice());
-			
-			preparedStatement.setInt(1,updateinstance.getQuantity());
+			preparedStatement.setInt(3,updateinstance.getProductID());
+			preparedStatement.setInt(3,updateinstance.getStoreID());
+			preparedStatement.setString(4,updateinstance.getBrand());
+			preparedStatement.setString(5,updateinstance.getCategory());
+
+			preparedStatement.setString(6,updateinstance.getStore());
+			preparedStatement.setString(7,updateinstance.getLocation());
+			preparedStatement.setDouble(8,updateinstance.getPrice());
+			preparedStatement.setInt(9, updateinstance.getQuantity());
 			preparedStatement.executeUpdate();
 			
 			}
@@ -148,16 +154,9 @@ List<Inventory> inventory=new ArrayList<>();
 		  e.printStackTrace();
 		}
 		
-		
-		
-		
-	}
 
-	@Override
-	public Inventory getByID(int InventoryID, int ProductID, int StoreID, String Brand, String Category, String Store,
-			String Location, int Price, int Quantity) {
-		// TODO Auto-generated method stub
-		return null;
+		
+	
 	}
 
 	

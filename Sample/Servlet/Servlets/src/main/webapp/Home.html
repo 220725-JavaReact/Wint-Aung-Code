@@ -9,6 +9,7 @@
 	  <meta name= "viewport" content ="width=device-width,initial-scales=1.0">
  		
 	</head>
+	<center>
 	<body>
 	 <center>Home Page(Login Successfully) </center>
 	<div class="header">
@@ -18,32 +19,49 @@
     <li ><a href="Home.html">Home</a></li>
     <li><a href="CustomerRegistration.html">Register </a></li>
     <li><a href="index.html">Login</a></li>
+    
       <li><a href="index.html"id=${p.id}&action=ordernow>Logout</a></li>
   </u1>
 </div>
 	
-	
-
-
-
- 		<h1>
- 		Welcome to New York Market Servlet 
- 		</h1>
- 		<p>
- 		Where all the customer serve their overlords  get it ? "Serve"
- 		</p>
- 		<form method="service" action = "/Servlets/DisplayItems">
- 			<p>Customer Login ,Get </p>
- 			Name:<input type="text" name = "UserName" /></br> </br>
- 			Password:<input type ="text" name ="Password" /> </br> </br>			
- 			<input type = "submit" value = "Login"/>
- 	 	</form>
+	<!--member login form-->
+	  <table text-color:Red> 
+	  <tr>
+ 		<th><form method="get" action = "/Servlets/StoreController">
+ 			<input type = "submit" value = "Store"/>
+ 	 	</form></th>
  	 	
  	 	
+ 	 		
+ 	 	<!--member seeing productlist-->
+ 	 	<th>
+ 	 	<form method="get" action = "/Servlets/product">
+ 		<input type = "submit" name = "OrderID "value = "Product"/>
+ 	 	</form></th>
+ 	 	
+ 	 
  		
- 				
+ 		<!--member shopping from inventory-->
+ 		<th>
+ 		<form method="get" action = "/Servlets/inventory">
+ 			<input type = "submit" value = "Inventory"/>
+ 	 	</form></th>
  		
- 	<--codepen-->	
+ 		
+ 			<!--member seeing productlist-->
+ 	<th> 	<form method="get" action = "/Servlets/order">
+ 			<input type = "submit" name = "OrderID "value = "Order"/>
+ 	 	</form></th>
+ 	
+ 		 	<th><form method="get" action = "/Servlets/allcustomer">
+ 			<input type = "submit" value = " Customer list"/>
+ 	 	</form></th>
+ 	 	</table>
+ 		
+ 		
+
+
+
  	<div class="hero">
   <div class="hero-inner">
     <h1> Welcome To Our Site!</h1>
@@ -94,105 +112,10 @@
   </div>
 </div>
  		
+ 		 		
  		
- 		
- 		
- 		
- 		
- 		
- 	
-
-
-<-- INDEX--->
-
-
- 		<h1>
- 		Welcome to New York Market Servlet 
- 		</h1>
- 		<p>
- 		Where all the customer serve their overlords  get it ? "Serve"
- 		</p>
- 		<!--member login form-->
- 		<form method="get" action = "/Servlets/login">
- 			<p>Member LogIn </p>
- 			<input type = "submit" value = "Login"/>
- 	 	</form>
- 	 	
- 	 		
- 	 	<!--member seeing productlist-->
- 	 	<form method="get" action = "/Servlets/product">
- 			<p>Shopping Now? </p>
- 			<input type = "submit" name = "OrderID "value = "Product"/>
- 	 	</form>
- 	 	
- 	 
- 		
- 		<!--member shopping from inventory-->
- 		<form method="get" action = "/Servlets/inventory">
- 			<p>Shopping from Inventory? </p>
- 			<input type = "submit" value = "Inventory"/>
- 	 	</form>
- 		
- 		
- 	
- 	 	
- 	 	<form method="get" action = "/Servlets/allcustomer">
- 			<p>All customer from customer table ,Get </p>
- 			<input type = "submit" value = " Customer list"/>
- 	 	</form>
- 		
- 				
- 		
- 		
- 		
- 		<!-- Direct Servlet           Main File/class (small)              -->
- 		<form method="get" action = "/Servlets/main">
- 			<p>Customer Servlet ,Get </p>
- 			<input type = "submit" value = "Direct Text Response"/>
- 	 	</form>
- 	 	
- 	 	<form method="post" action = "/Servlets/main">
- 			<p>Customer Servlet ,Post </p>
- 			<input type = "submit" value = "Direct Text Response"/>
- 	 	</form>
- 	 	
- 	 	<!--Indeirect Servlet-->
- 	 	<form method="get" action = "/Servlets/redirect">
- 			<p>Redirect Servlet ,Get </p>
- 			<input type = "submit" value = "Redirect Text Response"/>
- 	 	</form>
- 	 	
- 	 	<form method="post" action = "/Servlets/redirect">
- 			<p>Redirect Servlet ,Post </p>
- 			<input type = "submit" value = "Redirect Text Response"/>
- 	 	</form>
- 	 	<!--session servlets-->
- 	 	
- 	 	<form method="get" action = "/Servlets/sesh">
- 			<p>Session Servlet ,Get </p>
- 			<input type = "submit" value = "Set Magamind Free..."/>
- 	 	</form>
- 	 	
- 	 	
- 	 	<form method="get" action = "/Servlets/customer">
- 			<p>SessionCapture Servlet ,Get </p>
- 			<input type = "submit" value = " obtain A customer ..."/>
- 	 	</form>
- 	 	
  	 	<form method="post" action = "/Servlets/customer">
  	 	<p>Session Servlet POST </p>
- 	 	<select>
- 	 	<option value="Cosco">Cosco</option>
- 	 	<option value="Target">Target</option>
- 	 	<option value="Macy's'">Macy's</option>
- 	 	<option value="BestBuy">Bes Buy</option>
- 	 	<option value="Amazon">Amazon</option>
- 	 	</select><select>
- 	 	<option value="New York">New York</option>
- 	 	<option value="Los Angeles">Los Angeles</option>
- 	 	<option value="Texas">Texas</option>
- 	 	
- 	 	</select>
  	 	<input type= "text" name="FirstName" placeholder="FirstName"></br>
  	 	<input type= "text" name ="LastName" placeholder="LastName"></br>
  	 	<input type= "text" name ="UserName" placeholder="UserName"></br>
@@ -206,10 +129,5 @@
  	 	</form>
 
 
- 	 	<form method="post" action = "/Servlets/seshcap">
- 			<p>SessionCapture Servlet ,Post </p>
- 			<input type = "submit" value = " Clear A customer cache..."/>
- 	 	</form>
-
-	</body>
+	</body></center>
 </html>

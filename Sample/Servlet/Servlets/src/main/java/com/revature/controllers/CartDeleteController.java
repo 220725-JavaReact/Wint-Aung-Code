@@ -43,8 +43,9 @@ public class CartDeleteController extends HttpServlet {
 		response.setContentType("text/html");
 		HttpSession session=request.getSession();
 		
-	String Name= request.getParameter("UserName");
-	String name=request.getParameter("the-cart");		
+	String Name= request.getParameter("username");
+	session.setAttribute("username", Name);
+    
 		
 		try	 
 		{   
@@ -52,28 +53,26 @@ public class CartDeleteController extends HttpServlet {
 			String query="Select * from Orders";
 			PreparedStatement preparedStatement=connection.prepareStatement(query);
 			ResultSet rs=preparedStatement.executeQuery();
-			if(Name==null)
-			{
-			out.print("<h1>Welcome :"+name+"</h1>");
-			}
-			else 
-			{
-				out.print("<h1>Welcome :"+Name+"</h1><br>");
-					}
-				
+			session.setAttribute("username", Name);
+		    
 			try {
 				
 				Cookie	c=new Cookie(request.getParameter("ItemId"),"1");
 				
 				response.addCookie(c);
-				
+				session.setAttribute("username", Name);
+			    
 				out.print("Product delete from  your cart successfully..");
 				
 				}catch(Exception e){}
-			
+			session.setAttribute("username", Name);
+		    
 			out.print("<a href='CheckoutContorller'>Check Out</a>");
-			out.print("<a href='CartController'>Your Cart</a>");
-			
+			session.setAttribute("username", Name);
+		    
+			out.print("<a href='CartController'>Your Cart</a><br><br>");
+			session.setAttribute("username", Name);
+		    
 			out.print(
 					"<style> td,th{padding:14px 20px}body{font-faimily:arial;}table{border:1px solid black ;padding:20px;margin-top:-50px:}"
 					+ "a{text-decoration:none;border:1px solid black;padding :10px 10px;}a:hover{color:red;}"
@@ -93,13 +92,16 @@ public class CartDeleteController extends HttpServlet {
 					);
 			
 			Integer id=Integer.valueOf(request.getParameter("ItemId"));
-		
+			session.setAttribute("username", Name);
+		    
 				Order order=orderDAO.deleteInstance(id);
-			
+				session.setAttribute("username", Name);
+			    
 			List<Order>orders=new ArrayList<>();
 			for(Order foundinv:orders)
 		
-			{
+			{session.setAttribute("username", Name);
+		    
 				out.print("<tr>"
 						
 						
@@ -121,8 +123,10 @@ public class CartDeleteController extends HttpServlet {
 						
 						);
 	
-			
+				session.setAttribute("username", Name);
+				
 			out.print("<td><a href='ViewCartItems?ItemId="+ rs.getInt(1) + "'>Add To Cart</a></td></tr><br><br>");
+			session.setAttribute("username", Name);
 			
 			
 			
@@ -133,7 +137,7 @@ public class CartDeleteController extends HttpServlet {
 			
 			 	
 			out.print("</table></body></html>");
-			
+			session.setAttribute("username", Name);
 		    }
 			
 		
@@ -142,10 +146,9 @@ public class CartDeleteController extends HttpServlet {
 			e.printStackTrace();
 			//throw new RuntimeException("An errorcc  occured when creat an order into the database ");
 		}
-		ServletContext sc=request.getServletContext();
-		sc.setAttribute("UserName", Name);
-		
-		sc.setAttribute("the-cart",name );
+	//	ServletContext sc=request.getServletContext();
+		session.setAttribute("username", Name);
+	    
 		
 		
 		
