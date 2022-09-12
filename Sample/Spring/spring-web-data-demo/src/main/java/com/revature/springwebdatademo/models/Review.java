@@ -15,7 +15,7 @@ public class Review {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "someNameOtherThanRating")
+    //@Column(name = "someNameOtherThanRating")
     private double rating;
     // Fetch type lazy,you don't have to get the corresponding parent restaurant
     // every time you need to get an instance of this class from the DB

@@ -15,7 +15,7 @@ import javax.persistence.Transient;
 
 public class Restaurant {
     @Id // this field is equalvalent to the pk in db
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // telling orm that this field has a generated value,don't set
+    @GeneratedValue(strategy = GenerationType.IDENTITY)    // telling orm that this field has a generated value,don't set
                                                         // the value
 
     private int id;
@@ -39,12 +39,13 @@ public class Restaurant {
         this.id = id;
         this.name = name;
     }
+public Restaurant()
+{}
 
-    public Restaurant(int id, String name, double averageRating) {
-        this.name = name;
-        this.id = id;
-        this.averageRating = averageRating;
-    }
+    public Restaurant(String name) {
+	super();
+	this.name = name;
+}
 
     public int getId() {
         return id;

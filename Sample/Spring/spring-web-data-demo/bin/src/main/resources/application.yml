@@ -1,7 +1,7 @@
 spring :
     datasource:
         password: 100%Girlisperfect
-        url: jdbc:postgresql://demodb.czvg23fov2bw.us-east-1.rds.amazonaws.com:5432/wint
+        url: jdbc:postgresql://demodb.czvg23fov2bw.us-east-1.rds.amazonaws.com/5432/demodb
         username: wint
     jpa:
         hibernate :
@@ -12,7 +12,4 @@ spring :
                 dialect: org.hibernate.dialect.PostgreSQLDialect
 server :
             port : 5000
-            springdoc:
-            swagger-ui:
-            path:  /swagger
 
