@@ -47,6 +47,7 @@ public class RestaurantService {
 		return restaurantFromDB;
 
     }
+    
     public Restaurant addRestaurant(Restaurant  newRestaurant)
     {
     	return restaurantRepository.save(newRestaurant);
